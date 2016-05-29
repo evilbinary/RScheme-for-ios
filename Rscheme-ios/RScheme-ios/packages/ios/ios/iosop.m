@@ -26,7 +26,7 @@ char* show_input(){
             
             UITextField *text=alertVC.textFields.firstObject;
             result=[[text text] UTF8String];
-            NSLog(@"result===>%@",result );
+            //NSLog(@"result===>%@",result );
 
             isInput=YES;
             [inputCondition signal];
@@ -50,7 +50,7 @@ char* show_input(){
         [inputCondition wait];
     }
     [inputCondition unlock];
-    NSLog(@"result=>%@",result );
+    //NSLog(@"result=>%@",result );
     
     return result;
 }

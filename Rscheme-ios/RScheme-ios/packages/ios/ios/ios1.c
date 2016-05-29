@@ -15,7 +15,7 @@ RScheme Build (v0.7.3.4-b7u, 2007-05-30)
 #include <iosop.h>
 extern struct module_descr module_ios;
 extern struct part_descr ios_part_ios;
-static char sccsid[] = "@(#)ios ./ios.scm [231273472] (RS v0.7.3.4-b7u, 2007-05-30)";
+static char sccsid[] = "@(#)ios ./ios.scm [278006784] (RS v0.7.3.4-b7u, 2007-05-30)";
 
 /************************** Function Definitions **************************/
 
@@ -182,7 +182,7 @@ static struct function_descr *(part_ios_tab[]) = {
     &alert_descr,
     NULL };
 struct part_descr ios_part_ios = {
-    231273472,
+    278006784,
     &module_ios,
     part_ios_tab,
     "ios",
