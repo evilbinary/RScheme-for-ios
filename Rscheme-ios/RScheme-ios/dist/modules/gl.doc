@@ -1,1 +1,1 @@
-(gl (mathlib low-scheme *scheme* corelib primops) (define-gl-glue gl-load-identity gl-matrix-mode gl-ortho gl-clear test) ())
+(gl (mathlib low-scheme *scheme* corelib primops) (gl-draw-arrays define-gl-glue gl-load-identity gl-blend-func gl-enable-client-state gl-bind-texture gl-test-reshape gl-disable-client-state gl-line-width gl-push-matrix gl-pop-matrix gl-rotatef gl-frustum gl-matrix-mode gl-cull-face gl-clear-color gl-ortho gl-clear gl-color4f gl-enable gl-translatef gl-disable gl-depth-mask gl-text-parameteri gl-scalef) ())

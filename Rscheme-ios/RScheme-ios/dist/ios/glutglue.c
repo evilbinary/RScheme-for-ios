@@ -15,7 +15,7 @@ RScheme Build (v0.7.3.4-b7u, 2007-05-30)
 #include "iosop.h"
 extern struct module_descr module_ios;
 extern struct part_descr ios_part_glutglue;
-static char sccsid[] = "@(#)ios ./glutglue.scm [236076033] (RS v0.7.3.4-b7u, 2007-05-30)";
+static char sccsid[] = "@(#)ios ./glutglue.scm [189499393] (RS v0.7.3.4-b7u, 2007-05-30)";
 
 /************************** Function Definitions **************************/
 
@@ -193,6 +193,42 @@ static struct function_descr glut_display_descr = {
 #undef FUNCTION
 
 #undef proc
+
+/************************ Raw glue `glut-reshape' ************************/
+#define proc REG0
+
+static char rsfn_glut_reshape_name[] = "glut-reshape";
+#define FUNCTION rsfn_glut_reshape_name
+
+PROLOGUE(glut_reshape)
+
+BEGIN_FWD(glut_reshape)
+  FWD_MONOTONE(glut_reshape_0)
+END_FWD(glut_reshape)
+
+#define FPLACE_CODE (1000+0)
+MONOTONE(glut_reshape_0)
+{  COUNT_ARGS(1);
+
+{
+glut_reshape_callback=proc;
+RETURN0();
+}}
+#undef FPLACE_CODE
+
+EPILOGUE(glut_reshape)
+
+BEGIN_BACK(glut_reshape)
+  BACK_MONOTONE(glut_reshape_0)
+END_BACK(glut_reshape)
+
+static struct function_descr glut_reshape_descr = {
+	&ios_part_glutglue,
+	JUMP_TABLE( glut_reshape ),
+	rsfn_glut_reshape_name };
+#undef FUNCTION
+
+#undef proc
 /******************************* Postamble *******************************/
 /**************************** Part Link Table ****************************/
 
@@ -203,9 +239,10 @@ static struct function_descr *(part_glutglue_tab[]) = {
     &glut_event_descr,
     &glut_main_loop_descr,
     &glut_display_descr,
+    &glut_reshape_descr,
     NULL };
 struct part_descr ios_part_glutglue = {
-    236076033,
+    189499393,
     &module_ios,
     part_glutglue_tab,
     "glutglue",

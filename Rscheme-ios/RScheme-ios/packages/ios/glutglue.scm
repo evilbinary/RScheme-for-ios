@@ -26,3 +26,8 @@ RETURN0();
 glut_display_callback=proc;
 RETURN0();
 })
+
+(define-ios-glue (glut-reshape proc){
+glut_reshape_callback=proc;
+RETURN0();
+})

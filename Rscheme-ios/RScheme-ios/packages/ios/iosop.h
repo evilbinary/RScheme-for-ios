@@ -19,6 +19,7 @@
 
 extern obj glut_event_callback;
 extern obj glut_display_callback;
+extern obj glut_reshape_callback;
 
 void alert(char *,char*);
 char* show_input();
@@ -30,7 +31,7 @@ void glut_main_loop();
 
 void glut_on_event(int type,int x,int y);
 void glut_on_display();
-
+void glut_on_reshape(int width,int height);
 
 
 
