@@ -14,7 +14,7 @@ RScheme Build (v0.7.3.4-b7u, 2007-05-30)
 #include <rscheme/vinsns.h>
 extern struct module_descr module_gl;
 extern struct part_descr gl_part_glglue;
-static char sccsid[] = "@(#)gl ./glglue.scm [487802880] (RS v0.7.3.4-b7u, 2007-05-30)";
+static char sccsid[] = "@(#)gl ./glglue.scm [380993536] (RS v0.7.3.4-b7u, 2007-05-30)";
 
 /************************** Function Definitions **************************/
 
@@ -182,7 +182,7 @@ static struct function_descr *(part_glglue_tab[]) = {
     &gl_matrix_mode_descr,
     NULL };
 struct part_descr gl_part_glglue = {
-    487802880,
+    380993536,
     &module_gl,
     part_glglue_tab,
     "glglue",

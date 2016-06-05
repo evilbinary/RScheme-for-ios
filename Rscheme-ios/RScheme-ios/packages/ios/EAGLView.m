@@ -58,33 +58,35 @@
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-
+    //NSLog(@"EAGLView: touchesBegan");
     for( UITouch *t in touches ) {
     CGPoint p= [t locationInView:self];
-        
+    gui_on_event(EVENT_BUTTON1DOWN,p.x,p.y);
+
   }
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
-  NSLog(@"EAGLView: touchesMoved");
+  //NSLog(@"EAGLView: touchesMoved");
   for( UITouch *t in touches ) {
     CGPoint p= [t locationInView:self];
-      
+      gui_on_event(EVENT_MOTION,p.x,p.y);
+
   }
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-  NSLog(@"EAGLView: touchesEnded");
+  //NSLog(@"EAGLView: touchesEnded");
   for( UITouch *t in touches ) {
     CGPoint p= [t locationInView:self];
-      gui_on_event(1,p.x,p.y);
+      gui_on_event(EVENT_BUTTON1UP,p.x,p.y);
   }
 }
 
 
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
-  NSLog(@"EAGLView: touchesCancelled");
-
+  //NSLog(@"EAGLView: touchesCancelled");
+    
 }
 
 - (void)drawView {

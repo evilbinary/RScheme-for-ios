@@ -163,7 +163,7 @@ void gl_exit(){
 obj gui_event_callback;
 
 void gui_on_event(int type,int x,int y){
-    call_scheme( gui_event_callback, 4,gui_event_callback, int2fx(type),int2fx(x),int2fx(y) );
+    call_scheme( gui_event_callback, 3,int2fx(type),int2fx(x),int2fx(y) );
 }
 
 
