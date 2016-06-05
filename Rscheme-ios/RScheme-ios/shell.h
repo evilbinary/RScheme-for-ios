@@ -32,4 +32,5 @@ obj as_eval( char *str );
 void as_init(int argc, const char **argv );
 int as_main( int argc, const char **argv );
 
+
 #endif /* _H_LGH */

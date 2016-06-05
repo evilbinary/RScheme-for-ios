@@ -1,0 +1,24 @@
+#|------------------------------------------------------------*-Scheme-*--|
+| File:    packages/gui
+|
+|          Copyright (C)2016 evilbinary <rootdebug@163.com>
+|          as part of the RScheme project, licensed for free use
+|
+| Version: 1.2
+| Date:    2016-05-01 11:01:48
+| Build:   v0.7.3.4-b7u, 2016-05-01
+|
+| Purpose: `gui' (gui) glue package
+`------------------------------------------------------------------------|#
+
+((gui
+"$dist/gui"         ;; what directory to put resulting files in
+"$dist/modules")   ;; what directory to put image file in
+
+; (open repl primops *scheme* low-scheme objsys iolib mathlib tables high-scheme)
+; (open paths mlink start)
+(open primops corelib *scheme* low-scheme mathlib)
+;(c-files )
+(h-files gui.h)
+(files guiglue gui )
+(export :local))

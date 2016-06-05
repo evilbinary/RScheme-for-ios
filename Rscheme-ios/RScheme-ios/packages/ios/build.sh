@@ -1,2 +1,2 @@
-rm -rf  ios/* modules/*
-rsc -ccode -v -P . ios.mcf
+rm -rf  ../../dist/ios/* 
+rsc -ccode -v -P ../../dist ios.mcf

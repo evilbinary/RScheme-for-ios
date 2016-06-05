@@ -1,5 +1,7 @@
 #import <UIKit/UIKit.h>
 #import "UIBlockAlertView.h"
+#import "GLViewController.h"
+#include "iosop.h"
 
 
 char* show_input(){
@@ -93,6 +95,78 @@ void show(){
     
     [alert show];
 }
+
+
+
+UIViewController * getCurrentViewController(){
+    UIViewController *result = nil;
+    
+    UIWindow * window = [[UIApplication sharedApplication] keyWindow];
+    if (window.windowLevel != UIWindowLevelNormal)
+    {
+        NSArray *windows = [[UIApplication sharedApplication] windows];
+        for(UIWindow * tmpWin in windows)
+        {
+            if (tmpWin.windowLevel == UIWindowLevelNormal)
+            {
+                window = tmpWin;
+                break;
+            }
+        }
+    }
+    
+    UIView *frontView = [[window subviews] objectAtIndex:0];
+    id nextResponder = [frontView nextResponder];
+    
+    if ([nextResponder isKindOfClass:[UIViewController class]])
+        result = nextResponder;
+        else
+            result = window.rootViewController;
+            
+            return result;
+}
+
+UIViewController * getPresentedViewController()
+{
+    UIViewController *appRootVC = [UIApplication sharedApplication].keyWindow.rootViewController;
+    UIViewController *topVC = appRootVC;
+    if (topVC.presentedViewController) {
+        topVC = topVC.presentedViewController;
+    }
+    
+    return topVC;
+}
+
+
+
+void jmpToController(UIViewController * vc){
+    UIViewController * oldVc=getPresentedViewController();
+    [oldVc presentViewController:vc animated:YES completion:^(void){
+        
+    }];
+}
+void gl_init(){
+     dispatch_async(dispatch_get_main_queue(), ^{
+         UIViewController * vc=[[GLViewController alloc] init];
+         jmpToController(vc);
+     });
+}
+void gl_exit(){
+     dispatch_async(dispatch_get_main_queue(), ^{
+         UIViewController * vc=getPresentedViewController();
+         [vc dismissViewControllerAnimated:YES completion:^(void){
+             
+         }];
+     });
+}
+
+obj gui_event_callback;
+
+void gui_on_event(int type,int x,int y){
+    call_scheme( gui_event_callback, 4,gui_event_callback, int2fx(type),int2fx(x),int2fx(y) );
+}
+
+
 
 
 

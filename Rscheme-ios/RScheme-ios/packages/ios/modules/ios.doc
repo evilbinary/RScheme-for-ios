@@ -1,1 +1,0 @@
-(ios (mathlib low-scheme *scheme* corelib primops) (define-ios-glue read-op read alert) (("./ios.scm" function read ())))

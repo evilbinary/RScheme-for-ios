@@ -18,12 +18,16 @@
                     <view key="view" contentMode="scaleAspectFit" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <userGuides>
+                            <userLayoutGuide location="200" affinity="minX"/>
+                            <userLayoutGuide location="548" affinity="minY"/>
+                        </userGuides>
                         <subviews>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="g2.png" translatesAutoresizingMaskIntoConstraints="NO" id="SI1-O5-uj3">
                                 <rect key="frame" x="0.0" y="-800" width="571" height="800"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="RScheme" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NLI-8m-dh3">
-                                <rect key="frame" x="263" y="160" width="74" height="21"/>
+                                <rect key="frame" x="263" y="160" width="112" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="2o2-3P-adG"/>
                                     <constraint firstAttribute="width" constant="92" id="vJC-mK-Lds"/>
@@ -37,7 +41,7 @@
                                         <exclude reference="vJC-mK-Lds"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular" fixedFrame="YES">
+                                <variation key="heightClass=regular" ambiguous="YES" misplaced="YES">
                                     <rect key="frame" x="253" y="195" width="95" height="22"/>
                                 </variation>
                                 <variation key="widthClass=compact" misplaced="YES">
@@ -66,7 +70,7 @@
                                         <exclude reference="pwY-m7-a6v"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular" fixedFrame="YES">
+                                <variation key="heightClass=regular" ambiguous="YES" misplaced="YES">
                                     <rect key="frame" x="191" y="565" width="219" height="34"/>
                                 </variation>
                                 <variation key="widthClass=compact">

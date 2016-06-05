@@ -12,10 +12,9 @@ RScheme Build (v0.7.3.4-b7u, 2007-05-30)
 #define _C_IOS
 #include "ios_p.h"
 #include <rscheme/vinsns.h>
-#include <iosop.h>
 extern struct module_descr module_ios;
 extern struct part_descr ios_part_ios;
-static char sccsid[] = "@(#)ios ./ios.scm [278006784] (RS v0.7.3.4-b7u, 2007-05-30)";
+static char sccsid[] = "@(#)ios ./ios.scm [300001281] (RS v0.7.3.4-b7u, 2007-05-30)";
 
 /************************** Function Definitions **************************/
 
@@ -38,7 +37,7 @@ MONOTONE(read_0)
 {
     COUNT_ARGS(0);
     SAVE_CONT0(read_1);
-    APPLY(0,TLREF(2) /* read-op */);
+    APPLYF(0,TLREFB(2) /* read-op */);
 }
 #undef FPLACE_CODE
 
@@ -100,89 +99,15 @@ static struct function_descr read_descr = {
 	rsfn_read_name };
 #undef FUNCTION
 
-
-/*************************** Raw glue `read-op' ***************************/
-
-static char rsfn_read_op_name[] = "read-op";
-#define FUNCTION rsfn_read_op_name
-
-PROLOGUE(read_op)
-
-BEGIN_FWD(read_op)
-  FWD_MONOTONE(read_op_0)
-END_FWD(read_op)
-
-#define FPLACE_CODE (1000+0)
-MONOTONE(read_op_0)
-{  COUNT_ARGS(0);
-
-{
-    REG0=make_string(show_input());
-    RETURN1();
-}}
-#undef FPLACE_CODE
-
-EPILOGUE(read_op)
-
-BEGIN_BACK(read_op)
-  BACK_MONOTONE(read_op_0)
-END_BACK(read_op)
-
-static struct function_descr read_op_descr = {
-	&ios_part_ios,
-	JUMP_TABLE( read_op ),
-	rsfn_read_op_name };
-#undef FUNCTION
-
-
-/**************************** Raw glue `alert' ****************************/
-#define title REG0
-#define message REG1
-
-static char rsfn_alert_name[] = "alert";
-#define FUNCTION rsfn_alert_name
-
-PROLOGUE(alert)
-
-BEGIN_FWD(alert)
-  FWD_MONOTONE(alert_0)
-END_FWD(alert)
-
-#define FPLACE_CODE (1000+0)
-MONOTONE(alert_0)
-{  COUNT_ARGS(2);
-
-{
-    alert(string_text(title),string_text(message));
-    RETURN0();
-}}
-#undef FPLACE_CODE
-
-EPILOGUE(alert)
-
-BEGIN_BACK(alert)
-  BACK_MONOTONE(alert_0)
-END_BACK(alert)
-
-static struct function_descr alert_descr = {
-	&ios_part_ios,
-	JUMP_TABLE( alert ),
-	rsfn_alert_name };
-#undef FUNCTION
-
-#undef title
-#undef message
 /******************************* Postamble *******************************/
 /**************************** Part Link Table ****************************/
 
 
 static struct function_descr *(part_ios_tab[]) = {
     &read_descr,
-    &read_op_descr,
-    &alert_descr,
     NULL };
 struct part_descr ios_part_ios = {
-    278006784,
+    300001281,
     &module_ios,
     part_ios_tab,
     "ios",

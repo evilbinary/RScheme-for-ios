@@ -1,0 +1,1 @@
+(ios (mathlib low-scheme *scheme* corelib primops) (define-ios-glue read-op gl-event read gl-exit alert gl-init) (("./ios.scm" function read ())))

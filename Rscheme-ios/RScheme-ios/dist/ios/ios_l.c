@@ -11,9 +11,11 @@ RScheme Build (v0.7.3.4-b7u, 2007-05-30)
 
 
 extern struct part_descr ios_part_ios;
+extern struct part_descr ios_part_iosglue;
 
 static struct part_descr *(parts_table[]) = {
     &ios_part_ios,
+    &ios_part_iosglue,
     (struct part_descr *)0 };
 
 struct module_descr module_ios = { "ios", parts_table,

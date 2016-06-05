@@ -11,6 +11,7 @@
 #include "shell.h"
 #include "rscheme/vinsns.h"
 #include "ios.h"
+#include "gl.h"
 
 #define DEFAULT_IMG "sys.img"
 
@@ -18,14 +19,12 @@ extern int bci_trace_flag;
 
 struct module_descr *(std_modules[]) = {
     &module_ios,
+    &module_gl,
     STD_MODULES_DECL
 };
 
 obj eval_proc;
 
-void hello( void ){
-    
-}
 
 void as_init(int argc, const char **argv )
 {

@@ -7,6 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0321E5821D032B6A001E1470 /* gl_l.c in Sources */ = {isa = PBXBuildFile; fileRef = 0321E5711D032B6A001E1470 /* gl_l.c */; };
+		0321E5831D032B6A001E1470 /* glglue1.c in Sources */ = {isa = PBXBuildFile; fileRef = 0321E5751D032B6A001E1470 /* glglue1.c */; };
+		0321E5841D032B6A001E1470 /* includes.lst in Resources */ = {isa = PBXBuildFile; fileRef = 0321E5761D032B6A001E1470 /* includes.lst */; };
+		0321E5851D032B6A001E1470 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 0321E5771D032B6A001E1470 /* Makefile */; };
+		0321E5861D032B6A001E1470 /* includes.lst in Resources */ = {isa = PBXBuildFile; fileRef = 0321E5791D032B6A001E1470 /* includes.lst */; };
+		0321E5881D032B6A001E1470 /* ios_l.c in Sources */ = {isa = PBXBuildFile; fileRef = 0321E57C1D032B6A001E1470 /* ios_l.c */; };
+		0321E5891D032B6A001E1470 /* iosop.m in Sources */ = {isa = PBXBuildFile; fileRef = 0321E5801D032B6A001E1470 /* iosop.m */; };
+		0321E58A1D032B6A001E1470 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 0321E5811D032B6A001E1470 /* Makefile */; };
+		0321E5941D0336B7001E1470 /* modules in Resources */ = {isa = PBXBuildFile; fileRef = 0321E5931D0336B7001E1470 /* modules */; };
+		0321E5971D033D80001E1470 /* EAGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0321E5961D033D80001E1470 /* EAGLView.m */; };
+		0321E59A1D033E7C001E1470 /* GLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0321E5991D033E7C001E1470 /* GLViewController.m */; };
+		0321E5AA1D034D01001E1470 /* ios1.c in Sources */ = {isa = PBXBuildFile; fileRef = 0321E5A81D034D01001E1470 /* ios1.c */; };
+		0321E5AB1D034D01001E1470 /* iosglue.c in Sources */ = {isa = PBXBuildFile; fileRef = 0321E5A91D034D01001E1470 /* iosglue.c */; };
 		032494B51CE638B30048AB86 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 032494B41CE638B30048AB86 /* main.m */; };
 		032494B81CE638B30048AB86 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 032494B71CE638B30048AB86 /* AppDelegate.m */; };
 		032494BB1CE638B30048AB86 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 032494BA1CE638B30048AB86 /* ViewController.m */; };
@@ -28,12 +41,6 @@
 		03664DC91CE70F0200889E16 /* Icon60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03664DB71CE70F0200889E16 /* Icon60@3x.png */; };
 		03664DCA1CE70F0200889E16 /* Icon76.png in Resources */ = {isa = PBXBuildFile; fileRef = 03664DB81CE70F0200889E16 /* Icon76.png */; };
 		03664DD01CE7214D00889E16 /* librs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 03664DCF1CE7214D00889E16 /* librs.a */; };
-		037446A41CF987B600C1C7C7 /* includes.lst in Resources */ = {isa = PBXBuildFile; fileRef = 0374469D1CF987B600C1C7C7 /* includes.lst */; };
-		037446A51CF987B600C1C7C7 /* ios1.c in Sources */ = {isa = PBXBuildFile; fileRef = 0374469F1CF987B600C1C7C7 /* ios1.c */; };
-		037446A61CF987B600C1C7C7 /* ios_l.c in Sources */ = {isa = PBXBuildFile; fileRef = 037446A01CF987B600C1C7C7 /* ios_l.c */; };
-		037446A71CF987B600C1C7C7 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 037446A31CF987B600C1C7C7 /* Makefile */; };
-		037446C61CF98D3200C1C7C7 /* modules in Resources */ = {isa = PBXBuildFile; fileRef = 037446C51CF98D3200C1C7C7 /* modules */; };
-		037446C81CF9976700C1C7C7 /* iosop.m in Sources */ = {isa = PBXBuildFile; fileRef = 037446C71CF9976700C1C7C7 /* iosop.m */; };
 		037446E31CF9E6A100C1C7C7 /* UIBlockAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 037446E21CF9E6A100C1C7C7 /* UIBlockAlertView.m */; };
 		037446F21CF9F21E00C1C7C7 /* GJAlertAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 037446ED1CF9F21E00C1C7C7 /* GJAlertAction.m */; };
 		037446F31CF9F21E00C1C7C7 /* GJAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 037446EF1CF9F21E00C1C7C7 /* GJAlertController.m */; };
@@ -45,6 +52,39 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0321E5671D032847001E1470 /* gl.mcf */ = {isa = PBXFileReference; lastKnownFileType = text; name = gl.mcf; path = gl/gl.mcf; sourceTree = "<group>"; };
+		0321E5681D032847001E1470 /* gl.scm */ = {isa = PBXFileReference; lastKnownFileType = text; name = gl.scm; path = gl/gl.scm; sourceTree = "<group>"; };
+		0321E5691D032847001E1470 /* glglue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = glglue.h; path = gl/glglue.h; sourceTree = "<group>"; };
+		0321E56A1D032847001E1470 /* glglue.scm */ = {isa = PBXFileReference; lastKnownFileType = text; name = glglue.scm; path = gl/glglue.scm; sourceTree = "<group>"; };
+		0321E5701D032B6A001E1470 /* gl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gl.h; sourceTree = "<group>"; };
+		0321E5711D032B6A001E1470 /* gl_l.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gl_l.c; sourceTree = "<group>"; };
+		0321E5721D032B6A001E1470 /* gl_p.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gl_p.h; sourceTree = "<group>"; };
+		0321E5731D032B6A001E1470 /* gl_r.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gl_r.h; sourceTree = "<group>"; };
+		0321E5741D032B6A001E1470 /* glglue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = glglue.h; sourceTree = "<group>"; };
+		0321E5751D032B6A001E1470 /* glglue1.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = glglue1.c; sourceTree = "<group>"; };
+		0321E5761D032B6A001E1470 /* includes.lst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = includes.lst; sourceTree = "<group>"; };
+		0321E5771D032B6A001E1470 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		0321E5791D032B6A001E1470 /* includes.lst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = includes.lst; sourceTree = "<group>"; };
+		0321E57A1D032B6A001E1470 /* ios.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ios.h; sourceTree = "<group>"; };
+		0321E57C1D032B6A001E1470 /* ios_l.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ios_l.c; sourceTree = "<group>"; };
+		0321E57D1D032B6A001E1470 /* ios_p.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ios_p.h; sourceTree = "<group>"; };
+		0321E57E1D032B6A001E1470 /* ios_r.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ios_r.h; sourceTree = "<group>"; };
+		0321E57F1D032B6A001E1470 /* iosop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iosop.h; sourceTree = "<group>"; };
+		0321E5801D032B6A001E1470 /* iosop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iosop.m; sourceTree = "<group>"; };
+		0321E5811D032B6A001E1470 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		0321E5931D0336B7001E1470 /* modules */ = {isa = PBXFileReference; lastKnownFileType = folder; path = modules; sourceTree = "<group>"; };
+		0321E5951D033D80001E1470 /* EAGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAGLView.h; sourceTree = "<group>"; };
+		0321E5961D033D80001E1470 /* EAGLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAGLView.m; sourceTree = "<group>"; };
+		0321E5981D033E7C001E1470 /* GLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLViewController.h; sourceTree = "<group>"; };
+		0321E5991D033E7C001E1470 /* GLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLViewController.m; sourceTree = "<group>"; };
+		0321E59E1D034086001E1470 /* build.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = build.sh; sourceTree = "<group>"; };
+		0321E59F1D034086001E1470 /* gui.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gui.h; sourceTree = "<group>"; };
+		0321E5A01D034086001E1470 /* gui.mcf */ = {isa = PBXFileReference; lastKnownFileType = text; path = gui.mcf; sourceTree = "<group>"; };
+		0321E5A11D034086001E1470 /* gui.scm */ = {isa = PBXFileReference; lastKnownFileType = text; path = gui.scm; sourceTree = "<group>"; };
+		0321E5A21D034086001E1470 /* guiglue.scm */ = {isa = PBXFileReference; lastKnownFileType = text; path = guiglue.scm; sourceTree = "<group>"; };
+		0321E5A51D0340E1001E1470 /* gui.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gui.h; sourceTree = "<group>"; };
+		0321E5A81D034D01001E1470 /* ios1.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ios1.c; sourceTree = "<group>"; };
+		0321E5A91D034D01001E1470 /* iosglue.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = iosglue.c; sourceTree = "<group>"; };
 		032494B01CE638B30048AB86 /* Rscheme-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rscheme-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		032494B41CE638B30048AB86 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		032494B61CE638B30048AB86 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -70,16 +110,6 @@
 		03664DB71CE70F0200889E16 /* Icon60@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon60@3x.png"; sourceTree = "<group>"; };
 		03664DB81CE70F0200889E16 /* Icon76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon76.png; sourceTree = "<group>"; };
 		03664DCF1CE7214D00889E16 /* librs.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = librs.a; path = ../lib/rs/lib/librs.a; sourceTree = "<group>"; };
-		0374469D1CF987B600C1C7C7 /* includes.lst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = includes.lst; sourceTree = "<group>"; };
-		0374469E1CF987B600C1C7C7 /* ios.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ios.h; sourceTree = "<group>"; };
-		0374469F1CF987B600C1C7C7 /* ios1.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ios1.c; sourceTree = "<group>"; };
-		037446A01CF987B600C1C7C7 /* ios_l.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ios_l.c; sourceTree = "<group>"; };
-		037446A11CF987B600C1C7C7 /* ios_p.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ios_p.h; sourceTree = "<group>"; };
-		037446A21CF987B600C1C7C7 /* ios_r.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ios_r.h; sourceTree = "<group>"; };
-		037446A31CF987B600C1C7C7 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
-		037446C51CF98D3200C1C7C7 /* modules */ = {isa = PBXFileReference; lastKnownFileType = folder; path = modules; sourceTree = "<group>"; };
-		037446C71CF9976700C1C7C7 /* iosop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iosop.m; sourceTree = "<group>"; };
-		037446C91CF99A0300C1C7C7 /* iosop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iosop.h; sourceTree = "<group>"; };
 		037446DD1CF9A3B200C1C7C7 /* ios.mcf */ = {isa = PBXFileReference; lastKnownFileType = text; path = ios.mcf; sourceTree = "<group>"; };
 		037446DE1CF9A3B200C1C7C7 /* ios.scm */ = {isa = PBXFileReference; lastKnownFileType = text; path = ios.scm; sourceTree = "<group>"; };
 		037446DF1CF9A3B200C1C7C7 /* iosglue.scm */ = {isa = PBXFileReference; lastKnownFileType = text; path = iosglue.scm; sourceTree = "<group>"; };
@@ -112,6 +142,81 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0321E55F1D031DDC001E1470 /* gl */ = {
+			isa = PBXGroup;
+			children = (
+				0321E5671D032847001E1470 /* gl.mcf */,
+				0321E5681D032847001E1470 /* gl.scm */,
+				0321E5691D032847001E1470 /* glglue.h */,
+				0321E56A1D032847001E1470 /* glglue.scm */,
+			);
+			name = gl;
+			sourceTree = "<group>";
+		};
+		0321E56E1D032A7D001E1470 /* dist */ = {
+			isa = PBXGroup;
+			children = (
+				0321E5A41D0340E1001E1470 /* gui */,
+				0321E5931D0336B7001E1470 /* modules */,
+				0321E56F1D032B6A001E1470 /* gl */,
+				0321E5781D032B6A001E1470 /* ios */,
+			);
+			name = dist;
+			path = "RScheme-ios/dist";
+			sourceTree = SOURCE_ROOT;
+		};
+		0321E56F1D032B6A001E1470 /* gl */ = {
+			isa = PBXGroup;
+			children = (
+				0321E5701D032B6A001E1470 /* gl.h */,
+				0321E5711D032B6A001E1470 /* gl_l.c */,
+				0321E5721D032B6A001E1470 /* gl_p.h */,
+				0321E5731D032B6A001E1470 /* gl_r.h */,
+				0321E5741D032B6A001E1470 /* glglue.h */,
+				0321E5751D032B6A001E1470 /* glglue1.c */,
+				0321E5761D032B6A001E1470 /* includes.lst */,
+				0321E5771D032B6A001E1470 /* Makefile */,
+			);
+			path = gl;
+			sourceTree = "<group>";
+		};
+		0321E5781D032B6A001E1470 /* ios */ = {
+			isa = PBXGroup;
+			children = (
+				0321E5A81D034D01001E1470 /* ios1.c */,
+				0321E5A91D034D01001E1470 /* iosglue.c */,
+				0321E5791D032B6A001E1470 /* includes.lst */,
+				0321E57A1D032B6A001E1470 /* ios.h */,
+				0321E57C1D032B6A001E1470 /* ios_l.c */,
+				0321E57D1D032B6A001E1470 /* ios_p.h */,
+				0321E57E1D032B6A001E1470 /* ios_r.h */,
+				0321E57F1D032B6A001E1470 /* iosop.h */,
+				0321E5801D032B6A001E1470 /* iosop.m */,
+				0321E5811D032B6A001E1470 /* Makefile */,
+			);
+			path = ios;
+			sourceTree = "<group>";
+		};
+		0321E59D1D034086001E1470 /* gui */ = {
+			isa = PBXGroup;
+			children = (
+				0321E59E1D034086001E1470 /* build.sh */,
+				0321E59F1D034086001E1470 /* gui.h */,
+				0321E5A01D034086001E1470 /* gui.mcf */,
+				0321E5A11D034086001E1470 /* gui.scm */,
+				0321E5A21D034086001E1470 /* guiglue.scm */,
+			);
+			path = gui;
+			sourceTree = "<group>";
+		};
+		0321E5A41D0340E1001E1470 /* gui */ = {
+			isa = PBXGroup;
+			children = (
+				0321E5A51D0340E1001E1470 /* gui.h */,
+			);
+			path = gui;
+			sourceTree = "<group>";
+		};
 		032494A71CE638B30048AB86 = {
 			isa = PBXGroup;
 			children = (
@@ -133,6 +238,7 @@
 		032494B21CE638B30048AB86 /* Rscheme-ios */ = {
 			isa = PBXGroup;
 			children = (
+				0321E56E1D032A7D001E1470 /* dist */,
 				0374468D1CF9873D00C1C7C7 /* packages */,
 				03AB46561CE6DD480071EEC7 /* Resources */,
 				032494B61CE638B30048AB86 /* AppDelegate.h */,
@@ -151,9 +257,6 @@
 		032494B31CE638B30048AB86 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				03AB464E1CE640D00071EEC7 /* main.c */,
-				03AB464F1CE640D00071EEC7 /* shell.c */,
-				03AB46501CE640D00071EEC7 /* shell.h */,
 				032494B41CE638B30048AB86 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -162,6 +265,8 @@
 		0374468D1CF9873D00C1C7C7 /* packages */ = {
 			isa = PBXGroup;
 			children = (
+				0321E59D1D034086001E1470 /* gui */,
+				0321E55F1D031DDC001E1470 /* gl */,
 				0374468E1CF9873D00C1C7C7 /* ios */,
 			);
 			name = packages;
@@ -171,6 +276,13 @@
 		0374468E1CF9873D00C1C7C7 /* ios */ = {
 			isa = PBXGroup;
 			children = (
+				03AB464E1CE640D00071EEC7 /* main.c */,
+				03AB464F1CE640D00071EEC7 /* shell.c */,
+				03AB46501CE640D00071EEC7 /* shell.h */,
+				0321E5981D033E7C001E1470 /* GLViewController.h */,
+				0321E5991D033E7C001E1470 /* GLViewController.m */,
+				0321E5951D033D80001E1470 /* EAGLView.h */,
+				0321E5961D033D80001E1470 /* EAGLView.m */,
 				037446EB1CF9F21E00C1C7C7 /* GJAlertController */,
 				037446E41CF9E6CA00C1C7C7 /* UIBlockAlertView.h */,
 				037446E21CF9E6A100C1C7C7 /* UIBlockAlertView.m */,
@@ -179,24 +291,6 @@
 				037446DF1CF9A3B200C1C7C7 /* iosglue.scm */,
 				037446E01CF9A3B200C1C7C7 /* iosop.h */,
 				037446E11CF9A3B200C1C7C7 /* iosop.m */,
-				037446C51CF98D3200C1C7C7 /* modules */,
-				0374469C1CF987B600C1C7C7 /* ios */,
-			);
-			path = ios;
-			sourceTree = "<group>";
-		};
-		0374469C1CF987B600C1C7C7 /* ios */ = {
-			isa = PBXGroup;
-			children = (
-				037446C91CF99A0300C1C7C7 /* iosop.h */,
-				037446C71CF9976700C1C7C7 /* iosop.m */,
-				0374469D1CF987B600C1C7C7 /* includes.lst */,
-				0374469E1CF987B600C1C7C7 /* ios.h */,
-				0374469F1CF987B600C1C7C7 /* ios1.c */,
-				037446A01CF987B600C1C7C7 /* ios_l.c */,
-				037446A11CF987B600C1C7C7 /* ios_p.h */,
-				037446A21CF987B600C1C7C7 /* ios_r.h */,
-				037446A31CF987B600C1C7C7 /* Makefile */,
 			);
 			path = ios;
 			sourceTree = "<group>";
@@ -244,6 +338,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 032494C71CE638B30048AB86 /* Build configuration list for PBXNativeTarget "Rscheme-ios" */;
 			buildPhases = (
+				0321E5A31D0340AF001E1470 /* ShellScript */,
+				0321E56B1D0328C8001E1470 /* ShellScript */,
 				037446CA1CF99B3A00C1C7C7 /* Run Script */,
 				032494AC1CE638B30048AB86 /* Sources */,
 				032494AD1CE638B30048AB86 /* Frameworks */,
@@ -298,14 +394,14 @@
 			files = (
 				03664DC41CE70F0200889E16 /* Icon29@3x.png in Resources */,
 				03664DCA1CE70F0200889E16 /* Icon76.png in Resources */,
+				0321E5941D0336B7001E1470 /* modules in Resources */,
 				03664DBF1CE70F0200889E16 /* duck@3x.png in Resources */,
 				03AB46581CE6DD6D0071EEC7 /* g2.png in Resources */,
 				032494C31CE638B30048AB86 /* LaunchScreen.storyboard in Resources */,
 				03664DC01CE70F0200889E16 /* Icon24@2x.png in Resources */,
-				037446C61CF98D3200C1C7C7 /* modules in Resources */,
 				03664DC61CE70F0200889E16 /* Icon40@2x.png in Resources */,
 				03664DC21CE70F0200889E16 /* Icon29.png in Resources */,
-				037446A41CF987B600C1C7C7 /* includes.lst in Resources */,
+				0321E5861D032B6A001E1470 /* includes.lst in Resources */,
 				03664DBD1CE70F0200889E16 /* duck.png in Resources */,
 				03664DC71CE70F0200889E16 /* Icon40@3x.png in Resources */,
 				03664DC81CE70F0200889E16 /* Icon60@2x.png in Resources */,
@@ -315,6 +411,7 @@
 				03664DC11CE70F0200889E16 /* Icon27.5@2x.png in Resources */,
 				03664DC51CE70F0200889E16 /* Icon40.png in Resources */,
 				03664DBE1CE70F0200889E16 /* duck@2x.png in Resources */,
+				0321E5841D032B6A001E1470 /* includes.lst in Resources */,
 				03664DC31CE70F0200889E16 /* Icon29@2x.png in Resources */,
 				032494BE1CE638B30048AB86 /* Main.storyboard in Resources */,
 			);
@@ -323,6 +420,32 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0321E56B1D0328C8001E1470 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=/opt/local/rs/bin/:$PATH\ncd  \"RScheme-ios/packages/gl/\" && ./build.sh";
+		};
+		0321E5A31D0340AF001E1470 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=/opt/local/rs/bin/:$PATH\ncd  \"RScheme-ios/packages/gui/\" && ./build.sh";
+		};
 		037446CA1CF99B3A00C1C7C7 /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -345,16 +468,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				037446F41CF9F21E00C1C7C7 /* UIViewController+Alert.m in Sources */,
+				0321E5AA1D034D01001E1470 /* ios1.c in Sources */,
 				03AB46511CE640D00071EEC7 /* main.c in Sources */,
-				037446A51CF987B600C1C7C7 /* ios1.c in Sources */,
 				032494BB1CE638B30048AB86 /* ViewController.m in Sources */,
 				037446F31CF9F21E00C1C7C7 /* GJAlertController.m in Sources */,
 				032494B81CE638B30048AB86 /* AppDelegate.m in Sources */,
+				0321E5851D032B6A001E1470 /* Makefile in Sources */,
+				0321E5891D032B6A001E1470 /* iosop.m in Sources */,
+				0321E59A1D033E7C001E1470 /* GLViewController.m in Sources */,
+				0321E5831D032B6A001E1470 /* glglue1.c in Sources */,
+				0321E5971D033D80001E1470 /* EAGLView.m in Sources */,
+				0321E58A1D032B6A001E1470 /* Makefile in Sources */,
 				032494B51CE638B30048AB86 /* main.m in Sources */,
+				0321E5AB1D034D01001E1470 /* iosglue.c in Sources */,
 				037446F21CF9F21E00C1C7C7 /* GJAlertAction.m in Sources */,
-				037446A61CF987B600C1C7C7 /* ios_l.c in Sources */,
-				037446C81CF9976700C1C7C7 /* iosop.m in Sources */,
-				037446A71CF987B600C1C7C7 /* Makefile in Sources */,
+				0321E5881D032B6A001E1470 /* ios_l.c in Sources */,
+				0321E5821D032B6A001E1470 /* gl_l.c in Sources */,
 				03AB46521CE640D00071EEC7 /* shell.c in Sources */,
 				037446E31CF9E6A100C1C7C7 /* UIBlockAlertView.m in Sources */,
 			);
@@ -401,7 +530,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: rootntsd@gmail.com (259VW4GB78)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: rootntsd@gmail.com (259VW4GB78)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_BITCODE = NO;
@@ -453,7 +582,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: rootntsd@gmail.com (259VW4GB78)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: rootntsd@gmail.com (259VW4GB78)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_BITCODE = NO;
