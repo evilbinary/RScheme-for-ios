@@ -24,12 +24,18 @@ UIDevice *batterydev;
 }
 
 @property (nonatomic) NSTimeInterval animationInterval;
-                              
+@property (strong) CADisplayLink *displayLink;
+
+
 - (void)startRender;
 - (void)stopRender;
 - (void)startAnimation;
 - (void)stopAnimation;
 - (void)drawView;
+
+- (void)startDisplayLink;
+- (void)handleDisplayLink:(CADisplayLink *)sender;
+- (void)stopDisplayLink;
 
 @end
 

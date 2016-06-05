@@ -15,6 +15,8 @@
 @property (nonatomic, retain) EAGLContext *context;
 @property (nonatomic, assign) NSTimer *animationTimer;
 
+
+
 - (BOOL) createFramebuffer;
 - (void) destroyFramebuffer;
 
@@ -46,9 +48,10 @@
     animationInterval = 1.0 / 1.0;
   }
    
-  batterydev=[UIDevice currentDevice];
-  [batterydev setBatteryMonitoringEnabled:YES];
-  batteryidx=0;
+    batterydev=[UIDevice currentDevice];
+    [batterydev setBatteryMonitoringEnabled:YES];
+    batteryidx=0;
+    
 
 #ifdef USE_MULTITOUCH
   [self setMultipleTouchEnabled:YES];
@@ -57,11 +60,27 @@
   return self;
 }
 
+
+- (void)startDisplayLink
+{
+    self.displayLink = [CADisplayLink displayLinkWithTarget:self
+                                                   selector:@selector(handleDisplayLink:)];
+    self.displayLink.frameInterval = 2;
+    [self.displayLink addToRunLoop:[NSRunLoop currentRunLoop]
+                           forMode:NSDefaultRunLoopMode];
+}
+
+- (void)handleDisplayLink:(CADisplayLink *)sender
+{
+    //NSLog(@"EAGLView: handleDisplayLink");
+    glut_on_display();
+}
+
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     //NSLog(@"EAGLView: touchesBegan");
     for( UITouch *t in touches ) {
     CGPoint p= [t locationInView:self];
-    gui_on_event(EVENT_BUTTON1DOWN,p.x,p.y);
+    glut_on_event(EVENT_BUTTON1DOWN,p.x,p.y);
 
   }
 }
@@ -70,7 +89,7 @@
   //NSLog(@"EAGLView: touchesMoved");
   for( UITouch *t in touches ) {
     CGPoint p= [t locationInView:self];
-      gui_on_event(EVENT_MOTION,p.x,p.y);
+      glut_on_event(EVENT_MOTION,p.x,p.y);
 
   }
 }
@@ -79,7 +98,7 @@
   //NSLog(@"EAGLView: touchesEnded");
   for( UITouch *t in touches ) {
     CGPoint p= [t locationInView:self];
-      gui_on_event(EVENT_BUTTON1UP,p.x,p.y);
+      glut_on_event(EVENT_BUTTON1UP,p.x,p.y);
   }
 }
 
@@ -191,7 +210,14 @@
   if ([EAGLContext currentContext] == context) {
     [EAGLContext setCurrentContext:nil];
   }
+    [self stopDisplayLink];
     
+}
+
+- (void)stopDisplayLink
+{
+    [self.displayLink invalidate];
+    self.displayLink = nil;
 }
 
 @end

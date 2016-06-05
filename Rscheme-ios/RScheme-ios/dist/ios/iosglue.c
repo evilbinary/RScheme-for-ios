@@ -15,7 +15,7 @@ RScheme Build (v0.7.3.4-b7u, 2007-05-30)
 #include "iosop.h"
 extern struct module_descr module_ios;
 extern struct part_descr ios_part_iosglue;
-static char sccsid[] = "@(#)ios ./iosglue.scm [380993536] (RS v0.7.3.4-b7u, 2007-05-30)";
+static char sccsid[] = "@(#)ios ./iosglue.scm [423877632] (RS v0.7.3.4-b7u, 2007-05-30)";
 
 /************************** Function Definitions **************************/
 
@@ -91,110 +91,6 @@ static struct function_descr alert_descr = {
 
 #undef title
 #undef message
-
-/*************************** Raw glue `gl-init' ***************************/
-
-static char rsfn_gl_init_name[] = "gl-init";
-#define FUNCTION rsfn_gl_init_name
-
-PROLOGUE(gl_init)
-
-BEGIN_FWD(gl_init)
-  FWD_MONOTONE(gl_init_0)
-END_FWD(gl_init)
-
-#define FPLACE_CODE (1000+0)
-MONOTONE(gl_init_0)
-{  COUNT_ARGS(0);
-
-{
-    gl_init();
-    RETURN0();
-}}
-#undef FPLACE_CODE
-
-EPILOGUE(gl_init)
-
-BEGIN_BACK(gl_init)
-  BACK_MONOTONE(gl_init_0)
-END_BACK(gl_init)
-
-static struct function_descr gl_init_descr = {
-	&ios_part_iosglue,
-	JUMP_TABLE( gl_init ),
-	rsfn_gl_init_name };
-#undef FUNCTION
-
-
-/*************************** Raw glue `gl-exit' ***************************/
-
-static char rsfn_gl_exit_name[] = "gl-exit";
-#define FUNCTION rsfn_gl_exit_name
-
-PROLOGUE(gl_exit)
-
-BEGIN_FWD(gl_exit)
-  FWD_MONOTONE(gl_exit_0)
-END_FWD(gl_exit)
-
-#define FPLACE_CODE (1000+0)
-MONOTONE(gl_exit_0)
-{  COUNT_ARGS(0);
-
-{
-gl_exit();
-RETURN0();
-}}
-#undef FPLACE_CODE
-
-EPILOGUE(gl_exit)
-
-BEGIN_BACK(gl_exit)
-  BACK_MONOTONE(gl_exit_0)
-END_BACK(gl_exit)
-
-static struct function_descr gl_exit_descr = {
-	&ios_part_iosglue,
-	JUMP_TABLE( gl_exit ),
-	rsfn_gl_exit_name };
-#undef FUNCTION
-
-
-/************************** Raw glue `gl-event' **************************/
-#define proc REG0
-
-static char rsfn_gl_event_name[] = "gl-event";
-#define FUNCTION rsfn_gl_event_name
-
-PROLOGUE(gl_event)
-
-BEGIN_FWD(gl_event)
-  FWD_MONOTONE(gl_event_0)
-END_FWD(gl_event)
-
-#define FPLACE_CODE (1000+0)
-MONOTONE(gl_event_0)
-{  COUNT_ARGS(1);
-
-{
-    gui_event_callback=proc;
-RETURN0();
-}}
-#undef FPLACE_CODE
-
-EPILOGUE(gl_event)
-
-BEGIN_BACK(gl_event)
-  BACK_MONOTONE(gl_event_0)
-END_BACK(gl_event)
-
-static struct function_descr gl_event_descr = {
-	&ios_part_iosglue,
-	JUMP_TABLE( gl_event ),
-	rsfn_gl_event_name };
-#undef FUNCTION
-
-#undef proc
 /******************************* Postamble *******************************/
 /**************************** Part Link Table ****************************/
 
@@ -202,12 +98,9 @@ static struct function_descr gl_event_descr = {
 static struct function_descr *(part_iosglue_tab[]) = {
     &read_op_descr,
     &alert_descr,
-    &gl_init_descr,
-    &gl_exit_descr,
-    &gl_event_descr,
     NULL };
 struct part_descr ios_part_iosglue = {
-    380993536,
+    423877632,
     &module_ios,
     part_iosglue_tab,
     "iosglue",

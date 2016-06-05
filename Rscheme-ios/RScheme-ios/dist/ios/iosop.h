@@ -24,16 +24,22 @@ RScheme Build (v0.7.3.4-b7u, 2007-05-30)
 #define EVENT_BUTTON3DOWN 9
 #define EVENT_MULTITOUCH  18
 
+
+extern obj glut_event_callback;
+extern obj glut_display_callback;
+
 void alert(char *,char*);
 char* show_input();
 void show();
 
-void gl_init();
-void gl_exit();
+void glut_init();
+void glut_exit();
+void glut_main_loop();
 
-void gui_on_event(int type,int x,int y);
+void glut_on_event(int type,int x,int y);
+void glut_on_display();
 
-extern obj gui_event_callback;
+
 
 
 

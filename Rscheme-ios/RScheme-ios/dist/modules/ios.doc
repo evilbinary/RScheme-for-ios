@@ -1,1 +1,1 @@
-(ios (mathlib low-scheme *scheme* corelib primops) (define-ios-glue read-op gl-event read gl-exit alert gl-init) (("./ios.scm" function read ())))
+(ios (mathlib low-scheme *scheme* corelib primops) (define-ios-glue glut-event read-op glut-init glut-exit glut-display read alert glut-main-loop) (("./ios.scm" function read ())))

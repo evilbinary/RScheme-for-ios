@@ -20,5 +20,5 @@
   (open primops corelib *scheme* low-scheme mathlib)
   (c-files iosop.m)
   (h-files iosop.h)
-  (files iosglue ios  )
+  (files iosglue glutglue ios  )
   (export :local))

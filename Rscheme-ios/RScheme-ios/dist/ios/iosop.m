@@ -153,13 +153,10 @@ void jmpToController(UIViewController * vc){
         
     }];
 }
-void gl_init(){
-     dispatch_async(dispatch_get_main_queue(), ^{
-         UIViewController * vc=[[GLViewController alloc] init];
-         jmpToController(vc);
-     });
+void glut_init(){
+    
 }
-void gl_exit(){
+void glut_exit(){
      dispatch_async(dispatch_get_main_queue(), ^{
          UIViewController * vc=getPresentedViewController();
          [vc dismissViewControllerAnimated:YES completion:^(void){
@@ -168,10 +165,20 @@ void gl_exit(){
      });
 }
 
-obj gui_event_callback;
+obj glut_event_callback;
+obj glut_display_callback;
 
-void gui_on_event(int type,int x,int y){
-    call_scheme( gui_event_callback, 3,int2fx(type),int2fx(x),int2fx(y) );
+void glut_on_event(int type,int x,int y){
+    call_scheme( glut_event_callback, 3,int2fx(type),int2fx(x),int2fx(y) );
+}
+void glut_on_display(){
+    call_scheme(glut_display_callback,0);
+}
+void glut_main_loop(){
+    dispatch_async(dispatch_get_main_queue(), ^{
+        UIViewController * vc=[[GLViewController alloc] init];
+        jmpToController(vc);
+    });
 }
 
 

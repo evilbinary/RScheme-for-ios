@@ -19,7 +19,8 @@
   [super viewDidLoad];
   glView = [[EAGLView alloc] initWithFrame:[UIScreen mainScreen].bounds];
   [self.view addSubview:glView];
-  [glView startAnimation];
+  //[glView startAnimation];
+    [glView startDisplayLink];
 }
 
 -(void)actionSetupView:(EAGLView*)view {

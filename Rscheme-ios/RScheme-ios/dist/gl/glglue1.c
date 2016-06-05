@@ -14,7 +14,7 @@ RScheme Build (v0.7.3.4-b7u, 2007-05-30)
 #include <rscheme/vinsns.h>
 extern struct module_descr module_gl;
 extern struct part_descr gl_part_glglue;
-static char sccsid[] = "@(#)gl ./glglue.scm [380993536] (RS v0.7.3.4-b7u, 2007-05-30)";
+static char sccsid[] = "@(#)gl ./glglue.scm [423877632] (RS v0.7.3.4-b7u, 2007-05-30)";
 
 /************************** Function Definitions **************************/
 
@@ -171,6 +171,64 @@ static struct function_descr gl_matrix_mode_descr = {
 #undef FUNCTION
 
 #undef mode
+
+/**************************** Raw glue `test' ****************************/
+
+static char rsfn_test_name[] = "test";
+#define FUNCTION rsfn_test_name
+
+PROLOGUE(test)
+
+BEGIN_FWD(test)
+  FWD_MONOTONE(test_0)
+END_FWD(test)
+
+#define FPLACE_CODE (1000+0)
+MONOTONE(test_0)
+{  COUNT_ARGS(0);
+
+{
+
+static float triangleCoords[] = {//
+-0.5f, -0.25f, 0, //
+0.5f, -0.25f, 0, //
+0.0f, 0.559016994f, 0 //
+};
+static float angle = 0;
+
+
+
+glClearColor(1.0f, 0.5f, 0.5f, 1.0f);
+glEnableClientState(GL_VERTEX_ARRAY);
+
+glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+glMatrixMode(GL_MODELVIEW);
+glLoadIdentity();
+
+glRotatef(angle, 0.0f, 0.0f, 1.0f);
+
+// Draw the triangle
+glColor4f(0.63671875f, 0.76953125f, 0.22265625f, 0.0f);
+glVertexPointer(3, GL_FLOAT, 0, triangleCoords);
+glDrawArrays(GL_TRIANGLES, 0, 3);
+
+RETURN0();
+}}
+#undef FPLACE_CODE
+
+EPILOGUE(test)
+
+BEGIN_BACK(test)
+  BACK_MONOTONE(test_0)
+END_BACK(test)
+
+static struct function_descr test_descr = {
+	&gl_part_glglue,
+	JUMP_TABLE( test ),
+	rsfn_test_name };
+#undef FUNCTION
+
 /******************************* Postamble *******************************/
 /**************************** Part Link Table ****************************/
 
@@ -180,9 +238,10 @@ static struct function_descr *(part_glglue_tab[]) = {
     &gl_load_identity_descr,
     &gl_clear_descr,
     &gl_matrix_mode_descr,
+    &test_descr,
     NULL };
 struct part_descr gl_part_glglue = {
-    380993536,
+    423877632,
     &module_gl,
     part_glglue_tab,
     "glglue",

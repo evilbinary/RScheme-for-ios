@@ -23,19 +23,4 @@
 })
 
 
-(define-ios-glue (gl-init){
-    gl_init();
-    RETURN0();
-})
-
-(define-ios-glue (gl-exit){
-    gl_exit();
-    RETURN0();
-})
-
-(define-ios-glue (gl-event proc){
-    gui_event_callback=proc;
-    RETURN0();
-})
-
 
