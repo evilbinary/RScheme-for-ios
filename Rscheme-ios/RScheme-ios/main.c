@@ -18,7 +18,7 @@ int as_main( int argc, const char **argv )
 {
 	obj ret;
 	as_init(argc,argv);
-	ret=as_eval( "(display \"Hello, RScheme-windows\\n\") (display 22)" );
+	ret=as_eval( "(display \"Hello, RScheme-ios\\n\") (display 22)" );
 	printf("ret=%s",unicode_string_text(ret) );
 	ret=as_eval( "(+ 1 2)");
 	printf("ret=%s\n",unicode_string_text(ret) );
