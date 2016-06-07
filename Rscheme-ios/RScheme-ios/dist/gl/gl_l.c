@@ -10,9 +10,13 @@ RScheme Build (v0.7.3.4-b7u, 2007-05-30)
 /********************* Link file for the `gl' module *********************/
 
 
+extern struct part_descr gl_part_glglue2;
+extern struct part_descr gl_part_glglue1;
 extern struct part_descr gl_part_glglue;
 
 static struct part_descr *(parts_table[]) = {
+    &gl_part_glglue2,
+    &gl_part_glglue1,
     &gl_part_glglue,
     (struct part_descr *)0 };
 

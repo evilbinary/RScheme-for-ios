@@ -15,7 +15,7 @@ RScheme Build (v0.7.3.4-b7u, 2007-05-30)
 #include "iosop.h"
 extern struct module_descr module_ios;
 extern struct part_descr ios_part_glutglue;
-static char sccsid[] = "@(#)ios ./glutglue.scm [303652865] (RS v0.7.3.4-b7u, 2007-05-30)";
+static char sccsid[] = "@(#)ios ./glutglue.scm [31591425] (RS v0.7.3.4-b7u, 2007-05-30)";
 
 /************************** Function Definitions **************************/
 
@@ -242,7 +242,7 @@ static struct function_descr *(part_glutglue_tab[]) = {
     &glut_reshape_descr,
     NULL };
 struct part_descr ios_part_glutglue = {
-    303652865,
+    31591425,
     &module_ios,
     part_glutglue_tab,
     "glutglue",
