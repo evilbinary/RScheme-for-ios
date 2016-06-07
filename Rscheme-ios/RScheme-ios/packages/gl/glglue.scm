@@ -9,6 +9,78 @@
 ,@body))
 
 
+
+(define-macro (define-gl-const var name )
+`(begin
+    (define-safe-glue ( ,(string->symbol (string-append "gl-gen-fun-" (symbol->string var))) (,name <string>) )
+        type-handler: (<string>
+        (instance? <string>)
+        ("" "" "REG0=int2fx(~a);//" ))
+    {
+        RETURN1();
+    })
+(define ,var ( ,(string->symbol (string-append "gl-gen-fun-" (symbol->string var))) ,name ) )
+
+))
+
+
+;;gl const define here
+(define gl-points  			"GL_POINTS")
+(define gl-unsigned_byte  		"GL_UNSIGNED_BYTE")
+(define gl-float  			"GL_FLOAT")
+(define gl-projection  		"GL_PROJECTION")
+(define gl-modelview  			"GL_MODELVIEW")
+(define gl-color-buffer_bit  		"GL_COLOR_BUFFER_BIT")
+(define gl-texture-2d  		"GL_TEXTURE_2D")
+(define gl-texture-coord-array  	"GL_TEXTURE_COORD_ARRAY")
+(define gl-short  			"GL_SHORT")
+(define gl-texture-min-filter  	"GL_TEXTURE_MIN_FILTER")
+(define gl-texture-mag-filter  	"GL_TEXTURE_MAG_FILTER")
+(define gl-linear  			"GL_LINEAR")
+(define gl-nearest  			"GL_NEAREST")
+(define gl-linear-mipmap-linear  	"GL_LINEAR_MIPMAP_LINEAR")
+(define gl-vertex_array  		"GL_VERTEX_ARRAY")
+(define gl-color_array  		"GL_COLOR_ARRAY")
+(define gl-blend  			"GL_BLEND")
+(define gl-src-alpha  			"GL_SRC_ALPHA")
+(define gl-one-minus-src-alpha  	"GL_ONE_MINUS_SRC_ALPHA")
+(define gl-triangles  			"GL_TRIANGLES")
+(define gl-triangle-strip  		"GL_TRIANGLE_STRIP")
+(define gl-triangle-fan  		"GL_TRIANGLE_FAN")
+(define gl-lines  			"GL_LINES")
+(define gl-line-strip  		"GL_LINE_STRIP")
+(define gl-line-loop  			"GL_LINE_LOOP")
+
+
+(define gl-rgb  			"GL_RGB")
+(define gl-rgba  			"GL_RGBA")
+(define gl-alpha  			"GL_ALPHA")
+(define gl-scissor-test  		"GL_SCISSOR_TEST")
+(define gl-texture-wrap_s  		"GL_TEXTURE_WRAP_S")
+(define gl-texture-wrap_t  		"GL_TEXTURE_WRAP_T")
+(define gl-repeat  			"GL_REPEAT")
+
+;;GL_CLAMP/GL_CLAMP_TO_EDGE
+(define gl-clamp  			"GL_CLAMP_TO_EDGE")
+(define gl-invalid-value  		"GL_INVALID_VALUE")
+
+
+(define gl-depth-buffer-bit  		"GL_DEPTH_BUFFER_BIT")
+(define gl-depth-test  		"GL_DEPTH_TEST")
+(define gl-cull-face  		"GL_CULL_FACE")
+(define gl-front  		"GL_FRONT")
+(define gl-back  		"GL_BACK")
+(define gl-true  		"GL_TRUE")
+
+(define gl-line-smooth  	"GL_LINE_SMOOTH")
+
+
+;(define-gl-c (define-gl-const (a <string>) ){
+;    REG0=fx2int(a);
+;    RETURN1();
+;})
+
+
 (define-gl-glue (gl-ortho left right bottom top near far)
 {
 glOrthof(extract_float(left),extract_float(right),extract_float(bottom),extract_float(top),extract_float(near),extract_float(far));

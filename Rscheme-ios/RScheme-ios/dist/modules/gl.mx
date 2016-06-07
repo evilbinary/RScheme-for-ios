@@ -1,2 +1,2 @@
 ;mx2 -- RScheme Module indeX (MX) file  -*-Scheme-*-
-(gl "gl" ("gl") () (mathlib low-scheme *scheme* corelib primops) ())
+(gl "gl" ("gl") () (high-scheme mathlib tables corelib mathlib iolib objsys low-scheme *scheme* primops repl) ())

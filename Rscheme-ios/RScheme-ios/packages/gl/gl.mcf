@@ -17,7 +17,7 @@
 
 ; (open repl primops *scheme* low-scheme objsys iolib mathlib tables high-scheme)
 ; (open paths mlink start)
-(open primops corelib *scheme* low-scheme mathlib)
+(open repl primops  *scheme* low-scheme objsys iolib mathlib corelib tables  mathlib high-scheme)
 ;(c-files )
 (h-files glglue.h)
 (files glglue gl )

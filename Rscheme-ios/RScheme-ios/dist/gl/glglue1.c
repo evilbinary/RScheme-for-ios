@@ -14,10 +14,108 @@ RScheme Build (v0.7.3.4-b7u, 2007-05-30)
 #include <rscheme/vinsns.h>
 extern struct module_descr module_gl;
 extern struct part_descr gl_part_glglue;
-static char sccsid[] = "@(#)gl ./glglue.scm [377300992] (RS v0.7.3.4-b7u, 2007-05-30)";
+static char sccsid[] = "@(#)gl ./glglue.scm [491454464] (RS v0.7.3.4-b7u, 2007-05-30)";
 
 /************************** Function Definitions **************************/
 
+
+/************************ Raw glue `gl-gen-fun-a' ************************/
+#define raw_GL_VERTEX_ARRAY REG0
+
+static char rsfn_gl_gen_fun_a_name[] = "gl-gen-fun-a";
+#define FUNCTION rsfn_gl_gen_fun_a_name
+
+PROLOGUE(gl_gen_fun_a)
+
+BEGIN_FWD(gl_gen_fun_a)
+  FWD_MONOTONE(gl_gen_fun_a_0)
+END_FWD(gl_gen_fun_a)
+
+#define FPLACE_CODE (1000+0)
+MONOTONE(gl_gen_fun_a_0)
+{  ;
+  COUNT_ARGS(1);
+  if (!instance_p(raw_GL_VERTEX_ARRAY,TLREFB(0)))
+    {
+      obj c;
+      c = make5( TLREFB(1),
+                 NIL_OBJ,  /* properties */
+                 lookup_symbol( FUNCTION ),
+                 cons( raw_GL_VERTEX_ARRAY, NIL_OBJ ),
+                 lookup_symbol( "GL_VERTEX_ARRAY" ),
+                 TLREFB(0) );
+      raise_error( c );
+    }
+  REG0=int2fx(GL_VERTEX_ARRAY);// = ;
+
+
+{
+        RETURN1();
+    }}
+#undef FPLACE_CODE
+
+EPILOGUE(gl_gen_fun_a)
+
+BEGIN_BACK(gl_gen_fun_a)
+  BACK_MONOTONE(gl_gen_fun_a_0)
+END_BACK(gl_gen_fun_a)
+
+static struct function_descr gl_gen_fun_a_descr = {
+	&gl_part_glglue,
+	JUMP_TABLE( gl_gen_fun_a ),
+	rsfn_gl_gen_fun_a_name };
+#undef FUNCTION
+
+#undef raw_GL_VERTEX_ARRAY
+
+/************************ Raw glue `gl-gen-fun-b' ************************/
+#define raw_GL_COLOR_ARRAY REG0
+
+static char rsfn_gl_gen_fun_b_name[] = "gl-gen-fun-b";
+#define FUNCTION rsfn_gl_gen_fun_b_name
+
+PROLOGUE(gl_gen_fun_b)
+
+BEGIN_FWD(gl_gen_fun_b)
+  FWD_MONOTONE(gl_gen_fun_b_0)
+END_FWD(gl_gen_fun_b)
+
+#define FPLACE_CODE (1000+0)
+MONOTONE(gl_gen_fun_b_0)
+{  ;
+  COUNT_ARGS(1);
+  if (!instance_p(raw_GL_COLOR_ARRAY,TLREFB(0)))
+    {
+      obj c;
+      c = make5( TLREFB(1),
+                 NIL_OBJ,  /* properties */
+                 lookup_symbol( FUNCTION ),
+                 cons( raw_GL_COLOR_ARRAY, NIL_OBJ ),
+                 lookup_symbol( "GL_COLOR_ARRAY" ),
+                 TLREFB(0) );
+      raise_error( c );
+    }
+  REG0=int2fx(GL_COLOR_ARRAY);// = ;
+
+
+{
+        RETURN1();
+    }}
+#undef FPLACE_CODE
+
+EPILOGUE(gl_gen_fun_b)
+
+BEGIN_BACK(gl_gen_fun_b)
+  BACK_MONOTONE(gl_gen_fun_b_0)
+END_BACK(gl_gen_fun_b)
+
+static struct function_descr gl_gen_fun_b_descr = {
+	&gl_part_glglue,
+	JUMP_TABLE( gl_gen_fun_b ),
+	rsfn_gl_gen_fun_b_name };
+#undef FUNCTION
+
+#undef raw_GL_COLOR_ARRAY
 
 /************************** Raw glue `gl-ortho' **************************/
 #define left REG0
@@ -957,6 +1055,8 @@ static struct function_descr gl_test_reshape_descr = {
 
 
 static struct function_descr *(part_glglue_tab[]) = {
+    &gl_gen_fun_a_descr,
+    &gl_gen_fun_b_descr,
     &gl_ortho_descr,
     &gl_frustum_descr,
     &gl_load_identity_descr,
@@ -983,7 +1083,7 @@ static struct function_descr *(part_glglue_tab[]) = {
     &gl_test_reshape_descr,
     NULL };
 struct part_descr gl_part_glglue = {
-    377300992,
+    491454464,
     &module_gl,
     part_glglue_tab,
     "glglue",
