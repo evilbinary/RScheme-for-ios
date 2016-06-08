@@ -14,7 +14,7 @@ RScheme Build (v0.7.3.4-b7u, 2007-05-30)
 #include <rscheme/vinsns.h>
 extern struct module_descr module_gl;
 extern struct part_descr gl_part_glglue;
-static char sccsid[] = "@(#)gl ./glglue.scm [253382656] (RS v0.7.3.4-b7u, 2007-05-30)";
+static char sccsid[] = "@(#)gl ./glglue.scm [77137920] (RS v0.7.3.4-b7u, 2007-05-30)";
 
 /************************** Function Definitions **************************/
 
@@ -735,42 +735,14 @@ MONOTONE(gl_vertex_pointer_0)
 {  COUNT_ARGS(4);
 
 {
-int t=fx2int(type);
-int s=fx2int(size);
-void *p,*v;
+    int t=fx2int(type);
+    int s=fx2int(size);
+    void *v=alloc_array(t,pointer);
+    glVertexPointer(s,t,fx2int(stride),v);
+    if(v!=NULL)
+        free(v);
 
-if(VECTOR_P(pointer)){
-int n = SIZEOF_PTR(pointer)/ SLOT(1);
-
-if(t==GL_BYTE){
-p=malloc(sizeof(char)*n);
-}else if(t==GL_SHORT){
-p=malloc(sizeof(short)*n);
-}else if(t==GL_FIXED){
-p=malloc(sizeof(int)*n);
-}else if(t==GL_FLOAT){
-p=malloc(sizeof(float)*n);
-}
-v=p;
-    for(int i=0;i<n;i++){
-        obj ref_item = gvec_ref( pointer, SLOT(i) );
-        if(t==GL_FIXED){
-            *((int *)p)=fx2int(ref_item);
-            (int *)p++;
-        }else if(t==GL_FLOAT){
-            float *t=p;
-            //debug(ref_item);
-            *t=extract_float(ref_item);
-            t++;p=t;
-        }
-    }
-}
-
-glVertexPointer(s,t,fx2int(stride),p);
-if(v!=NULL)
-    free(v);
-
-RETURN0();
+    RETURN0();
 }}
 #undef FPLACE_CODE
 
@@ -784,6 +756,53 @@ static struct function_descr gl_vertex_pointer_descr = {
 	&gl_part_glglue,
 	JUMP_TABLE( gl_vertex_pointer ),
 	rsfn_gl_vertex_pointer_name };
+#undef FUNCTION
+
+#undef size
+#undef type
+#undef stride
+#undef pointer
+
+/********************** Raw glue `gl-color-pointer' **********************/
+#define size REG0
+#define type REG1
+#define stride REG2
+#define pointer REG3
+
+static char rsfn_gl_color_pointer_name[] = "gl-color-pointer";
+#define FUNCTION rsfn_gl_color_pointer_name
+
+PROLOGUE(gl_color_pointer)
+
+BEGIN_FWD(gl_color_pointer)
+  FWD_MONOTONE(gl_color_pointer_0)
+END_FWD(gl_color_pointer)
+
+#define FPLACE_CODE (1000+0)
+MONOTONE(gl_color_pointer_0)
+{  COUNT_ARGS(4);
+
+{
+     int t=fx2int(type);
+    int s=fx2int(size);
+    void *v=alloc_array(t,pointer);
+    glColorPointer(s,t,fx2int(stride),v );
+    if(v!=NULL)
+        free(v);
+    RETURN0();
+}}
+#undef FPLACE_CODE
+
+EPILOGUE(gl_color_pointer)
+
+BEGIN_BACK(gl_color_pointer)
+  BACK_MONOTONE(gl_color_pointer_0)
+END_BACK(gl_color_pointer)
+
+static struct function_descr gl_color_pointer_descr = {
+	&gl_part_glglue,
+	JUMP_TABLE( gl_color_pointer ),
+	rsfn_gl_color_pointer_name };
 #undef FUNCTION
 
 #undef size
@@ -1364,6 +1383,7 @@ static struct function_descr *(part_glglue_tab[]) = {
     &gl_disable_client_state_descr,
     &gl_draw_arrays_descr,
     &gl_vertex_pointer_descr,
+    &gl_color_pointer_descr,
     &gl_bind_texture_descr,
     &gl_text_parameteri_descr,
     &gl_line_width_descr,
@@ -1379,7 +1399,7 @@ static struct function_descr *(part_glglue_tab[]) = {
     &gl_test_reshape_descr,
     NULL };
 struct part_descr gl_part_glglue = {
-    253382656,
+    77137920,
     &module_gl,
     part_glglue_tab,
     "glglue",

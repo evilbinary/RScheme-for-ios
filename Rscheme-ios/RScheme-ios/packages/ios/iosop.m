@@ -162,14 +162,13 @@ obj glut_display_callback;
 obj glut_reshape_callback;
 
 void glut_on_event(int type,int x,int y){
-    call_scheme( glut_event_callback, 3,int2fx(type),int2fx(x),int2fx(y) );
+    obj ret=call_scheme( glut_event_callback, 3,int2fx(type),int2fx(x),int2fx(y) );
 }
 void glut_on_display(){
-    call_scheme(glut_display_callback,0);
+    obj ret=call_scheme(glut_display_callback,0);
 }
 void glut_on_reshape(int width,int height){
-    call_scheme(glut_reshape_callback,2,int2fx(width),int2fx(height));
-    
+    obj ret=call_scheme(glut_reshape_callback,2,int2fx(width),int2fx(height));
 }
 
 void glut_main_loop(){

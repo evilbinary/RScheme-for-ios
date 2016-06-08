@@ -13,5 +13,6 @@ RScheme Build (v0.7.3.4-b7u, 2007-05-30)
 #include "gl.h"
 #include <rscheme/scheme.h>
 #include "glglue.h"
+#include "glc.h"
 #include "gl_r.h"
 #endif /* _H_GL_P */

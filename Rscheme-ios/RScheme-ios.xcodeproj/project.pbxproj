@@ -50,6 +50,7 @@
 		037446F21CF9F21E00C1C7C7 /* GJAlertAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 037446ED1CF9F21E00C1C7C7 /* GJAlertAction.m */; };
 		037446F31CF9F21E00C1C7C7 /* GJAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 037446EF1CF9F21E00C1C7C7 /* GJAlertController.m */; };
 		037446F41CF9F21E00C1C7C7 /* UIViewController+Alert.m in Sources */ = {isa = PBXBuildFile; fileRef = 037446F11CF9F21E00C1C7C7 /* UIViewController+Alert.m */; };
+		038711361D08934500AD53C5 /* glc.c in Sources */ = {isa = PBXBuildFile; fileRef = 038711341D08934500AD53C5 /* glc.c */; };
 		03AB46541CE64FDB0071EEC7 /* sys.img in Resources */ = {isa = PBXBuildFile; fileRef = 03AB46531CE64FDB0071EEC7 /* sys.img */; };
 		03AB46581CE6DD6D0071EEC7 /* g2.png in Resources */ = {isa = PBXBuildFile; fileRef = 03AB46571CE6DD6D0071EEC7 /* g2.png */; };
 /* End PBXBuildFile section */
@@ -134,6 +135,10 @@
 		037446EF1CF9F21E00C1C7C7 /* GJAlertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GJAlertController.m; sourceTree = "<group>"; };
 		037446F01CF9F21E00C1C7C7 /* UIViewController+Alert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Alert.h"; sourceTree = "<group>"; };
 		037446F11CF9F21E00C1C7C7 /* UIViewController+Alert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Alert.m"; sourceTree = "<group>"; };
+		038711301D08912400AD53C5 /* glc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = glc.h; path = gl/glc.h; sourceTree = "<group>"; };
+		038711311D08912400AD53C5 /* glc.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = glc.c; path = gl/glc.c; sourceTree = "<group>"; };
+		038711341D08934500AD53C5 /* glc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = glc.c; sourceTree = "<group>"; };
+		038711351D08934500AD53C5 /* glc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = glc.h; sourceTree = "<group>"; };
 		03AB46531CE64FDB0071EEC7 /* sys.img */ = {isa = PBXFileReference; lastKnownFileType = file; name = sys.img; path = "RScheme-ios/sys.img"; sourceTree = "<group>"; };
 		03AB46571CE6DD6D0071EEC7 /* g2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = g2.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -153,6 +158,8 @@
 		0321E55F1D031DDC001E1470 /* gl */ = {
 			isa = PBXGroup;
 			children = (
+				038711301D08912400AD53C5 /* glc.h */,
+				038711311D08912400AD53C5 /* glc.c */,
 				0321E5671D032847001E1470 /* gl.mcf */,
 				0321E5691D032847001E1470 /* glglue.h */,
 				0321E5681D032847001E1470 /* gl.scm */,
@@ -176,6 +183,8 @@
 		0321E56F1D032B6A001E1470 /* gl */ = {
 			isa = PBXGroup;
 			children = (
+				038711341D08934500AD53C5 /* glc.c */,
+				038711351D08934500AD53C5 /* glc.h */,
 				035F7C7C1D08479D008F16A5 /* gl1.c */,
 				035F7C7D1D08479D008F16A5 /* gl2.c */,
 				0321E5701D032B6A001E1470 /* gl.h */,
@@ -481,6 +490,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				037446F41CF9F21E00C1C7C7 /* UIViewController+Alert.m in Sources */,
+				038711361D08934500AD53C5 /* glc.c in Sources */,
 				0321E5AA1D034D01001E1470 /* ios1.c in Sources */,
 				032494BB1CE638B30048AB86 /* ViewController.m in Sources */,
 				037446F31CF9F21E00C1C7C7 /* GJAlertController.m in Sources */,

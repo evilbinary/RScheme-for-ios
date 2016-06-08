@@ -60,7 +60,10 @@
 (glut-event (lambda (type x y)
 	(format #t "~a ~a ~a\n" type x y)))
 (glut-display (lambda()
-    (let ((points  (list->vector (list -0.5 0.5 0.0 0.5 0.5 0.0 -0.5 0.5 0.5 )) ))
+    (let (
+        (points (list -0.5 0.5 0.0   0.5 0.5 0.0    -0.5 0.5 0.5 ) )  
+        (points2  (list->vector (list -0.5 0.5 0.0   0.5 0.5 0.0   -0.5 0.5 0.5 )) )
+        )
 	;(format #t "display\n")
     (gl-clear GL-COLOR-BUFFER-BIT)
 
@@ -71,7 +74,6 @@
     (gl-vertex-pointer 3 GL-FLOAT 0 points)
     (gl-draw-arrays GL-POINTS 0 3 )
     (gl-disable-client-state GL-VERTEX-ARRAY)
-
 
 ;(gl-test-c2)
 ;(gl-test-c1)
@@ -85,7 +87,7 @@
     (gl-disable GL-CULL-FACE)
     (gl-disable GL-DEPTH-TEST)
 
-(gl-viewport 0 0 400 800)
+(gl-viewport 0 0 400 400)
 (gl-matrix-mode GL-PROJECTION)
 (gl-load-identity)
 

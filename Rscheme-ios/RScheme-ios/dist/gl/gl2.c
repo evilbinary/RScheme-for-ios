@@ -14,7 +14,7 @@ RScheme Build (v0.7.3.4-b7u, 2007-05-30)
 #include <rscheme/vinsns.h>
 extern struct module_descr module_gl;
 extern struct part_descr gl_part_gl1;
-static char sccsid[] = "@(#)gl ./gl.scm [42105858] (RS v0.7.3.4-b7u, 2007-05-30)";
+static char sccsid[] = "@(#)gl ./gl.scm [377861122] (RS v0.7.3.4-b7u, 2007-05-30)";
 
 /************************** Function Definitions **************************/
 
@@ -1075,7 +1075,7 @@ static struct function_descr *(part_gl1_tab[]) = {
     &gl_gen_fun_GL_VERTEX_ARRAY_descr,
     NULL };
 struct part_descr gl_part_gl1 = {
-    42105858,
+    377861122,
     &module_gl,
     part_gl1_tab,
     "gl1",

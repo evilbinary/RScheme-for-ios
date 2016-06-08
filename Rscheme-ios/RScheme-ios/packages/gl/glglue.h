@@ -10,6 +10,7 @@
 #define glglue_h
 
 #include <OpenGLES/ES1/gl.h>
+#include "gl.h"
 
 
 #endif /* glglue_h */

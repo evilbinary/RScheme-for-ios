@@ -1,7 +1,7 @@
 (define-macro (define-gl-glue (name . args ) . body)
     `(define-safe-glue (,name ,@args)
     properties: (
-    ;(other-h-files "<glglue.h>")
+    ;(other-h-files "<glglue.h>" "<gl.h>")
     ;(other-include-dirs "" )
     ;(other-c-files "")
     ;(other-libs "")
@@ -130,54 +130,37 @@ RETURN0();
 
 ;;;;;;;;;;;;;;to do;;;;;;;;;;;;;;;;
 
-(define-gl-glue (gl-vertex-pointer size type stride pointer){
-int t=fx2int(type);
-int s=fx2int(size);
-void *p,*v;
+(define-gl-glue (gl-vertex-pointer size type stride pointer)
+{
+    int t=fx2int(type);
+    int s=fx2int(size);
+    void *v=alloc_array(t,pointer);
+    glVertexPointer(s,t,fx2int(stride),v);
+    if(v!=NULL)
+        free(v);
 
-if(VECTOR_P(pointer)){
-int n = SIZEOF_PTR(pointer)/ SLOT(1);
-
-if(t==GL_BYTE){
-p=malloc(sizeof(char)*n);
-}else if(t==GL_SHORT){
-p=malloc(sizeof(short)*n);
-}else if(t==GL_FIXED){
-p=malloc(sizeof(int)*n);
-}else if(t==GL_FLOAT){
-p=malloc(sizeof(float)*n);
-}
-v=p;
-    for(int i=0;i<n;i++){
-        obj ref_item = gvec_ref( pointer, SLOT(i) );
-        if(t==GL_FIXED){
-            *((int *)p)=fx2int(ref_item);
-            (int *)p++;
-        }else if(t==GL_FLOAT){
-            float *t=p;
-            //debug(ref_item);
-            *t=extract_float(ref_item);
-            t++;p=t;
-        }
-    }
-}
-
-glVertexPointer(s,t,fx2int(stride),p);
-if(v!=NULL)
-    free(v);
-
-RETURN0();
+    RETURN0();
 })
 
-;(define-gl-glue (gl-color-pointer size type stride pointer){
-;glColorPointer(extract_float(size),extract_float(type),extract_float(stride), );
-;RETURN0();
-;})
+(define-gl-glue (gl-color-pointer size type stride pointer){
+    int t=fx2int(type);
+    int s=fx2int(size);
+    void *v=alloc_array(t,pointer);
+    glColorPointer(s,t,fx2int(stride),v );
+    if(v!=NULL)
+        free(v);
+    RETURN0();
+})
 
-;(define-gl-glue (gl-coord-pointer size type stride pointer){
-;glTexCoordPointer(extract_float(size),extract_float(type),extract_float(stride), );
-;RETURN0();
-;})
+(define-gl-glue (gl-coord-pointer size type stride pointer){
+    int t=fx2int(type);
+    int s=fx2int(size);
+    void *v=alloc_array(t,pointer);
+    glTexCoordPointer(s,t,fx2int(stride),v);
+    if(v!=NULL)
+        free(v);
+    RETURN0();
+})
 
 
 ;(define-gl-glue (gl-coord-pointer n textures){
@@ -251,36 +234,38 @@ glFlush();
 glFrontFace(fx2int(m));
  RETURN0();
 })
+
+;;;;;;;test code here;;;;;;;;;;;;;;
 (define-gl-glue (gl-test-c1)
 {
 
-glEnableClientState (GL_VERTEX_ARRAY);
-glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-glMatrixMode (GL_MODELVIEW);
-glLoadIdentity ();
-glFrontFace(GL_CW);
-glColor4f(1.0, 0.0, 0.0, 1.0);
-glPointSize(18);
+    glEnableClientState (GL_VERTEX_ARRAY);
+    glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    glMatrixMode (GL_MODELVIEW);
+    glLoadIdentity ();
+    glFrontFace(GL_CW);
+    glColor4f(1.0, 0.0, 0.0, 1.0);
+    glPointSize(18);
 
-typedef struct {
-GLfloat x,y,z;
-} XYZ;
+    typedef struct {
+    GLfloat x,y,z;
+    } XYZ;
 
-XYZ p[3];
-p[0].x=-0.5;
-p[0].y=0.5;
-p[0].z=0;
-p[1].x=0.5;
-p[1].y=0.5;
-p[1].z=0;
-p[2].x=-0.5;
-p[2].y=-0.5;
-p[2].z=0.5;
-glVertexPointer(3, GL_FLOAT, 0,p);
-glDrawArrays(GL_POINTS, 0, 3);
-glDisableClientState(GL_VERTEX_ARRAY);
+    XYZ p[3];
+    p[0].x=-0.5;
+    p[0].y=0.5;
+    p[0].z=0;
+    p[1].x=0.5;
+    p[1].y=0.5;
+    p[1].z=0;
+    p[2].x=-0.5;
+    p[2].y=-0.5;
+    p[2].z=0.5;
+    glVertexPointer(3, GL_FLOAT, 0,p);
+    glDrawArrays(GL_POINTS, 0, 3);
+    glDisableClientState(GL_VERTEX_ARRAY);
 
-RETURN0();
+    RETURN0();
 
 }
 )
@@ -294,36 +279,36 @@ RETURN0();
 })
 
 (define-gl-glue (gl-test-c){
-glViewport (0,0,400,800);
-glMatrixMode   (GL_PROJECTION);
-glLoadIdentity ();
-//glOrthof (0, 0, 0, 0, 0, 0);
+    glViewport (0,0,400,800);
+    glMatrixMode   (GL_PROJECTION);
+    glLoadIdentity ();
+    //glOrthof (0, 0, 0, 0, 0, 0);
 
-typedef struct {
-GLfloat x,y,z;
-} XYZ;
+    typedef struct {
+    GLfloat x,y,z;
+    } XYZ;
 
-glEnableClientState (GL_VERTEX_ARRAY);
-glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-glMatrixMode (GL_MODELVIEW);
-glLoadIdentity ();
-glFrontFace(GL_CW);
-glColor4f(1.0, 0.0, 0.0, 1.0);
-glPointSize(18);
+    glEnableClientState (GL_VERTEX_ARRAY);
+    glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    glMatrixMode (GL_MODELVIEW);
+    glLoadIdentity ();
+    glFrontFace(GL_CW);
+    glColor4f(1.0, 0.0, 0.0, 1.0);
+    glPointSize(18);
 
-XYZ p[3];
-p[0].x=-0.5;
-p[0].y=0.5;
-p[0].z=0;
-p[1].x=0.5;
-p[1].y=0.5;
-p[1].z=0;
-p[2].x=-0.5;
-p[2].y=-0.5;
-p[2].z=0.5;
-glVertexPointer(3, GL_FLOAT, 0,p);
-glDrawArrays(GL_POINTS, 0, 3);
-glDisableClientState(GL_VERTEX_ARRAY);
+    XYZ p[3];
+    p[0].x=-0.5;
+    p[0].y=0.5;
+    p[0].z=0;
+    p[1].x=0.5;
+    p[1].y=0.5;
+    p[1].z=0;
+    p[2].x=-0.5;
+    p[2].y=-0.5;
+    p[2].z=0.5;
+    glVertexPointer(3, GL_FLOAT, 0,p);
+    glDrawArrays(GL_POINTS, 0, 3);
+    glDisableClientState(GL_VERTEX_ARRAY);
 
 
 
@@ -333,19 +318,19 @@ RETURN0();
 
 (define-gl-glue (gl-test-reshape w h){
 
-int height=fx2int(h);
-int width=fx2int(h);
-if (height==0)
-{
-height=1;
-}
+    int height=fx2int(h);
+    int width=fx2int(h);
+    if (height==0)
+    {
+    height=1;
+    }
 
-glViewport(0, 0, width, height);
-glMatrixMode(GL_PROJECTION);
-glLoadIdentity();
-//gluPerspective(45.0f,(GLfloat)width/(GLfloat)height,0.1f,100.0f);
-glMatrixMode(GL_MODELVIEW);
-glLoadIdentity();
+    glViewport(0, 0, width, height);
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    //gluPerspective(45.0f,(GLfloat)width/(GLfloat)height,0.1f,100.0f);
+    glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
 
 RETURN0();
 })
