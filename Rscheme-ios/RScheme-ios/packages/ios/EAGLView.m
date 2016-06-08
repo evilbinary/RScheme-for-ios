@@ -75,8 +75,14 @@
 
 - (void)handleDisplayLink:(CADisplayLink *)sender
 {
+    [EAGLContext setCurrentContext:context];
+    glBindFramebufferOES(GL_FRAMEBUFFER_OES, viewFramebuffer);
     //NSLog(@"EAGLView: handleDisplayLink");
+    
     glut_on_display();
+    
+    glBindRenderbufferOES(GL_RENDERBUFFER_OES, viewRenderbuffer);
+    [context presentRenderbuffer:GL_RENDERBUFFER_OES];
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -133,12 +139,12 @@
     [self destroyFramebuffer];
     [self createFramebuffer];
     
-    [EAGLContext setCurrentContext:context];
-    glBindFramebufferOES(GL_FRAMEBUFFER_OES, viewFramebuffer);
-    glViewport(0, 0, backingWidth, backingHeight);
-    
-    glBindRenderbufferOES(GL_RENDERBUFFER_OES, viewRenderbuffer);
-    [context presentRenderbuffer:GL_RENDERBUFFER_OES];
+//    [EAGLContext setCurrentContext:context];
+//    glBindFramebufferOES(GL_FRAMEBUFFER_OES, viewFramebuffer);
+//    glViewport(0, 0, backingWidth, backingHeight);
+//    
+//    glBindRenderbufferOES(GL_RENDERBUFFER_OES, viewRenderbuffer);
+//    [context presentRenderbuffer:GL_RENDERBUFFER_OES];
     
     glut_on_reshape(backingWidth,backingHeight);
 }

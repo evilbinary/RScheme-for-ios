@@ -14,1118 +14,1372 @@ RScheme Build (v0.7.3.4-b7u, 2007-05-30)
 #include <rscheme/vinsns.h>
 extern struct module_descr module_gl;
 extern struct part_descr gl_part_glglue;
-static char sccsid[] = "@(#)gl ./glglue.scm [373934080] (RS v0.7.3.4-b7u, 2007-05-30)";
+static char sccsid[] = "@(#)gl ./glglue.scm [253382656] (RS v0.7.3.4-b7u, 2007-05-30)";
 
 /************************** Function Definitions **************************/
 
 
-/******************** Raw glue `gl-gen-fun-gl-points' ********************/
-#define raw_GL_POINTS REG0
+/************************** Raw glue `gl-ortho' **************************/
+#define left REG0
+#define right REG1
+#define bottom REG2
+#define top REG3
+#define near REG4
+#define far REG5
 
-static char rsfn_gl_gen_fun_gl_points_name[] = "gl-gen-fun-gl-points";
-#define FUNCTION rsfn_gl_gen_fun_gl_points_name
+static char rsfn_gl_ortho_name[] = "gl-ortho";
+#define FUNCTION rsfn_gl_ortho_name
 
-PROLOGUE(gl_gen_fun_gl_points)
+PROLOGUE(gl_ortho)
 
-BEGIN_FWD(gl_gen_fun_gl_points)
-  FWD_MONOTONE(gl_gen_fun_gl_points_0)
-END_FWD(gl_gen_fun_gl_points)
-
-#define FPLACE_CODE (1000+0)
-MONOTONE(gl_gen_fun_gl_points_0)
-{  ;
-  COUNT_ARGS(1);
-  if (!instance_p(raw_GL_POINTS,TLREFB(0)))
-    {
-      obj c;
-      c = make5( TLREFB(1),
-                 NIL_OBJ,  /* properties */
-                 lookup_symbol( FUNCTION ),
-                 cons( raw_GL_POINTS, NIL_OBJ ),
-                 lookup_symbol( "GL_POINTS" ),
-                 TLREFB(0) );
-      raise_error( c );
-    }
-  REG0=int2fx(GL_POINTS);// = ;
-
-
-{
-        RETURN1();
-    }}
-#undef FPLACE_CODE
-
-EPILOGUE(gl_gen_fun_gl_points)
-
-BEGIN_BACK(gl_gen_fun_gl_points)
-  BACK_MONOTONE(gl_gen_fun_gl_points_0)
-END_BACK(gl_gen_fun_gl_points)
-
-static struct function_descr gl_gen_fun_gl_points_descr = {
-	&gl_part_glglue,
-	JUMP_TABLE( gl_gen_fun_gl_points ),
-	rsfn_gl_gen_fun_gl_points_name };
-#undef FUNCTION
-
-#undef raw_GL_POINTS
-
-/***************** Raw glue `gl-gen-fun-gl-unsigned_byte' *****************/
-#define raw_GL_UNSIGNED_BYTE REG0
-
-static char rsfn_gl_gen_fun_gl_unsigned_byte_name[] = "gl-gen-fun-gl-unsigned_byte";
-#define FUNCTION rsfn_gl_gen_fun_gl_unsigned_byte_name
-
-PROLOGUE(gl_gen_fun_gl_unsigned_byte)
-
-BEGIN_FWD(gl_gen_fun_gl_unsigned_byte)
-  FWD_MONOTONE(gl_gen_fun_gl_unsigned_byte_0)
-END_FWD(gl_gen_fun_gl_unsigned_byte)
+BEGIN_FWD(gl_ortho)
+  FWD_MONOTONE(gl_ortho_0)
+END_FWD(gl_ortho)
 
 #define FPLACE_CODE (1000+0)
-MONOTONE(gl_gen_fun_gl_unsigned_byte_0)
-{  ;
-  COUNT_ARGS(1);
-  if (!instance_p(raw_GL_UNSIGNED_BYTE,TLREFB(0)))
-    {
-      obj c;
-      c = make5( TLREFB(1),
-                 NIL_OBJ,  /* properties */
-                 lookup_symbol( FUNCTION ),
-                 cons( raw_GL_UNSIGNED_BYTE, NIL_OBJ ),
-                 lookup_symbol( "GL_UNSIGNED_BYTE" ),
-                 TLREFB(0) );
-      raise_error( c );
-    }
-  REG0=int2fx(GL_UNSIGNED_BYTE);// = ;
-
+MONOTONE(gl_ortho_0)
+{  COUNT_ARGS(6);
 
 {
-        RETURN1();
-    }}
+glOrthof(extract_float(left),extract_float(right),extract_float(bottom),extract_float(top),extract_float(near),extract_float(far));
+RETURN0();
+
+}}
 #undef FPLACE_CODE
 
-EPILOGUE(gl_gen_fun_gl_unsigned_byte)
+EPILOGUE(gl_ortho)
 
-BEGIN_BACK(gl_gen_fun_gl_unsigned_byte)
-  BACK_MONOTONE(gl_gen_fun_gl_unsigned_byte_0)
-END_BACK(gl_gen_fun_gl_unsigned_byte)
+BEGIN_BACK(gl_ortho)
+  BACK_MONOTONE(gl_ortho_0)
+END_BACK(gl_ortho)
 
-static struct function_descr gl_gen_fun_gl_unsigned_byte_descr = {
+static struct function_descr gl_ortho_descr = {
 	&gl_part_glglue,
-	JUMP_TABLE( gl_gen_fun_gl_unsigned_byte ),
-	rsfn_gl_gen_fun_gl_unsigned_byte_name };
+	JUMP_TABLE( gl_ortho ),
+	rsfn_gl_ortho_name };
 #undef FUNCTION
 
-#undef raw_GL_UNSIGNED_BYTE
+#undef left
+#undef right
+#undef bottom
+#undef top
+#undef near
+#undef far
 
-/********************* Raw glue `gl-gen-fun-gl-float' *********************/
-#define raw_GL_FLOAT REG0
+/************************* Raw glue `gl-frustum' *************************/
+#define left REG0
+#define right REG1
+#define bottom REG2
+#define top REG3
+#define near REG4
+#define far REG5
 
-static char rsfn_gl_gen_fun_gl_float_name[] = "gl-gen-fun-gl-float";
-#define FUNCTION rsfn_gl_gen_fun_gl_float_name
+static char rsfn_gl_frustum_name[] = "gl-frustum";
+#define FUNCTION rsfn_gl_frustum_name
 
-PROLOGUE(gl_gen_fun_gl_float)
+PROLOGUE(gl_frustum)
 
-BEGIN_FWD(gl_gen_fun_gl_float)
-  FWD_MONOTONE(gl_gen_fun_gl_float_0)
-END_FWD(gl_gen_fun_gl_float)
+BEGIN_FWD(gl_frustum)
+  FWD_MONOTONE(gl_frustum_0)
+END_FWD(gl_frustum)
 
 #define FPLACE_CODE (1000+0)
-MONOTONE(gl_gen_fun_gl_float_0)
-{  ;
-  COUNT_ARGS(1);
-  if (!instance_p(raw_GL_FLOAT,TLREFB(0)))
-    {
-      obj c;
-      c = make5( TLREFB(1),
-                 NIL_OBJ,  /* properties */
-                 lookup_symbol( FUNCTION ),
-                 cons( raw_GL_FLOAT, NIL_OBJ ),
-                 lookup_symbol( "GL_FLOAT" ),
-                 TLREFB(0) );
-      raise_error( c );
-    }
-  REG0=int2fx(GL_FLOAT);// = ;
-
+MONOTONE(gl_frustum_0)
+{  COUNT_ARGS(6);
 
 {
-        RETURN1();
-    }}
+glFrustumf(extract_float(left),extract_float(right),extract_float(bottom),extract_float(top),extract_float(near),extract_float(far));
+RETURN0();
+
+}}
 #undef FPLACE_CODE
 
-EPILOGUE(gl_gen_fun_gl_float)
+EPILOGUE(gl_frustum)
 
-BEGIN_BACK(gl_gen_fun_gl_float)
-  BACK_MONOTONE(gl_gen_fun_gl_float_0)
-END_BACK(gl_gen_fun_gl_float)
+BEGIN_BACK(gl_frustum)
+  BACK_MONOTONE(gl_frustum_0)
+END_BACK(gl_frustum)
 
-static struct function_descr gl_gen_fun_gl_float_descr = {
+static struct function_descr gl_frustum_descr = {
 	&gl_part_glglue,
-	JUMP_TABLE( gl_gen_fun_gl_float ),
-	rsfn_gl_gen_fun_gl_float_name };
+	JUMP_TABLE( gl_frustum ),
+	rsfn_gl_frustum_name };
 #undef FUNCTION
 
-#undef raw_GL_FLOAT
+#undef left
+#undef right
+#undef bottom
+#undef top
+#undef near
+#undef far
 
-/****************** Raw glue `gl-gen-fun-gl-projection' ******************/
-#define raw_GL_PROJECTION REG0
+/********************** Raw glue `gl-load-identity' **********************/
 
-static char rsfn_gl_gen_fun_gl_projection_name[] = "gl-gen-fun-gl-projection";
-#define FUNCTION rsfn_gl_gen_fun_gl_projection_name
+static char rsfn_gl_load_identity_name[] = "gl-load-identity";
+#define FUNCTION rsfn_gl_load_identity_name
 
-PROLOGUE(gl_gen_fun_gl_projection)
+PROLOGUE(gl_load_identity)
 
-BEGIN_FWD(gl_gen_fun_gl_projection)
-  FWD_MONOTONE(gl_gen_fun_gl_projection_0)
-END_FWD(gl_gen_fun_gl_projection)
+BEGIN_FWD(gl_load_identity)
+  FWD_MONOTONE(gl_load_identity_0)
+END_FWD(gl_load_identity)
 
 #define FPLACE_CODE (1000+0)
-MONOTONE(gl_gen_fun_gl_projection_0)
-{  ;
-  COUNT_ARGS(1);
-  if (!instance_p(raw_GL_PROJECTION,TLREFB(0)))
-    {
-      obj c;
-      c = make5( TLREFB(1),
-                 NIL_OBJ,  /* properties */
-                 lookup_symbol( FUNCTION ),
-                 cons( raw_GL_PROJECTION, NIL_OBJ ),
-                 lookup_symbol( "GL_PROJECTION" ),
-                 TLREFB(0) );
-      raise_error( c );
-    }
-  REG0=int2fx(GL_PROJECTION);// = ;
-
+MONOTONE(gl_load_identity_0)
+{  COUNT_ARGS(0);
 
 {
-        RETURN1();
-    }}
+glLoadIdentity();
+RETURN0();
+}}
 #undef FPLACE_CODE
 
-EPILOGUE(gl_gen_fun_gl_projection)
+EPILOGUE(gl_load_identity)
 
-BEGIN_BACK(gl_gen_fun_gl_projection)
-  BACK_MONOTONE(gl_gen_fun_gl_projection_0)
-END_BACK(gl_gen_fun_gl_projection)
+BEGIN_BACK(gl_load_identity)
+  BACK_MONOTONE(gl_load_identity_0)
+END_BACK(gl_load_identity)
 
-static struct function_descr gl_gen_fun_gl_projection_descr = {
+static struct function_descr gl_load_identity_descr = {
 	&gl_part_glglue,
-	JUMP_TABLE( gl_gen_fun_gl_projection ),
-	rsfn_gl_gen_fun_gl_projection_name };
+	JUMP_TABLE( gl_load_identity ),
+	rsfn_gl_load_identity_name };
 #undef FUNCTION
 
-#undef raw_GL_PROJECTION
 
-/******************* Raw glue `gl-gen-fun-gl-modelview' *******************/
-#define raw_GL_MODELVIEW REG0
+/************************** Raw glue `gl-clear' **************************/
+#define i REG0
 
-static char rsfn_gl_gen_fun_gl_modelview_name[] = "gl-gen-fun-gl-modelview";
-#define FUNCTION rsfn_gl_gen_fun_gl_modelview_name
+static char rsfn_gl_clear_name[] = "gl-clear";
+#define FUNCTION rsfn_gl_clear_name
 
-PROLOGUE(gl_gen_fun_gl_modelview)
+PROLOGUE(gl_clear)
 
-BEGIN_FWD(gl_gen_fun_gl_modelview)
-  FWD_MONOTONE(gl_gen_fun_gl_modelview_0)
-END_FWD(gl_gen_fun_gl_modelview)
+BEGIN_FWD(gl_clear)
+  FWD_MONOTONE(gl_clear_0)
+END_FWD(gl_clear)
 
 #define FPLACE_CODE (1000+0)
-MONOTONE(gl_gen_fun_gl_modelview_0)
-{  ;
-  COUNT_ARGS(1);
-  if (!instance_p(raw_GL_MODELVIEW,TLREFB(0)))
-    {
-      obj c;
-      c = make5( TLREFB(1),
-                 NIL_OBJ,  /* properties */
-                 lookup_symbol( FUNCTION ),
-                 cons( raw_GL_MODELVIEW, NIL_OBJ ),
-                 lookup_symbol( "GL_MODELVIEW" ),
-                 TLREFB(0) );
-      raise_error( c );
-    }
-  REG0=int2fx(GL_MODELVIEW);// = ;
-
+MONOTONE(gl_clear_0)
+{  COUNT_ARGS(1);
 
 {
-        RETURN1();
-    }}
+glClear(fx2int(i));
+RETURN0();
+}}
 #undef FPLACE_CODE
 
-EPILOGUE(gl_gen_fun_gl_modelview)
+EPILOGUE(gl_clear)
 
-BEGIN_BACK(gl_gen_fun_gl_modelview)
-  BACK_MONOTONE(gl_gen_fun_gl_modelview_0)
-END_BACK(gl_gen_fun_gl_modelview)
+BEGIN_BACK(gl_clear)
+  BACK_MONOTONE(gl_clear_0)
+END_BACK(gl_clear)
 
-static struct function_descr gl_gen_fun_gl_modelview_descr = {
+static struct function_descr gl_clear_descr = {
 	&gl_part_glglue,
-	JUMP_TABLE( gl_gen_fun_gl_modelview ),
-	rsfn_gl_gen_fun_gl_modelview_name };
+	JUMP_TABLE( gl_clear ),
+	rsfn_gl_clear_name };
 #undef FUNCTION
 
-#undef raw_GL_MODELVIEW
+#undef i
 
-/*************** Raw glue `gl-gen-fun-gl-color-buffer_bit' ***************/
-#define raw_GL_COLOR_BUFFER_BIT REG0
+/*********************** Raw glue `gl-clear-color' ***********************/
+#define red REG0
+#define green REG1
+#define blue REG2
+#define alpha REG3
 
-static char rsfn_gl_gen_fun_gl_color_buffer_bit_name[] = "gl-gen-fun-gl-color-buffer_bit";
-#define FUNCTION rsfn_gl_gen_fun_gl_color_buffer_bit_name
+static char rsfn_gl_clear_color_name[] = "gl-clear-color";
+#define FUNCTION rsfn_gl_clear_color_name
 
-PROLOGUE(gl_gen_fun_gl_color_buffer_bit)
+PROLOGUE(gl_clear_color)
 
-BEGIN_FWD(gl_gen_fun_gl_color_buffer_bit)
-  FWD_MONOTONE(gl_gen_fun_gl_color_buffer_bit_0)
-END_FWD(gl_gen_fun_gl_color_buffer_bit)
+BEGIN_FWD(gl_clear_color)
+  FWD_MONOTONE(gl_clear_color_0)
+END_FWD(gl_clear_color)
 
 #define FPLACE_CODE (1000+0)
-MONOTONE(gl_gen_fun_gl_color_buffer_bit_0)
-{  ;
-  COUNT_ARGS(1);
-  if (!instance_p(raw_GL_COLOR_BUFFER_BIT,TLREFB(0)))
-    {
-      obj c;
-      c = make5( TLREFB(1),
-                 NIL_OBJ,  /* properties */
-                 lookup_symbol( FUNCTION ),
-                 cons( raw_GL_COLOR_BUFFER_BIT, NIL_OBJ ),
-                 lookup_symbol( "GL_COLOR_BUFFER_BIT" ),
-                 TLREFB(0) );
-      raise_error( c );
-    }
-  REG0=int2fx(GL_COLOR_BUFFER_BIT);// = ;
-
+MONOTONE(gl_clear_color_0)
+{  COUNT_ARGS(4);
 
 {
-        RETURN1();
-    }}
+glClearColor(extract_float(red),extract_float(green),extract_float(blue),extract_float(alpha));
+RETURN0();
+}}
 #undef FPLACE_CODE
 
-EPILOGUE(gl_gen_fun_gl_color_buffer_bit)
+EPILOGUE(gl_clear_color)
 
-BEGIN_BACK(gl_gen_fun_gl_color_buffer_bit)
-  BACK_MONOTONE(gl_gen_fun_gl_color_buffer_bit_0)
-END_BACK(gl_gen_fun_gl_color_buffer_bit)
+BEGIN_BACK(gl_clear_color)
+  BACK_MONOTONE(gl_clear_color_0)
+END_BACK(gl_clear_color)
 
-static struct function_descr gl_gen_fun_gl_color_buffer_bit_descr = {
+static struct function_descr gl_clear_color_descr = {
 	&gl_part_glglue,
-	JUMP_TABLE( gl_gen_fun_gl_color_buffer_bit ),
-	rsfn_gl_gen_fun_gl_color_buffer_bit_name };
+	JUMP_TABLE( gl_clear_color ),
+	rsfn_gl_clear_color_name };
 #undef FUNCTION
 
-#undef raw_GL_COLOR_BUFFER_BIT
+#undef red
+#undef green
+#undef blue
+#undef alpha
 
-/****************** Raw glue `gl-gen-fun-gl-texture-2d' ******************/
-#define raw_GL_TEXTURE_2D REG0
+/************************* Raw glue `gl-color4f' *************************/
+#define red REG0
+#define green REG1
+#define blue REG2
+#define alpha REG3
 
-static char rsfn_gl_gen_fun_gl_texture_2d_name[] = "gl-gen-fun-gl-texture-2d";
-#define FUNCTION rsfn_gl_gen_fun_gl_texture_2d_name
+static char rsfn_gl_color4f_name[] = "gl-color4f";
+#define FUNCTION rsfn_gl_color4f_name
 
-PROLOGUE(gl_gen_fun_gl_texture_2d)
+PROLOGUE(gl_color4f)
 
-BEGIN_FWD(gl_gen_fun_gl_texture_2d)
-  FWD_MONOTONE(gl_gen_fun_gl_texture_2d_0)
-END_FWD(gl_gen_fun_gl_texture_2d)
+BEGIN_FWD(gl_color4f)
+  FWD_MONOTONE(gl_color4f_0)
+END_FWD(gl_color4f)
 
 #define FPLACE_CODE (1000+0)
-MONOTONE(gl_gen_fun_gl_texture_2d_0)
-{  ;
-  COUNT_ARGS(1);
-  if (!instance_p(raw_GL_TEXTURE_2D,TLREFB(0)))
-    {
-      obj c;
-      c = make5( TLREFB(1),
-                 NIL_OBJ,  /* properties */
-                 lookup_symbol( FUNCTION ),
-                 cons( raw_GL_TEXTURE_2D, NIL_OBJ ),
-                 lookup_symbol( "GL_TEXTURE_2D" ),
-                 TLREFB(0) );
-      raise_error( c );
-    }
-  REG0=int2fx(GL_TEXTURE_2D);// = ;
-
+MONOTONE(gl_color4f_0)
+{  COUNT_ARGS(4);
 
 {
-        RETURN1();
-    }}
+glColor4f(extract_float(red),extract_float(green),extract_float(blue),extract_float(alpha));
+RETURN0();
+}}
 #undef FPLACE_CODE
 
-EPILOGUE(gl_gen_fun_gl_texture_2d)
+EPILOGUE(gl_color4f)
 
-BEGIN_BACK(gl_gen_fun_gl_texture_2d)
-  BACK_MONOTONE(gl_gen_fun_gl_texture_2d_0)
-END_BACK(gl_gen_fun_gl_texture_2d)
+BEGIN_BACK(gl_color4f)
+  BACK_MONOTONE(gl_color4f_0)
+END_BACK(gl_color4f)
 
-static struct function_descr gl_gen_fun_gl_texture_2d_descr = {
+static struct function_descr gl_color4f_descr = {
 	&gl_part_glglue,
-	JUMP_TABLE( gl_gen_fun_gl_texture_2d ),
-	rsfn_gl_gen_fun_gl_texture_2d_name };
+	JUMP_TABLE( gl_color4f ),
+	rsfn_gl_color4f_name };
 #undef FUNCTION
 
-#undef raw_GL_TEXTURE_2D
+#undef red
+#undef green
+#undef blue
+#undef alpha
 
-/************** Raw glue `gl-gen-fun-gl-texture-coord-array' **************/
-#define raw_GL_TEXTURE_COORD_ARRAY REG0
+/*********************** Raw glue `gl-matrix-mode' ***********************/
+#define mode REG0
 
-static char rsfn_gl_gen_fun_gl_texture_coord_array_name[] = "gl-gen-fun-gl-texture-coord-array";
-#define FUNCTION rsfn_gl_gen_fun_gl_texture_coord_array_name
+static char rsfn_gl_matrix_mode_name[] = "gl-matrix-mode";
+#define FUNCTION rsfn_gl_matrix_mode_name
 
-PROLOGUE(gl_gen_fun_gl_texture_coord_array)
+PROLOGUE(gl_matrix_mode)
 
-BEGIN_FWD(gl_gen_fun_gl_texture_coord_array)
-  FWD_MONOTONE(gl_gen_fun_gl_texture_coord_array_0)
-END_FWD(gl_gen_fun_gl_texture_coord_array)
+BEGIN_FWD(gl_matrix_mode)
+  FWD_MONOTONE(gl_matrix_mode_0)
+END_FWD(gl_matrix_mode)
 
 #define FPLACE_CODE (1000+0)
-MONOTONE(gl_gen_fun_gl_texture_coord_array_0)
-{  ;
-  COUNT_ARGS(1);
-  if (!instance_p(raw_GL_TEXTURE_COORD_ARRAY,TLREFB(0)))
-    {
-      obj c;
-      c = make5( TLREFB(1),
-                 NIL_OBJ,  /* properties */
-                 lookup_symbol( FUNCTION ),
-                 cons( raw_GL_TEXTURE_COORD_ARRAY, NIL_OBJ ),
-                 lookup_symbol( "GL_TEXTURE_COORD_ARRAY" ),
-                 TLREFB(0) );
-      raise_error( c );
-    }
-  REG0=int2fx(GL_TEXTURE_COORD_ARRAY);// = ;
-
+MONOTONE(gl_matrix_mode_0)
+{  COUNT_ARGS(1);
 
 {
-        RETURN1();
-    }}
+ glMatrixMode(fx2int(mode));
+RETURN0();
+}}
 #undef FPLACE_CODE
 
-EPILOGUE(gl_gen_fun_gl_texture_coord_array)
+EPILOGUE(gl_matrix_mode)
 
-BEGIN_BACK(gl_gen_fun_gl_texture_coord_array)
-  BACK_MONOTONE(gl_gen_fun_gl_texture_coord_array_0)
-END_BACK(gl_gen_fun_gl_texture_coord_array)
+BEGIN_BACK(gl_matrix_mode)
+  BACK_MONOTONE(gl_matrix_mode_0)
+END_BACK(gl_matrix_mode)
 
-static struct function_descr gl_gen_fun_gl_texture_coord_array_descr = {
+static struct function_descr gl_matrix_mode_descr = {
 	&gl_part_glglue,
-	JUMP_TABLE( gl_gen_fun_gl_texture_coord_array ),
-	rsfn_gl_gen_fun_gl_texture_coord_array_name };
+	JUMP_TABLE( gl_matrix_mode ),
+	rsfn_gl_matrix_mode_name };
 #undef FUNCTION
 
-#undef raw_GL_TEXTURE_COORD_ARRAY
+#undef mode
 
-/********************* Raw glue `gl-gen-fun-gl-short' *********************/
-#define raw_GL_SHORT REG0
+/*********************** Raw glue `gl-push-matrix' ***********************/
 
-static char rsfn_gl_gen_fun_gl_short_name[] = "gl-gen-fun-gl-short";
-#define FUNCTION rsfn_gl_gen_fun_gl_short_name
+static char rsfn_gl_push_matrix_name[] = "gl-push-matrix";
+#define FUNCTION rsfn_gl_push_matrix_name
 
-PROLOGUE(gl_gen_fun_gl_short)
+PROLOGUE(gl_push_matrix)
 
-BEGIN_FWD(gl_gen_fun_gl_short)
-  FWD_MONOTONE(gl_gen_fun_gl_short_0)
-END_FWD(gl_gen_fun_gl_short)
+BEGIN_FWD(gl_push_matrix)
+  FWD_MONOTONE(gl_push_matrix_0)
+END_FWD(gl_push_matrix)
 
 #define FPLACE_CODE (1000+0)
-MONOTONE(gl_gen_fun_gl_short_0)
-{  ;
-  COUNT_ARGS(1);
-  if (!instance_p(raw_GL_SHORT,TLREFB(0)))
-    {
-      obj c;
-      c = make5( TLREFB(1),
-                 NIL_OBJ,  /* properties */
-                 lookup_symbol( FUNCTION ),
-                 cons( raw_GL_SHORT, NIL_OBJ ),
-                 lookup_symbol( "GL_SHORT" ),
-                 TLREFB(0) );
-      raise_error( c );
-    }
-  REG0=int2fx(GL_SHORT);// = ;
-
+MONOTONE(gl_push_matrix_0)
+{  COUNT_ARGS(0);
 
 {
-        RETURN1();
-    }}
+glPushMatrix();
+RETURN0();
+}}
 #undef FPLACE_CODE
 
-EPILOGUE(gl_gen_fun_gl_short)
+EPILOGUE(gl_push_matrix)
 
-BEGIN_BACK(gl_gen_fun_gl_short)
-  BACK_MONOTONE(gl_gen_fun_gl_short_0)
-END_BACK(gl_gen_fun_gl_short)
+BEGIN_BACK(gl_push_matrix)
+  BACK_MONOTONE(gl_push_matrix_0)
+END_BACK(gl_push_matrix)
 
-static struct function_descr gl_gen_fun_gl_short_descr = {
+static struct function_descr gl_push_matrix_descr = {
 	&gl_part_glglue,
-	JUMP_TABLE( gl_gen_fun_gl_short ),
-	rsfn_gl_gen_fun_gl_short_name };
+	JUMP_TABLE( gl_push_matrix ),
+	rsfn_gl_push_matrix_name };
 #undef FUNCTION
 
-#undef raw_GL_SHORT
 
-/************** Raw glue `gl-gen-fun-gl-texture-min-filter' **************/
-#define raw_GL_TEXTURE_MIN_FILTER REG0
+/************************ Raw glue `gl-pop-matrix' ************************/
 
-static char rsfn_gl_gen_fun_gl_texture_min_filter_name[] = "gl-gen-fun-gl-texture-min-filter";
-#define FUNCTION rsfn_gl_gen_fun_gl_texture_min_filter_name
+static char rsfn_gl_pop_matrix_name[] = "gl-pop-matrix";
+#define FUNCTION rsfn_gl_pop_matrix_name
 
-PROLOGUE(gl_gen_fun_gl_texture_min_filter)
+PROLOGUE(gl_pop_matrix)
 
-BEGIN_FWD(gl_gen_fun_gl_texture_min_filter)
-  FWD_MONOTONE(gl_gen_fun_gl_texture_min_filter_0)
-END_FWD(gl_gen_fun_gl_texture_min_filter)
+BEGIN_FWD(gl_pop_matrix)
+  FWD_MONOTONE(gl_pop_matrix_0)
+END_FWD(gl_pop_matrix)
 
 #define FPLACE_CODE (1000+0)
-MONOTONE(gl_gen_fun_gl_texture_min_filter_0)
-{  ;
-  COUNT_ARGS(1);
-  if (!instance_p(raw_GL_TEXTURE_MIN_FILTER,TLREFB(0)))
-    {
-      obj c;
-      c = make5( TLREFB(1),
-                 NIL_OBJ,  /* properties */
-                 lookup_symbol( FUNCTION ),
-                 cons( raw_GL_TEXTURE_MIN_FILTER, NIL_OBJ ),
-                 lookup_symbol( "GL_TEXTURE_MIN_FILTER" ),
-                 TLREFB(0) );
-      raise_error( c );
-    }
-  REG0=int2fx(GL_TEXTURE_MIN_FILTER);// = ;
-
+MONOTONE(gl_pop_matrix_0)
+{  COUNT_ARGS(0);
 
 {
-        RETURN1();
-    }}
+glPopMatrix();
+RETURN0();
+}}
 #undef FPLACE_CODE
 
-EPILOGUE(gl_gen_fun_gl_texture_min_filter)
+EPILOGUE(gl_pop_matrix)
 
-BEGIN_BACK(gl_gen_fun_gl_texture_min_filter)
-  BACK_MONOTONE(gl_gen_fun_gl_texture_min_filter_0)
-END_BACK(gl_gen_fun_gl_texture_min_filter)
+BEGIN_BACK(gl_pop_matrix)
+  BACK_MONOTONE(gl_pop_matrix_0)
+END_BACK(gl_pop_matrix)
 
-static struct function_descr gl_gen_fun_gl_texture_min_filter_descr = {
+static struct function_descr gl_pop_matrix_descr = {
 	&gl_part_glglue,
-	JUMP_TABLE( gl_gen_fun_gl_texture_min_filter ),
-	rsfn_gl_gen_fun_gl_texture_min_filter_name };
+	JUMP_TABLE( gl_pop_matrix ),
+	rsfn_gl_pop_matrix_name };
 #undef FUNCTION
 
-#undef raw_GL_TEXTURE_MIN_FILTER
 
-/************** Raw glue `gl-gen-fun-gl-texture-mag-filter' **************/
-#define raw_GL_TEXTURE_MAG_FILTER REG0
+/************************ Raw glue `gl-translatef' ************************/
+#define x REG0
+#define y REG1
+#define z REG2
 
-static char rsfn_gl_gen_fun_gl_texture_mag_filter_name[] = "gl-gen-fun-gl-texture-mag-filter";
-#define FUNCTION rsfn_gl_gen_fun_gl_texture_mag_filter_name
+static char rsfn_gl_translatef_name[] = "gl-translatef";
+#define FUNCTION rsfn_gl_translatef_name
 
-PROLOGUE(gl_gen_fun_gl_texture_mag_filter)
+PROLOGUE(gl_translatef)
 
-BEGIN_FWD(gl_gen_fun_gl_texture_mag_filter)
-  FWD_MONOTONE(gl_gen_fun_gl_texture_mag_filter_0)
-END_FWD(gl_gen_fun_gl_texture_mag_filter)
+BEGIN_FWD(gl_translatef)
+  FWD_MONOTONE(gl_translatef_0)
+END_FWD(gl_translatef)
 
 #define FPLACE_CODE (1000+0)
-MONOTONE(gl_gen_fun_gl_texture_mag_filter_0)
-{  ;
-  COUNT_ARGS(1);
-  if (!instance_p(raw_GL_TEXTURE_MAG_FILTER,TLREFB(0)))
-    {
-      obj c;
-      c = make5( TLREFB(1),
-                 NIL_OBJ,  /* properties */
-                 lookup_symbol( FUNCTION ),
-                 cons( raw_GL_TEXTURE_MAG_FILTER, NIL_OBJ ),
-                 lookup_symbol( "GL_TEXTURE_MAG_FILTER" ),
-                 TLREFB(0) );
-      raise_error( c );
-    }
-  REG0=int2fx(GL_TEXTURE_MAG_FILTER);// = ;
-
+MONOTONE(gl_translatef_0)
+{  COUNT_ARGS(3);
 
 {
-        RETURN1();
-    }}
+glTranslatef(extract_float(x),extract_float(y),extract_float(z));
+RETURN0();
+}}
 #undef FPLACE_CODE
 
-EPILOGUE(gl_gen_fun_gl_texture_mag_filter)
+EPILOGUE(gl_translatef)
 
-BEGIN_BACK(gl_gen_fun_gl_texture_mag_filter)
-  BACK_MONOTONE(gl_gen_fun_gl_texture_mag_filter_0)
-END_BACK(gl_gen_fun_gl_texture_mag_filter)
+BEGIN_BACK(gl_translatef)
+  BACK_MONOTONE(gl_translatef_0)
+END_BACK(gl_translatef)
 
-static struct function_descr gl_gen_fun_gl_texture_mag_filter_descr = {
+static struct function_descr gl_translatef_descr = {
 	&gl_part_glglue,
-	JUMP_TABLE( gl_gen_fun_gl_texture_mag_filter ),
-	rsfn_gl_gen_fun_gl_texture_mag_filter_name };
+	JUMP_TABLE( gl_translatef ),
+	rsfn_gl_translatef_name };
 #undef FUNCTION
 
-#undef raw_GL_TEXTURE_MAG_FILTER
+#undef x
+#undef y
+#undef z
 
-/******************** Raw glue `gl-gen-fun-gl-linear' ********************/
-#define raw_GL_LINEAR REG0
+/************************** Raw glue `gl-scalef' **************************/
+#define x REG0
+#define y REG1
+#define z REG2
 
-static char rsfn_gl_gen_fun_gl_linear_name[] = "gl-gen-fun-gl-linear";
-#define FUNCTION rsfn_gl_gen_fun_gl_linear_name
+static char rsfn_gl_scalef_name[] = "gl-scalef";
+#define FUNCTION rsfn_gl_scalef_name
 
-PROLOGUE(gl_gen_fun_gl_linear)
+PROLOGUE(gl_scalef)
 
-BEGIN_FWD(gl_gen_fun_gl_linear)
-  FWD_MONOTONE(gl_gen_fun_gl_linear_0)
-END_FWD(gl_gen_fun_gl_linear)
+BEGIN_FWD(gl_scalef)
+  FWD_MONOTONE(gl_scalef_0)
+END_FWD(gl_scalef)
 
 #define FPLACE_CODE (1000+0)
-MONOTONE(gl_gen_fun_gl_linear_0)
-{  ;
-  COUNT_ARGS(1);
-  if (!instance_p(raw_GL_LINEAR,TLREFB(0)))
-    {
-      obj c;
-      c = make5( TLREFB(1),
-                 NIL_OBJ,  /* properties */
-                 lookup_symbol( FUNCTION ),
-                 cons( raw_GL_LINEAR, NIL_OBJ ),
-                 lookup_symbol( "GL_LINEAR" ),
-                 TLREFB(0) );
-      raise_error( c );
-    }
-  REG0=int2fx(GL_LINEAR);// = ;
-
+MONOTONE(gl_scalef_0)
+{  COUNT_ARGS(3);
 
 {
-        RETURN1();
-    }}
+glScalef(extract_float(x),extract_float(y),extract_float(z));
+RETURN0();
+}}
 #undef FPLACE_CODE
 
-EPILOGUE(gl_gen_fun_gl_linear)
+EPILOGUE(gl_scalef)
 
-BEGIN_BACK(gl_gen_fun_gl_linear)
-  BACK_MONOTONE(gl_gen_fun_gl_linear_0)
-END_BACK(gl_gen_fun_gl_linear)
+BEGIN_BACK(gl_scalef)
+  BACK_MONOTONE(gl_scalef_0)
+END_BACK(gl_scalef)
 
-static struct function_descr gl_gen_fun_gl_linear_descr = {
+static struct function_descr gl_scalef_descr = {
 	&gl_part_glglue,
-	JUMP_TABLE( gl_gen_fun_gl_linear ),
-	rsfn_gl_gen_fun_gl_linear_name };
+	JUMP_TABLE( gl_scalef ),
+	rsfn_gl_scalef_name };
 #undef FUNCTION
 
-#undef raw_GL_LINEAR
+#undef x
+#undef y
+#undef z
 
-/******************** Raw glue `gl-gen-fun-gl-nearest' ********************/
-#define raw_GL_NEAREST REG0
+/************************* Raw glue `gl-rotatef' *************************/
+#define angle REG0
+#define x REG1
+#define y REG2
+#define z REG3
 
-static char rsfn_gl_gen_fun_gl_nearest_name[] = "gl-gen-fun-gl-nearest";
-#define FUNCTION rsfn_gl_gen_fun_gl_nearest_name
+static char rsfn_gl_rotatef_name[] = "gl-rotatef";
+#define FUNCTION rsfn_gl_rotatef_name
 
-PROLOGUE(gl_gen_fun_gl_nearest)
+PROLOGUE(gl_rotatef)
 
-BEGIN_FWD(gl_gen_fun_gl_nearest)
-  FWD_MONOTONE(gl_gen_fun_gl_nearest_0)
-END_FWD(gl_gen_fun_gl_nearest)
+BEGIN_FWD(gl_rotatef)
+  FWD_MONOTONE(gl_rotatef_0)
+END_FWD(gl_rotatef)
 
 #define FPLACE_CODE (1000+0)
-MONOTONE(gl_gen_fun_gl_nearest_0)
-{  ;
-  COUNT_ARGS(1);
-  if (!instance_p(raw_GL_NEAREST,TLREFB(0)))
-    {
-      obj c;
-      c = make5( TLREFB(1),
-                 NIL_OBJ,  /* properties */
-                 lookup_symbol( FUNCTION ),
-                 cons( raw_GL_NEAREST, NIL_OBJ ),
-                 lookup_symbol( "GL_NEAREST" ),
-                 TLREFB(0) );
-      raise_error( c );
-    }
-  REG0=int2fx(GL_NEAREST);// = ;
-
+MONOTONE(gl_rotatef_0)
+{  COUNT_ARGS(4);
 
 {
-        RETURN1();
-    }}
+glRotatef(extract_float(angle), extract_float(x),extract_float(y),extract_float(z));
+RETURN0();
+}}
 #undef FPLACE_CODE
 
-EPILOGUE(gl_gen_fun_gl_nearest)
+EPILOGUE(gl_rotatef)
 
-BEGIN_BACK(gl_gen_fun_gl_nearest)
-  BACK_MONOTONE(gl_gen_fun_gl_nearest_0)
-END_BACK(gl_gen_fun_gl_nearest)
+BEGIN_BACK(gl_rotatef)
+  BACK_MONOTONE(gl_rotatef_0)
+END_BACK(gl_rotatef)
 
-static struct function_descr gl_gen_fun_gl_nearest_descr = {
+static struct function_descr gl_rotatef_descr = {
 	&gl_part_glglue,
-	JUMP_TABLE( gl_gen_fun_gl_nearest ),
-	rsfn_gl_gen_fun_gl_nearest_name };
+	JUMP_TABLE( gl_rotatef ),
+	rsfn_gl_rotatef_name };
 #undef FUNCTION
 
-#undef raw_GL_NEAREST
+#undef angle
+#undef x
+#undef y
+#undef z
 
-/************* Raw glue `gl-gen-fun-gl-linear-mipmap-linear' *************/
-#define raw_GL_LINEAR_MIPMAP_LINEAR REG0
+/************************** Raw glue `gl-enable' **************************/
+#define e REG0
 
-static char rsfn_gl_gen_fun_gl_linear_mipmap_linear_name[] = "gl-gen-fun-gl-linear-mipmap-linear";
-#define FUNCTION rsfn_gl_gen_fun_gl_linear_mipmap_linear_name
+static char rsfn_gl_enable_name[] = "gl-enable";
+#define FUNCTION rsfn_gl_enable_name
 
-PROLOGUE(gl_gen_fun_gl_linear_mipmap_linear)
+PROLOGUE(gl_enable)
 
-BEGIN_FWD(gl_gen_fun_gl_linear_mipmap_linear)
-  FWD_MONOTONE(gl_gen_fun_gl_linear_mipmap_linear_0)
-END_FWD(gl_gen_fun_gl_linear_mipmap_linear)
+BEGIN_FWD(gl_enable)
+  FWD_MONOTONE(gl_enable_0)
+END_FWD(gl_enable)
 
 #define FPLACE_CODE (1000+0)
-MONOTONE(gl_gen_fun_gl_linear_mipmap_linear_0)
-{  ;
-  COUNT_ARGS(1);
-  if (!instance_p(raw_GL_LINEAR_MIPMAP_LINEAR,TLREFB(0)))
-    {
-      obj c;
-      c = make5( TLREFB(1),
-                 NIL_OBJ,  /* properties */
-                 lookup_symbol( FUNCTION ),
-                 cons( raw_GL_LINEAR_MIPMAP_LINEAR, NIL_OBJ ),
-                 lookup_symbol( "GL_LINEAR_MIPMAP_LINEAR" ),
-                 TLREFB(0) );
-      raise_error( c );
-    }
-  REG0=int2fx(GL_LINEAR_MIPMAP_LINEAR);// = ;
-
+MONOTONE(gl_enable_0)
+{  COUNT_ARGS(1);
 
 {
-        RETURN1();
-    }}
+glEnable(fx2int(e));
+RETURN0();
+}}
 #undef FPLACE_CODE
 
-EPILOGUE(gl_gen_fun_gl_linear_mipmap_linear)
+EPILOGUE(gl_enable)
 
-BEGIN_BACK(gl_gen_fun_gl_linear_mipmap_linear)
-  BACK_MONOTONE(gl_gen_fun_gl_linear_mipmap_linear_0)
-END_BACK(gl_gen_fun_gl_linear_mipmap_linear)
+BEGIN_BACK(gl_enable)
+  BACK_MONOTONE(gl_enable_0)
+END_BACK(gl_enable)
 
-static struct function_descr gl_gen_fun_gl_linear_mipmap_linear_descr = {
+static struct function_descr gl_enable_descr = {
 	&gl_part_glglue,
-	JUMP_TABLE( gl_gen_fun_gl_linear_mipmap_linear ),
-	rsfn_gl_gen_fun_gl_linear_mipmap_linear_name };
+	JUMP_TABLE( gl_enable ),
+	rsfn_gl_enable_name };
 #undef FUNCTION
 
-#undef raw_GL_LINEAR_MIPMAP_LINEAR
+#undef e
 
-/***************** Raw glue `gl-gen-fun-gl-vertex_array' *****************/
-#define raw_GL_VERTEX_ARRAY REG0
+/************************* Raw glue `gl-disable' *************************/
+#define e REG0
 
-static char rsfn_gl_gen_fun_gl_vertex_array_name[] = "gl-gen-fun-gl-vertex_array";
-#define FUNCTION rsfn_gl_gen_fun_gl_vertex_array_name
+static char rsfn_gl_disable_name[] = "gl-disable";
+#define FUNCTION rsfn_gl_disable_name
 
-PROLOGUE(gl_gen_fun_gl_vertex_array)
+PROLOGUE(gl_disable)
 
-BEGIN_FWD(gl_gen_fun_gl_vertex_array)
-  FWD_MONOTONE(gl_gen_fun_gl_vertex_array_0)
-END_FWD(gl_gen_fun_gl_vertex_array)
+BEGIN_FWD(gl_disable)
+  FWD_MONOTONE(gl_disable_0)
+END_FWD(gl_disable)
 
 #define FPLACE_CODE (1000+0)
-MONOTONE(gl_gen_fun_gl_vertex_array_0)
-{  ;
-  COUNT_ARGS(1);
-  if (!instance_p(raw_GL_VERTEX_ARRAY,TLREFB(0)))
-    {
-      obj c;
-      c = make5( TLREFB(1),
-                 NIL_OBJ,  /* properties */
-                 lookup_symbol( FUNCTION ),
-                 cons( raw_GL_VERTEX_ARRAY, NIL_OBJ ),
-                 lookup_symbol( "GL_VERTEX_ARRAY" ),
-                 TLREFB(0) );
-      raise_error( c );
-    }
-  REG0=int2fx(GL_VERTEX_ARRAY);// = ;
-
+MONOTONE(gl_disable_0)
+{  COUNT_ARGS(1);
 
 {
-        RETURN1();
-    }}
+glDisable(fx2int(e));
+RETURN0();
+}}
 #undef FPLACE_CODE
 
-EPILOGUE(gl_gen_fun_gl_vertex_array)
+EPILOGUE(gl_disable)
 
-BEGIN_BACK(gl_gen_fun_gl_vertex_array)
-  BACK_MONOTONE(gl_gen_fun_gl_vertex_array_0)
-END_BACK(gl_gen_fun_gl_vertex_array)
+BEGIN_BACK(gl_disable)
+  BACK_MONOTONE(gl_disable_0)
+END_BACK(gl_disable)
 
-static struct function_descr gl_gen_fun_gl_vertex_array_descr = {
+static struct function_descr gl_disable_descr = {
 	&gl_part_glglue,
-	JUMP_TABLE( gl_gen_fun_gl_vertex_array ),
-	rsfn_gl_gen_fun_gl_vertex_array_name };
+	JUMP_TABLE( gl_disable ),
+	rsfn_gl_disable_name };
 #undef FUNCTION
 
-#undef raw_GL_VERTEX_ARRAY
+#undef e
 
-/****************** Raw glue `gl-gen-fun-gl-color_array' ******************/
-#define raw_GL_COLOR_ARRAY REG0
+/************************ Raw glue `gl-blend-func' ************************/
+#define sfactor REG0
+#define dfactor REG1
 
-static char rsfn_gl_gen_fun_gl_color_array_name[] = "gl-gen-fun-gl-color_array";
-#define FUNCTION rsfn_gl_gen_fun_gl_color_array_name
+static char rsfn_gl_blend_func_name[] = "gl-blend-func";
+#define FUNCTION rsfn_gl_blend_func_name
 
-PROLOGUE(gl_gen_fun_gl_color_array)
+PROLOGUE(gl_blend_func)
 
-BEGIN_FWD(gl_gen_fun_gl_color_array)
-  FWD_MONOTONE(gl_gen_fun_gl_color_array_0)
-END_FWD(gl_gen_fun_gl_color_array)
+BEGIN_FWD(gl_blend_func)
+  FWD_MONOTONE(gl_blend_func_0)
+END_FWD(gl_blend_func)
 
 #define FPLACE_CODE (1000+0)
-MONOTONE(gl_gen_fun_gl_color_array_0)
-{  ;
-  COUNT_ARGS(1);
-  if (!instance_p(raw_GL_COLOR_ARRAY,TLREFB(0)))
-    {
-      obj c;
-      c = make5( TLREFB(1),
-                 NIL_OBJ,  /* properties */
-                 lookup_symbol( FUNCTION ),
-                 cons( raw_GL_COLOR_ARRAY, NIL_OBJ ),
-                 lookup_symbol( "GL_COLOR_ARRAY" ),
-                 TLREFB(0) );
-      raise_error( c );
-    }
-  REG0=int2fx(GL_COLOR_ARRAY);// = ;
-
+MONOTONE(gl_blend_func_0)
+{  COUNT_ARGS(2);
 
 {
-        RETURN1();
-    }}
+glBlendFunc(extract_float(sfactor),extract_float(dfactor) );
+RETURN0();
+}}
 #undef FPLACE_CODE
 
-EPILOGUE(gl_gen_fun_gl_color_array)
+EPILOGUE(gl_blend_func)
 
-BEGIN_BACK(gl_gen_fun_gl_color_array)
-  BACK_MONOTONE(gl_gen_fun_gl_color_array_0)
-END_BACK(gl_gen_fun_gl_color_array)
+BEGIN_BACK(gl_blend_func)
+  BACK_MONOTONE(gl_blend_func_0)
+END_BACK(gl_blend_func)
 
-static struct function_descr gl_gen_fun_gl_color_array_descr = {
+static struct function_descr gl_blend_func_descr = {
 	&gl_part_glglue,
-	JUMP_TABLE( gl_gen_fun_gl_color_array ),
-	rsfn_gl_gen_fun_gl_color_array_name };
+	JUMP_TABLE( gl_blend_func ),
+	rsfn_gl_blend_func_name };
 #undef FUNCTION
 
-#undef raw_GL_COLOR_ARRAY
+#undef sfactor
+#undef dfactor
 
-/********************* Raw glue `gl-gen-fun-gl-blend' *********************/
-#define raw_GL_BLEND REG0
+/******************* Raw glue `gl-enable-client-state' *******************/
+#define e REG0
 
-static char rsfn_gl_gen_fun_gl_blend_name[] = "gl-gen-fun-gl-blend";
-#define FUNCTION rsfn_gl_gen_fun_gl_blend_name
+static char rsfn_gl_enable_client_state_name[] = "gl-enable-client-state";
+#define FUNCTION rsfn_gl_enable_client_state_name
 
-PROLOGUE(gl_gen_fun_gl_blend)
+PROLOGUE(gl_enable_client_state)
 
-BEGIN_FWD(gl_gen_fun_gl_blend)
-  FWD_MONOTONE(gl_gen_fun_gl_blend_0)
-END_FWD(gl_gen_fun_gl_blend)
+BEGIN_FWD(gl_enable_client_state)
+  FWD_MONOTONE(gl_enable_client_state_0)
+END_FWD(gl_enable_client_state)
 
 #define FPLACE_CODE (1000+0)
-MONOTONE(gl_gen_fun_gl_blend_0)
-{  ;
-  COUNT_ARGS(1);
-  if (!instance_p(raw_GL_BLEND,TLREFB(0)))
-    {
-      obj c;
-      c = make5( TLREFB(1),
-                 NIL_OBJ,  /* properties */
-                 lookup_symbol( FUNCTION ),
-                 cons( raw_GL_BLEND, NIL_OBJ ),
-                 lookup_symbol( "GL_BLEND" ),
-                 TLREFB(0) );
-      raise_error( c );
-    }
-  REG0=int2fx(GL_BLEND);// = ;
-
+MONOTONE(gl_enable_client_state_0)
+{  COUNT_ARGS(1);
 
 {
-        RETURN1();
-    }}
+glEnableClientState(fx2int(e));
+RETURN0();
+}}
 #undef FPLACE_CODE
 
-EPILOGUE(gl_gen_fun_gl_blend)
+EPILOGUE(gl_enable_client_state)
 
-BEGIN_BACK(gl_gen_fun_gl_blend)
-  BACK_MONOTONE(gl_gen_fun_gl_blend_0)
-END_BACK(gl_gen_fun_gl_blend)
+BEGIN_BACK(gl_enable_client_state)
+  BACK_MONOTONE(gl_enable_client_state_0)
+END_BACK(gl_enable_client_state)
 
-static struct function_descr gl_gen_fun_gl_blend_descr = {
+static struct function_descr gl_enable_client_state_descr = {
 	&gl_part_glglue,
-	JUMP_TABLE( gl_gen_fun_gl_blend ),
-	rsfn_gl_gen_fun_gl_blend_name };
+	JUMP_TABLE( gl_enable_client_state ),
+	rsfn_gl_enable_client_state_name };
 #undef FUNCTION
 
-#undef raw_GL_BLEND
+#undef e
 
-/******************* Raw glue `gl-gen-fun-gl-src-alpha' *******************/
-#define raw_GL_SRC_ALPHA REG0
+/******************* Raw glue `gl-disable-client-state' *******************/
+#define e REG0
 
-static char rsfn_gl_gen_fun_gl_src_alpha_name[] = "gl-gen-fun-gl-src-alpha";
-#define FUNCTION rsfn_gl_gen_fun_gl_src_alpha_name
+static char rsfn_gl_disable_client_state_name[] = "gl-disable-client-state";
+#define FUNCTION rsfn_gl_disable_client_state_name
 
-PROLOGUE(gl_gen_fun_gl_src_alpha)
+PROLOGUE(gl_disable_client_state)
 
-BEGIN_FWD(gl_gen_fun_gl_src_alpha)
-  FWD_MONOTONE(gl_gen_fun_gl_src_alpha_0)
-END_FWD(gl_gen_fun_gl_src_alpha)
+BEGIN_FWD(gl_disable_client_state)
+  FWD_MONOTONE(gl_disable_client_state_0)
+END_FWD(gl_disable_client_state)
 
 #define FPLACE_CODE (1000+0)
-MONOTONE(gl_gen_fun_gl_src_alpha_0)
-{  ;
-  COUNT_ARGS(1);
-  if (!instance_p(raw_GL_SRC_ALPHA,TLREFB(0)))
-    {
-      obj c;
-      c = make5( TLREFB(1),
-                 NIL_OBJ,  /* properties */
-                 lookup_symbol( FUNCTION ),
-                 cons( raw_GL_SRC_ALPHA, NIL_OBJ ),
-                 lookup_symbol( "GL_SRC_ALPHA" ),
-                 TLREFB(0) );
-      raise_error( c );
-    }
-  REG0=int2fx(GL_SRC_ALPHA);// = ;
-
+MONOTONE(gl_disable_client_state_0)
+{  COUNT_ARGS(1);
 
 {
-        RETURN1();
-    }}
+glDisableClientState(fx2int(e));
+RETURN0();
+}}
 #undef FPLACE_CODE
 
-EPILOGUE(gl_gen_fun_gl_src_alpha)
+EPILOGUE(gl_disable_client_state)
 
-BEGIN_BACK(gl_gen_fun_gl_src_alpha)
-  BACK_MONOTONE(gl_gen_fun_gl_src_alpha_0)
-END_BACK(gl_gen_fun_gl_src_alpha)
+BEGIN_BACK(gl_disable_client_state)
+  BACK_MONOTONE(gl_disable_client_state_0)
+END_BACK(gl_disable_client_state)
 
-static struct function_descr gl_gen_fun_gl_src_alpha_descr = {
+static struct function_descr gl_disable_client_state_descr = {
 	&gl_part_glglue,
-	JUMP_TABLE( gl_gen_fun_gl_src_alpha ),
-	rsfn_gl_gen_fun_gl_src_alpha_name };
+	JUMP_TABLE( gl_disable_client_state ),
+	rsfn_gl_disable_client_state_name };
 #undef FUNCTION
 
-#undef raw_GL_SRC_ALPHA
+#undef e
 
-/************** Raw glue `gl-gen-fun-gl-one-minus-src-alpha' **************/
-#define raw_GL_ONE_MINUS_SRC_ALPHA REG0
+/*********************** Raw glue `gl-draw-arrays' ***********************/
+#define mode REG0
+#define first REG1
+#define count REG2
 
-static char rsfn_gl_gen_fun_gl_one_minus_src_alpha_name[] = "gl-gen-fun-gl-one-minus-src-alpha";
-#define FUNCTION rsfn_gl_gen_fun_gl_one_minus_src_alpha_name
+static char rsfn_gl_draw_arrays_name[] = "gl-draw-arrays";
+#define FUNCTION rsfn_gl_draw_arrays_name
 
-PROLOGUE(gl_gen_fun_gl_one_minus_src_alpha)
+PROLOGUE(gl_draw_arrays)
 
-BEGIN_FWD(gl_gen_fun_gl_one_minus_src_alpha)
-  FWD_MONOTONE(gl_gen_fun_gl_one_minus_src_alpha_0)
-END_FWD(gl_gen_fun_gl_one_minus_src_alpha)
+BEGIN_FWD(gl_draw_arrays)
+  FWD_MONOTONE(gl_draw_arrays_0)
+END_FWD(gl_draw_arrays)
 
 #define FPLACE_CODE (1000+0)
-MONOTONE(gl_gen_fun_gl_one_minus_src_alpha_0)
-{  ;
-  COUNT_ARGS(1);
-  if (!instance_p(raw_GL_ONE_MINUS_SRC_ALPHA,TLREFB(0)))
-    {
-      obj c;
-      c = make5( TLREFB(1),
-                 NIL_OBJ,  /* properties */
-                 lookup_symbol( FUNCTION ),
-                 cons( raw_GL_ONE_MINUS_SRC_ALPHA, NIL_OBJ ),
-                 lookup_symbol( "GL_ONE_MINUS_SRC_ALPHA" ),
-                 TLREFB(0) );
-      raise_error( c );
-    }
-  REG0=int2fx(GL_ONE_MINUS_SRC_ALPHA);// = ;
-
+MONOTONE(gl_draw_arrays_0)
+{  COUNT_ARGS(3);
 
 {
-        RETURN1();
-    }}
+glDrawArrays(fx2int(mode),fx2int(first),fx2int(count));
+RETURN0();
+}}
 #undef FPLACE_CODE
 
-EPILOGUE(gl_gen_fun_gl_one_minus_src_alpha)
+EPILOGUE(gl_draw_arrays)
 
-BEGIN_BACK(gl_gen_fun_gl_one_minus_src_alpha)
-  BACK_MONOTONE(gl_gen_fun_gl_one_minus_src_alpha_0)
-END_BACK(gl_gen_fun_gl_one_minus_src_alpha)
+BEGIN_BACK(gl_draw_arrays)
+  BACK_MONOTONE(gl_draw_arrays_0)
+END_BACK(gl_draw_arrays)
 
-static struct function_descr gl_gen_fun_gl_one_minus_src_alpha_descr = {
+static struct function_descr gl_draw_arrays_descr = {
 	&gl_part_glglue,
-	JUMP_TABLE( gl_gen_fun_gl_one_minus_src_alpha ),
-	rsfn_gl_gen_fun_gl_one_minus_src_alpha_name };
+	JUMP_TABLE( gl_draw_arrays ),
+	rsfn_gl_draw_arrays_name };
 #undef FUNCTION
 
-#undef raw_GL_ONE_MINUS_SRC_ALPHA
+#undef mode
+#undef first
+#undef count
 
-/******************* Raw glue `gl-gen-fun-gl-triangles' *******************/
-#define raw_GL_TRIANGLES REG0
+/********************** Raw glue `gl-vertex-pointer' **********************/
+#define size REG0
+#define type REG1
+#define stride REG2
+#define pointer REG3
 
-static char rsfn_gl_gen_fun_gl_triangles_name[] = "gl-gen-fun-gl-triangles";
-#define FUNCTION rsfn_gl_gen_fun_gl_triangles_name
+static char rsfn_gl_vertex_pointer_name[] = "gl-vertex-pointer";
+#define FUNCTION rsfn_gl_vertex_pointer_name
 
-PROLOGUE(gl_gen_fun_gl_triangles)
+PROLOGUE(gl_vertex_pointer)
 
-BEGIN_FWD(gl_gen_fun_gl_triangles)
-  FWD_MONOTONE(gl_gen_fun_gl_triangles_0)
-END_FWD(gl_gen_fun_gl_triangles)
+BEGIN_FWD(gl_vertex_pointer)
+  FWD_MONOTONE(gl_vertex_pointer_0)
+END_FWD(gl_vertex_pointer)
 
 #define FPLACE_CODE (1000+0)
-MONOTONE(gl_gen_fun_gl_triangles_0)
-{  ;
-  COUNT_ARGS(1);
-  if (!instance_p(raw_GL_TRIANGLES,TLREFB(0)))
-    {
-      obj c;
-      c = make5( TLREFB(1),
-                 NIL_OBJ,  /* properties */
-                 lookup_symbol( FUNCTION ),
-                 cons( raw_GL_TRIANGLES, NIL_OBJ ),
-                 lookup_symbol( "GL_TRIANGLES" ),
-                 TLREFB(0) );
-      raise_error( c );
-    }
-  REG0=int2fx(GL_TRIANGLES);// = ;
-
+MONOTONE(gl_vertex_pointer_0)
+{  COUNT_ARGS(4);
 
 {
-        RETURN1();
-    }}
+int t=fx2int(type);
+int s=fx2int(size);
+void *p,*v;
+
+if(VECTOR_P(pointer)){
+int n = SIZEOF_PTR(pointer)/ SLOT(1);
+
+if(t==GL_BYTE){
+p=malloc(sizeof(char)*n);
+}else if(t==GL_SHORT){
+p=malloc(sizeof(short)*n);
+}else if(t==GL_FIXED){
+p=malloc(sizeof(int)*n);
+}else if(t==GL_FLOAT){
+p=malloc(sizeof(float)*n);
+}
+v=p;
+    for(int i=0;i<n;i++){
+        obj ref_item = gvec_ref( pointer, SLOT(i) );
+        if(t==GL_FIXED){
+            *((int *)p)=fx2int(ref_item);
+            (int *)p++;
+        }else if(t==GL_FLOAT){
+            float *t=p;
+            //debug(ref_item);
+            *t=extract_float(ref_item);
+            t++;p=t;
+        }
+    }
+}
+
+glVertexPointer(s,t,fx2int(stride),p);
+if(v!=NULL)
+    free(v);
+
+RETURN0();
+}}
 #undef FPLACE_CODE
 
-EPILOGUE(gl_gen_fun_gl_triangles)
+EPILOGUE(gl_vertex_pointer)
 
-BEGIN_BACK(gl_gen_fun_gl_triangles)
-  BACK_MONOTONE(gl_gen_fun_gl_triangles_0)
-END_BACK(gl_gen_fun_gl_triangles)
+BEGIN_BACK(gl_vertex_pointer)
+  BACK_MONOTONE(gl_vertex_pointer_0)
+END_BACK(gl_vertex_pointer)
 
-static struct function_descr gl_gen_fun_gl_triangles_descr = {
+static struct function_descr gl_vertex_pointer_descr = {
 	&gl_part_glglue,
-	JUMP_TABLE( gl_gen_fun_gl_triangles ),
-	rsfn_gl_gen_fun_gl_triangles_name };
+	JUMP_TABLE( gl_vertex_pointer ),
+	rsfn_gl_vertex_pointer_name };
 #undef FUNCTION
 
-#undef raw_GL_TRIANGLES
+#undef size
+#undef type
+#undef stride
+#undef pointer
 
-/**************** Raw glue `gl-gen-fun-gl-triangle-strip' ****************/
-#define raw_GL_TRIANGLE_STRIP REG0
+/*********************** Raw glue `gl-bind-texture' ***********************/
+#define target REG0
+#define texture REG1
 
-static char rsfn_gl_gen_fun_gl_triangle_strip_name[] = "gl-gen-fun-gl-triangle-strip";
-#define FUNCTION rsfn_gl_gen_fun_gl_triangle_strip_name
+static char rsfn_gl_bind_texture_name[] = "gl-bind-texture";
+#define FUNCTION rsfn_gl_bind_texture_name
 
-PROLOGUE(gl_gen_fun_gl_triangle_strip)
+PROLOGUE(gl_bind_texture)
 
-BEGIN_FWD(gl_gen_fun_gl_triangle_strip)
-  FWD_MONOTONE(gl_gen_fun_gl_triangle_strip_0)
-END_FWD(gl_gen_fun_gl_triangle_strip)
+BEGIN_FWD(gl_bind_texture)
+  FWD_MONOTONE(gl_bind_texture_0)
+END_FWD(gl_bind_texture)
 
 #define FPLACE_CODE (1000+0)
-MONOTONE(gl_gen_fun_gl_triangle_strip_0)
-{  ;
-  COUNT_ARGS(1);
-  if (!instance_p(raw_GL_TRIANGLE_STRIP,TLREFB(0)))
-    {
-      obj c;
-      c = make5( TLREFB(1),
-                 NIL_OBJ,  /* properties */
-                 lookup_symbol( FUNCTION ),
-                 cons( raw_GL_TRIANGLE_STRIP, NIL_OBJ ),
-                 lookup_symbol( "GL_TRIANGLE_STRIP" ),
-                 TLREFB(0) );
-      raise_error( c );
-    }
-  REG0=int2fx(GL_TRIANGLE_STRIP);// = ;
-
+MONOTONE(gl_bind_texture_0)
+{  COUNT_ARGS(2);
 
 {
-        RETURN1();
-    }}
+glBindTexture(fx2int(target),fx2int(texture) );
+RETURN0();
+}}
 #undef FPLACE_CODE
 
-EPILOGUE(gl_gen_fun_gl_triangle_strip)
+EPILOGUE(gl_bind_texture)
 
-BEGIN_BACK(gl_gen_fun_gl_triangle_strip)
-  BACK_MONOTONE(gl_gen_fun_gl_triangle_strip_0)
-END_BACK(gl_gen_fun_gl_triangle_strip)
+BEGIN_BACK(gl_bind_texture)
+  BACK_MONOTONE(gl_bind_texture_0)
+END_BACK(gl_bind_texture)
 
-static struct function_descr gl_gen_fun_gl_triangle_strip_descr = {
+static struct function_descr gl_bind_texture_descr = {
 	&gl_part_glglue,
-	JUMP_TABLE( gl_gen_fun_gl_triangle_strip ),
-	rsfn_gl_gen_fun_gl_triangle_strip_name };
+	JUMP_TABLE( gl_bind_texture ),
+	rsfn_gl_bind_texture_name };
 #undef FUNCTION
 
-#undef raw_GL_TRIANGLE_STRIP
+#undef target
+#undef texture
 
-/***************** Raw glue `gl-gen-fun-gl-triangle-fan' *****************/
-#define raw_GL_TRIANGLE_FAN REG0
+/********************* Raw glue `gl-text-parameteri' *********************/
+#define target REG0
+#define pname REG1
+#define param REG2
 
-static char rsfn_gl_gen_fun_gl_triangle_fan_name[] = "gl-gen-fun-gl-triangle-fan";
-#define FUNCTION rsfn_gl_gen_fun_gl_triangle_fan_name
+static char rsfn_gl_text_parameteri_name[] = "gl-text-parameteri";
+#define FUNCTION rsfn_gl_text_parameteri_name
 
-PROLOGUE(gl_gen_fun_gl_triangle_fan)
+PROLOGUE(gl_text_parameteri)
 
-BEGIN_FWD(gl_gen_fun_gl_triangle_fan)
-  FWD_MONOTONE(gl_gen_fun_gl_triangle_fan_0)
-END_FWD(gl_gen_fun_gl_triangle_fan)
+BEGIN_FWD(gl_text_parameteri)
+  FWD_MONOTONE(gl_text_parameteri_0)
+END_FWD(gl_text_parameteri)
 
 #define FPLACE_CODE (1000+0)
-MONOTONE(gl_gen_fun_gl_triangle_fan_0)
-{  ;
-  COUNT_ARGS(1);
-  if (!instance_p(raw_GL_TRIANGLE_FAN,TLREFB(0)))
-    {
-      obj c;
-      c = make5( TLREFB(1),
-                 NIL_OBJ,  /* properties */
-                 lookup_symbol( FUNCTION ),
-                 cons( raw_GL_TRIANGLE_FAN, NIL_OBJ ),
-                 lookup_symbol( "GL_TRIANGLE_FAN" ),
-                 TLREFB(0) );
-      raise_error( c );
-    }
-  REG0=int2fx(GL_TRIANGLE_FAN);// = ;
-
+MONOTONE(gl_text_parameteri_0)
+{  COUNT_ARGS(3);
 
 {
-        RETURN1();
-    }}
+glTexParameteri(fx2int(target),fx2int(pname),fx2int(param) );
+RETURN0();
+}}
 #undef FPLACE_CODE
 
-EPILOGUE(gl_gen_fun_gl_triangle_fan)
+EPILOGUE(gl_text_parameteri)
 
-BEGIN_BACK(gl_gen_fun_gl_triangle_fan)
-  BACK_MONOTONE(gl_gen_fun_gl_triangle_fan_0)
-END_BACK(gl_gen_fun_gl_triangle_fan)
+BEGIN_BACK(gl_text_parameteri)
+  BACK_MONOTONE(gl_text_parameteri_0)
+END_BACK(gl_text_parameteri)
 
-static struct function_descr gl_gen_fun_gl_triangle_fan_descr = {
+static struct function_descr gl_text_parameteri_descr = {
 	&gl_part_glglue,
-	JUMP_TABLE( gl_gen_fun_gl_triangle_fan ),
-	rsfn_gl_gen_fun_gl_triangle_fan_name };
+	JUMP_TABLE( gl_text_parameteri ),
+	rsfn_gl_text_parameteri_name };
 #undef FUNCTION
 
-#undef raw_GL_TRIANGLE_FAN
+#undef target
+#undef pname
+#undef param
+
+/************************ Raw glue `gl-line-width' ************************/
+#define s REG0
+
+static char rsfn_gl_line_width_name[] = "gl-line-width";
+#define FUNCTION rsfn_gl_line_width_name
+
+PROLOGUE(gl_line_width)
+
+BEGIN_FWD(gl_line_width)
+  FWD_MONOTONE(gl_line_width_0)
+END_FWD(gl_line_width)
+
+#define FPLACE_CODE (1000+0)
+MONOTONE(gl_line_width_0)
+{  COUNT_ARGS(1);
+
+{
+glLineWidth(extract_float(s));
+RETURN0();
+}}
+#undef FPLACE_CODE
+
+EPILOGUE(gl_line_width)
+
+BEGIN_BACK(gl_line_width)
+  BACK_MONOTONE(gl_line_width_0)
+END_BACK(gl_line_width)
+
+static struct function_descr gl_line_width_descr = {
+	&gl_part_glglue,
+	JUMP_TABLE( gl_line_width ),
+	rsfn_gl_line_width_name };
+#undef FUNCTION
+
+#undef s
+
+/************************ Raw glue `gl-depth-mask' ************************/
+#define e REG0
+
+static char rsfn_gl_depth_mask_name[] = "gl-depth-mask";
+#define FUNCTION rsfn_gl_depth_mask_name
+
+PROLOGUE(gl_depth_mask)
+
+BEGIN_FWD(gl_depth_mask)
+  FWD_MONOTONE(gl_depth_mask_0)
+END_FWD(gl_depth_mask)
+
+#define FPLACE_CODE (1000+0)
+MONOTONE(gl_depth_mask_0)
+{  COUNT_ARGS(1);
+
+{
+glDepthMask(fx2int(e));
+RETURN0();
+}}
+#undef FPLACE_CODE
+
+EPILOGUE(gl_depth_mask)
+
+BEGIN_BACK(gl_depth_mask)
+  BACK_MONOTONE(gl_depth_mask_0)
+END_BACK(gl_depth_mask)
+
+static struct function_descr gl_depth_mask_descr = {
+	&gl_part_glglue,
+	JUMP_TABLE( gl_depth_mask ),
+	rsfn_gl_depth_mask_name };
+#undef FUNCTION
+
+#undef e
+
+/************************ Raw glue `gl-cull-face' ************************/
+#define e REG0
+
+static char rsfn_gl_cull_face_name[] = "gl-cull-face";
+#define FUNCTION rsfn_gl_cull_face_name
+
+PROLOGUE(gl_cull_face)
+
+BEGIN_FWD(gl_cull_face)
+  FWD_MONOTONE(gl_cull_face_0)
+END_FWD(gl_cull_face)
+
+#define FPLACE_CODE (1000+0)
+MONOTONE(gl_cull_face_0)
+{  COUNT_ARGS(1);
+
+{
+glCullFace(fx2int(e));
+RETURN0();
+}}
+#undef FPLACE_CODE
+
+EPILOGUE(gl_cull_face)
+
+BEGIN_BACK(gl_cull_face)
+  BACK_MONOTONE(gl_cull_face_0)
+END_BACK(gl_cull_face)
+
+static struct function_descr gl_cull_face_descr = {
+	&gl_part_glglue,
+	JUMP_TABLE( gl_cull_face ),
+	rsfn_gl_cull_face_name };
+#undef FUNCTION
+
+#undef e
+
+/************************ Raw glue `gl-point-size' ************************/
+#define s REG0
+
+static char rsfn_gl_point_size_name[] = "gl-point-size";
+#define FUNCTION rsfn_gl_point_size_name
+
+PROLOGUE(gl_point_size)
+
+BEGIN_FWD(gl_point_size)
+  FWD_MONOTONE(gl_point_size_0)
+END_FWD(gl_point_size)
+
+#define FPLACE_CODE (1000+0)
+MONOTONE(gl_point_size_0)
+{  COUNT_ARGS(1);
+
+{
+glPointSize(extract_float(s));
+RETURN0();
+}}
+#undef FPLACE_CODE
+
+EPILOGUE(gl_point_size)
+
+BEGIN_BACK(gl_point_size)
+  BACK_MONOTONE(gl_point_size_0)
+END_BACK(gl_point_size)
+
+static struct function_descr gl_point_size_descr = {
+	&gl_part_glglue,
+	JUMP_TABLE( gl_point_size ),
+	rsfn_gl_point_size_name };
+#undef FUNCTION
+
+#undef s
+
+/************************** Raw glue `gl-fllush' **************************/
+
+static char rsfn_gl_fllush_name[] = "gl-fllush";
+#define FUNCTION rsfn_gl_fllush_name
+
+PROLOGUE(gl_fllush)
+
+BEGIN_FWD(gl_fllush)
+  FWD_MONOTONE(gl_fllush_0)
+END_FWD(gl_fllush)
+
+#define FPLACE_CODE (1000+0)
+MONOTONE(gl_fllush_0)
+{  COUNT_ARGS(0);
+
+{
+glFlush();
+    RETURN0();
+}}
+#undef FPLACE_CODE
+
+EPILOGUE(gl_fllush)
+
+BEGIN_BACK(gl_fllush)
+  BACK_MONOTONE(gl_fllush_0)
+END_BACK(gl_fllush)
+
+static struct function_descr gl_fllush_descr = {
+	&gl_part_glglue,
+	JUMP_TABLE( gl_fllush ),
+	rsfn_gl_fllush_name };
+#undef FUNCTION
+
+
+/************************* Raw glue `gl-viewport' *************************/
+#define x REG0
+#define y REG1
+#define width REG2
+#define height REG3
+
+static char rsfn_gl_viewport_name[] = "gl-viewport";
+#define FUNCTION rsfn_gl_viewport_name
+
+PROLOGUE(gl_viewport)
+
+BEGIN_FWD(gl_viewport)
+  FWD_MONOTONE(gl_viewport_0)
+END_FWD(gl_viewport)
+
+#define FPLACE_CODE (1000+0)
+MONOTONE(gl_viewport_0)
+{  COUNT_ARGS(4);
+
+{
+    glViewport(fx2int(x),fx2int(y),fx2int(width),fx2int(height) );
+    RETURN0();
+}}
+#undef FPLACE_CODE
+
+EPILOGUE(gl_viewport)
+
+BEGIN_BACK(gl_viewport)
+  BACK_MONOTONE(gl_viewport_0)
+END_BACK(gl_viewport)
+
+static struct function_descr gl_viewport_descr = {
+	&gl_part_glglue,
+	JUMP_TABLE( gl_viewport ),
+	rsfn_gl_viewport_name };
+#undef FUNCTION
+
+#undef x
+#undef y
+#undef width
+#undef height
+
+/************************ Raw glue `gl-front-face' ************************/
+#define m REG0
+
+static char rsfn_gl_front_face_name[] = "gl-front-face";
+#define FUNCTION rsfn_gl_front_face_name
+
+PROLOGUE(gl_front_face)
+
+BEGIN_FWD(gl_front_face)
+  FWD_MONOTONE(gl_front_face_0)
+END_FWD(gl_front_face)
+
+#define FPLACE_CODE (1000+0)
+MONOTONE(gl_front_face_0)
+{  COUNT_ARGS(1);
+
+{
+glFrontFace(fx2int(m));
+ RETURN0();
+}}
+#undef FPLACE_CODE
+
+EPILOGUE(gl_front_face)
+
+BEGIN_BACK(gl_front_face)
+  BACK_MONOTONE(gl_front_face_0)
+END_BACK(gl_front_face)
+
+static struct function_descr gl_front_face_descr = {
+	&gl_part_glglue,
+	JUMP_TABLE( gl_front_face ),
+	rsfn_gl_front_face_name };
+#undef FUNCTION
+
+#undef m
+
+/************************* Raw glue `gl-test-c1' *************************/
+
+static char rsfn_gl_test_c1_name[] = "gl-test-c1";
+#define FUNCTION rsfn_gl_test_c1_name
+
+PROLOGUE(gl_test_c1)
+
+BEGIN_FWD(gl_test_c1)
+  FWD_MONOTONE(gl_test_c1_0)
+END_FWD(gl_test_c1)
+
+#define FPLACE_CODE (1000+0)
+MONOTONE(gl_test_c1_0)
+{  COUNT_ARGS(0);
+
+{
+
+glEnableClientState (GL_VERTEX_ARRAY);
+glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+glMatrixMode (GL_MODELVIEW);
+glLoadIdentity ();
+glFrontFace(GL_CW);
+glColor4f(1.0, 0.0, 0.0, 1.0);
+glPointSize(18);
+
+typedef struct {
+GLfloat x,y,z;
+} XYZ;
+
+XYZ p[3];
+p[0].x=-0.5;
+p[0].y=0.5;
+p[0].z=0;
+p[1].x=0.5;
+p[1].y=0.5;
+p[1].z=0;
+p[2].x=-0.5;
+p[2].y=-0.5;
+p[2].z=0.5;
+glVertexPointer(3, GL_FLOAT, 0,p);
+glDrawArrays(GL_POINTS, 0, 3);
+glDisableClientState(GL_VERTEX_ARRAY);
+
+RETURN0();
+
+}}
+#undef FPLACE_CODE
+
+EPILOGUE(gl_test_c1)
+
+BEGIN_BACK(gl_test_c1)
+  BACK_MONOTONE(gl_test_c1_0)
+END_BACK(gl_test_c1)
+
+static struct function_descr gl_test_c1_descr = {
+	&gl_part_glglue,
+	JUMP_TABLE( gl_test_c1 ),
+	rsfn_gl_test_c1_name };
+#undef FUNCTION
+
+
+/************************* Raw glue `gl-test-c2' *************************/
+
+static char rsfn_gl_test_c2_name[] = "gl-test-c2";
+#define FUNCTION rsfn_gl_test_c2_name
+
+PROLOGUE(gl_test_c2)
+
+BEGIN_FWD(gl_test_c2)
+  FWD_MONOTONE(gl_test_c2_0)
+END_FWD(gl_test_c2)
+
+#define FPLACE_CODE (1000+0)
+MONOTONE(gl_test_c2_0)
+{  COUNT_ARGS(0);
+
+{
+    glViewport (0,0,400,800);
+    glMatrixMode   (GL_PROJECTION);
+    glLoadIdentity ();
+RETURN0();
+
+}}
+#undef FPLACE_CODE
+
+EPILOGUE(gl_test_c2)
+
+BEGIN_BACK(gl_test_c2)
+  BACK_MONOTONE(gl_test_c2_0)
+END_BACK(gl_test_c2)
+
+static struct function_descr gl_test_c2_descr = {
+	&gl_part_glglue,
+	JUMP_TABLE( gl_test_c2 ),
+	rsfn_gl_test_c2_name };
+#undef FUNCTION
+
+
+/************************** Raw glue `gl-test-c' **************************/
+
+static char rsfn_gl_test_c_name[] = "gl-test-c";
+#define FUNCTION rsfn_gl_test_c_name
+
+PROLOGUE(gl_test_c)
+
+BEGIN_FWD(gl_test_c)
+  FWD_MONOTONE(gl_test_c_0)
+END_FWD(gl_test_c)
+
+#define FPLACE_CODE (1000+0)
+MONOTONE(gl_test_c_0)
+{  COUNT_ARGS(0);
+
+{
+glViewport (0,0,400,800);
+glMatrixMode   (GL_PROJECTION);
+glLoadIdentity ();
+//glOrthof (0, 0, 0, 0, 0, 0);
+
+typedef struct {
+GLfloat x,y,z;
+} XYZ;
+
+glEnableClientState (GL_VERTEX_ARRAY);
+glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+glMatrixMode (GL_MODELVIEW);
+glLoadIdentity ();
+glFrontFace(GL_CW);
+glColor4f(1.0, 0.0, 0.0, 1.0);
+glPointSize(18);
+
+XYZ p[3];
+p[0].x=-0.5;
+p[0].y=0.5;
+p[0].z=0;
+p[1].x=0.5;
+p[1].y=0.5;
+p[1].z=0;
+p[2].x=-0.5;
+p[2].y=-0.5;
+p[2].z=0.5;
+glVertexPointer(3, GL_FLOAT, 0,p);
+glDrawArrays(GL_POINTS, 0, 3);
+glDisableClientState(GL_VERTEX_ARRAY);
+
+
+
+RETURN0();
+}}
+#undef FPLACE_CODE
+
+EPILOGUE(gl_test_c)
+
+BEGIN_BACK(gl_test_c)
+  BACK_MONOTONE(gl_test_c_0)
+END_BACK(gl_test_c)
+
+static struct function_descr gl_test_c_descr = {
+	&gl_part_glglue,
+	JUMP_TABLE( gl_test_c ),
+	rsfn_gl_test_c_name };
+#undef FUNCTION
+
+
+/*********************** Raw glue `gl-test-reshape' ***********************/
+#define w REG0
+#define h REG1
+
+static char rsfn_gl_test_reshape_name[] = "gl-test-reshape";
+#define FUNCTION rsfn_gl_test_reshape_name
+
+PROLOGUE(gl_test_reshape)
+
+BEGIN_FWD(gl_test_reshape)
+  FWD_MONOTONE(gl_test_reshape_0)
+END_FWD(gl_test_reshape)
+
+#define FPLACE_CODE (1000+0)
+MONOTONE(gl_test_reshape_0)
+{  COUNT_ARGS(2);
+
+{
+
+int height=fx2int(h);
+int width=fx2int(h);
+if (height==0)
+{
+height=1;
+}
+
+glViewport(0, 0, width, height);
+glMatrixMode(GL_PROJECTION);
+glLoadIdentity();
+//gluPerspective(45.0f,(GLfloat)width/(GLfloat)height,0.1f,100.0f);
+glMatrixMode(GL_MODELVIEW);
+glLoadIdentity();
+
+RETURN0();
+}}
+#undef FPLACE_CODE
+
+EPILOGUE(gl_test_reshape)
+
+BEGIN_BACK(gl_test_reshape)
+  BACK_MONOTONE(gl_test_reshape_0)
+END_BACK(gl_test_reshape)
+
+static struct function_descr gl_test_reshape_descr = {
+	&gl_part_glglue,
+	JUMP_TABLE( gl_test_reshape ),
+	rsfn_gl_test_reshape_name };
+#undef FUNCTION
+
+#undef w
+#undef h
 /******************************* Postamble *******************************/
 /**************************** Part Link Table ****************************/
 
 
 static struct function_descr *(part_glglue_tab[]) = {
-    &gl_gen_fun_gl_points_descr,
-    &gl_gen_fun_gl_unsigned_byte_descr,
-    &gl_gen_fun_gl_float_descr,
-    &gl_gen_fun_gl_projection_descr,
-    &gl_gen_fun_gl_modelview_descr,
-    &gl_gen_fun_gl_color_buffer_bit_descr,
-    &gl_gen_fun_gl_texture_2d_descr,
-    &gl_gen_fun_gl_texture_coord_array_descr,
-    &gl_gen_fun_gl_short_descr,
-    &gl_gen_fun_gl_texture_min_filter_descr,
-    &gl_gen_fun_gl_texture_mag_filter_descr,
-    &gl_gen_fun_gl_linear_descr,
-    &gl_gen_fun_gl_nearest_descr,
-    &gl_gen_fun_gl_linear_mipmap_linear_descr,
-    &gl_gen_fun_gl_vertex_array_descr,
-    &gl_gen_fun_gl_color_array_descr,
-    &gl_gen_fun_gl_blend_descr,
-    &gl_gen_fun_gl_src_alpha_descr,
-    &gl_gen_fun_gl_one_minus_src_alpha_descr,
-    &gl_gen_fun_gl_triangles_descr,
-    &gl_gen_fun_gl_triangle_strip_descr,
-    &gl_gen_fun_gl_triangle_fan_descr,
+    &gl_ortho_descr,
+    &gl_frustum_descr,
+    &gl_load_identity_descr,
+    &gl_clear_descr,
+    &gl_clear_color_descr,
+    &gl_color4f_descr,
+    &gl_matrix_mode_descr,
+    &gl_push_matrix_descr,
+    &gl_pop_matrix_descr,
+    &gl_translatef_descr,
+    &gl_scalef_descr,
+    &gl_rotatef_descr,
+    &gl_enable_descr,
+    &gl_disable_descr,
+    &gl_blend_func_descr,
+    &gl_enable_client_state_descr,
+    &gl_disable_client_state_descr,
+    &gl_draw_arrays_descr,
+    &gl_vertex_pointer_descr,
+    &gl_bind_texture_descr,
+    &gl_text_parameteri_descr,
+    &gl_line_width_descr,
+    &gl_depth_mask_descr,
+    &gl_cull_face_descr,
+    &gl_point_size_descr,
+    &gl_fllush_descr,
+    &gl_viewport_descr,
+    &gl_front_face_descr,
+    &gl_test_c1_descr,
+    &gl_test_c2_descr,
+    &gl_test_c_descr,
+    &gl_test_reshape_descr,
     NULL };
 struct part_descr gl_part_glglue = {
-    373934080,
+    253382656,
     &module_gl,
     part_glglue_tab,
     "glglue",

@@ -22,52 +22,6 @@
     (define ,var ( ,(string->symbol (string-append "gl-gen-fun-" (symbol->string var))) ,name ) )
 ))
 
-;;;gl const define here
-(define-gl-const gl-points  			"GL_POINTS")
-(define-gl-const gl-unsigned_byte  		"GL_UNSIGNED_BYTE")
-(define-gl-const gl-float  			"GL_FLOAT")
-(define-gl-const gl-projection  		"GL_PROJECTION")
-(define-gl-const gl-modelview  			"GL_MODELVIEW")
-(define-gl-const gl-color-buffer_bit  		"GL_COLOR_BUFFER_BIT")
-(define-gl-const gl-texture-2d  		"GL_TEXTURE_2D")
-(define-gl-const gl-texture-coord-array  	"GL_TEXTURE_COORD_ARRAY")
-(define-gl-const gl-short  			"GL_SHORT")
-(define-gl-const gl-texture-min-filter  	"GL_TEXTURE_MIN_FILTER")
-(define-gl-const gl-texture-mag-filter  	"GL_TEXTURE_MAG_FILTER")
-(define-gl-const gl-linear  			"GL_LINEAR")
-(define-gl-const gl-nearest  			"GL_NEAREST")
-(define-gl-const gl-linear-mipmap-linear  	"GL_LINEAR_MIPMAP_LINEAR")
-(define-gl-const gl-vertex_array  		"GL_VERTEX_ARRAY")
-(define-gl-const gl-color_array  		"GL_COLOR_ARRAY")
-(define-gl-const gl-blend  			"GL_BLEND")
-(define-gl-const gl-src-alpha  			"GL_SRC_ALPHA")
-(define-gl-const gl-one-minus-src-alpha  	"GL_ONE_MINUS_SRC_ALPHA")
-(define-gl-const gl-triangles  			"GL_TRIANGLES")
-(define-gl-const gl-triangle-strip  		"GL_TRIANGLE_STRIP")
-(define-gl-const gl-triangle-fan  		"GL_TRIANGLE_FAN")
-(define-gl-const gl-lines  			"GL_LINES")
-(define-gl-const gl-line-strip  		"GL_LINE_STRIP")
-(define-gl-const gl-line-loop  			"GL_LINE_LOOP")
-
-(define-gl-const gl-rgb  			"GL_RGB")
-(define-gl-const gl-rgba  			"GL_RGBA")
-(define-gl-const gl-alpha  			"GL_ALPHA")
-(define-gl-const gl-scissor-test  		"GL_SCISSOR_TEST")
-(define-gl-const gl-texture-wrap_s  		"GL_TEXTURE_WRAP_S")
-(define-gl-const gl-texture-wrap_t  		"GL_TEXTURE_WRAP_T")
-(define-gl-const gl-repeat  			"GL_REPEAT")
-
-;;GL_CLAMP/GL_CLAMP_TO_EDGE
-(define-gl-const gl-clamp  			"GL_CLAMP_TO_EDGE")
-(define-gl-const gl-invalid-value  		"GL_INVALID_VALUE")
-
-(define-gl-const gl-depth-buffer-bit  		"GL_DEPTH_BUFFER_BIT")
-(define-gl-const gl-depth-test  		"GL_DEPTH_TEST")
-(define-gl-const gl-cull-face  		"GL_CULL_FACE")
-(define-gl-const gl-front  		"GL_FRONT")
-(define-gl-const gl-back  		"GL_BACK")
-(define-gl-const gl-true  		"GL_TRUE")
-(define-gl-const gl-line-smooth  	"GL_LINE_SMOOTH")
 
 
 ;(define-gl-c (define-gl-const (a <string>) ){
@@ -169,16 +123,51 @@ RETURN0();
 
 
 (define-gl-glue (gl-draw-arrays mode first count){
-glDrawArrays(extract_float(mode),extract_float(first),extract_float(count));
+glDrawArrays(fx2int(mode),fx2int(first),fx2int(count));
 RETURN0();
 })
 
+
 ;;;;;;;;;;;;;;to do;;;;;;;;;;;;;;;;
 
-;(define-gl-glue (gl-vertex-pointer size type stride pointer){
-;glVertexPointer(extract_float(size),extract_float(type),extract_float(stride), );
-;RETURN0();
-;})
+(define-gl-glue (gl-vertex-pointer size type stride pointer){
+int t=fx2int(type);
+int s=fx2int(size);
+void *p,*v;
+
+if(VECTOR_P(pointer)){
+int n = SIZEOF_PTR(pointer)/ SLOT(1);
+
+if(t==GL_BYTE){
+p=malloc(sizeof(char)*n);
+}else if(t==GL_SHORT){
+p=malloc(sizeof(short)*n);
+}else if(t==GL_FIXED){
+p=malloc(sizeof(int)*n);
+}else if(t==GL_FLOAT){
+p=malloc(sizeof(float)*n);
+}
+v=p;
+    for(int i=0;i<n;i++){
+        obj ref_item = gvec_ref( pointer, SLOT(i) );
+        if(t==GL_FIXED){
+            *((int *)p)=fx2int(ref_item);
+            (int *)p++;
+        }else if(t==GL_FLOAT){
+            float *t=p;
+            //debug(ref_item);
+            *t=extract_float(ref_item);
+            t++;p=t;
+        }
+    }
+}
+
+glVertexPointer(s,t,fx2int(stride),p);
+if(v!=NULL)
+    free(v);
+
+RETURN0();
+})
 
 ;(define-gl-glue (gl-color-pointer size type stride pointer){
 ;glColorPointer(extract_float(size),extract_float(type),extract_float(stride), );
@@ -242,6 +231,105 @@ RETURN0();
 ;glReadPixels(fx2int(x),fx2int(y),fx2int(width),fx2int(height),fx2int(format),fx2int(type), );
 ;})
 
+(define-gl-glue (gl-point-size s){
+glPointSize(extract_float(s));
+RETURN0();
+})
+
+(define-gl-glue (gl-fllush){
+glFlush();
+    RETURN0();
+})
+
+(define-gl-glue (gl-viewport x y width height)
+{
+    glViewport(fx2int(x),fx2int(y),fx2int(width),fx2int(height) );
+    RETURN0();
+})
+
+(define-gl-glue (gl-front-face m){
+glFrontFace(fx2int(m));
+ RETURN0();
+})
+(define-gl-glue (gl-test-c1)
+{
+
+glEnableClientState (GL_VERTEX_ARRAY);
+glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+glMatrixMode (GL_MODELVIEW);
+glLoadIdentity ();
+glFrontFace(GL_CW);
+glColor4f(1.0, 0.0, 0.0, 1.0);
+glPointSize(18);
+
+typedef struct {
+GLfloat x,y,z;
+} XYZ;
+
+XYZ p[3];
+p[0].x=-0.5;
+p[0].y=0.5;
+p[0].z=0;
+p[1].x=0.5;
+p[1].y=0.5;
+p[1].z=0;
+p[2].x=-0.5;
+p[2].y=-0.5;
+p[2].z=0.5;
+glVertexPointer(3, GL_FLOAT, 0,p);
+glDrawArrays(GL_POINTS, 0, 3);
+glDisableClientState(GL_VERTEX_ARRAY);
+
+RETURN0();
+
+}
+)
+
+(define-gl-glue (gl-test-c2){
+    glViewport (0,0,400,800);
+    glMatrixMode   (GL_PROJECTION);
+    glLoadIdentity ();
+RETURN0();
+
+})
+
+(define-gl-glue (gl-test-c){
+glViewport (0,0,400,800);
+glMatrixMode   (GL_PROJECTION);
+glLoadIdentity ();
+//glOrthof (0, 0, 0, 0, 0, 0);
+
+typedef struct {
+GLfloat x,y,z;
+} XYZ;
+
+glEnableClientState (GL_VERTEX_ARRAY);
+glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+glMatrixMode (GL_MODELVIEW);
+glLoadIdentity ();
+glFrontFace(GL_CW);
+glColor4f(1.0, 0.0, 0.0, 1.0);
+glPointSize(18);
+
+XYZ p[3];
+p[0].x=-0.5;
+p[0].y=0.5;
+p[0].z=0;
+p[1].x=0.5;
+p[1].y=0.5;
+p[1].z=0;
+p[2].x=-0.5;
+p[2].y=-0.5;
+p[2].z=0.5;
+glVertexPointer(3, GL_FLOAT, 0,p);
+glDrawArrays(GL_POINTS, 0, 3);
+glDisableClientState(GL_VERTEX_ARRAY);
+
+
+
+RETURN0();
+}
+)
 
 (define-gl-glue (gl-test-reshape w h){
 

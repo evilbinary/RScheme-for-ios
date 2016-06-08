@@ -23,14 +23,14 @@
 		0321E5AF1D03F668001E1470 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 0321E5AC1D03F668001E1470 /* main.c */; };
 		0321E5B01D03F668001E1470 /* shell.c in Sources */ = {isa = PBXBuildFile; fileRef = 0321E5AD1D03F668001E1470 /* shell.c */; };
 		0321E5B61D042755001E1470 /* glutglue.c in Sources */ = {isa = PBXBuildFile; fileRef = 0321E5B51D042755001E1470 /* glutglue.c */; };
-		0321E5B91D07390E001E1470 /* glglue2.c in Sources */ = {isa = PBXBuildFile; fileRef = 0321E5B71D07390E001E1470 /* glglue2.c */; };
-		0321E5BA1D07390E001E1470 /* glglue3.c in Sources */ = {isa = PBXBuildFile; fileRef = 0321E5B81D07390E001E1470 /* glglue3.c */; };
 		032494B51CE638B30048AB86 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 032494B41CE638B30048AB86 /* main.m */; };
 		032494B81CE638B30048AB86 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 032494B71CE638B30048AB86 /* AppDelegate.m */; };
 		032494BB1CE638B30048AB86 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 032494BA1CE638B30048AB86 /* ViewController.m */; };
 		032494BE1CE638B30048AB86 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 032494BC1CE638B30048AB86 /* Main.storyboard */; };
 		032494C01CE638B30048AB86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 032494BF1CE638B30048AB86 /* Assets.xcassets */; };
 		032494C31CE638B30048AB86 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 032494C11CE638B30048AB86 /* LaunchScreen.storyboard */; };
+		035F7C7E1D08479D008F16A5 /* gl1.c in Sources */ = {isa = PBXBuildFile; fileRef = 035F7C7C1D08479D008F16A5 /* gl1.c */; };
+		035F7C7F1D08479D008F16A5 /* gl2.c in Sources */ = {isa = PBXBuildFile; fileRef = 035F7C7D1D08479D008F16A5 /* gl2.c */; };
 		03664DBD1CE70F0200889E16 /* duck.png in Resources */ = {isa = PBXBuildFile; fileRef = 03664DAB1CE70F0200889E16 /* duck.png */; };
 		03664DBE1CE70F0200889E16 /* duck@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03664DAC1CE70F0200889E16 /* duck@2x.png */; };
 		03664DBF1CE70F0200889E16 /* duck@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03664DAD1CE70F0200889E16 /* duck@3x.png */; };
@@ -94,8 +94,6 @@
 		0321E5B31D042701001E1470 /* glutglue.scm */ = {isa = PBXFileReference; lastKnownFileType = text; path = glutglue.scm; sourceTree = "<group>"; };
 		0321E5B41D04271F001E1470 /* build.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = build.sh; sourceTree = "<group>"; };
 		0321E5B51D042755001E1470 /* glutglue.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = glutglue.c; sourceTree = "<group>"; };
-		0321E5B71D07390E001E1470 /* glglue2.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = glglue2.c; sourceTree = "<group>"; };
-		0321E5B81D07390E001E1470 /* glglue3.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = glglue3.c; sourceTree = "<group>"; };
 		032494B01CE638B30048AB86 /* Rscheme-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rscheme-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		032494B41CE638B30048AB86 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		032494B61CE638B30048AB86 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -106,6 +104,8 @@
 		032494BF1CE638B30048AB86 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		032494C21CE638B30048AB86 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		032494C41CE638B30048AB86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		035F7C7C1D08479D008F16A5 /* gl1.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gl1.c; sourceTree = "<group>"; };
+		035F7C7D1D08479D008F16A5 /* gl2.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gl2.c; sourceTree = "<group>"; };
 		03664DAB1CE70F0200889E16 /* duck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = duck.png; sourceTree = "<group>"; };
 		03664DAC1CE70F0200889E16 /* duck@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "duck@2x.png"; sourceTree = "<group>"; };
 		03664DAD1CE70F0200889E16 /* duck@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "duck@3x.png"; sourceTree = "<group>"; };
@@ -154,8 +154,8 @@
 			isa = PBXGroup;
 			children = (
 				0321E5671D032847001E1470 /* gl.mcf */,
-				0321E5681D032847001E1470 /* gl.scm */,
 				0321E5691D032847001E1470 /* glglue.h */,
+				0321E5681D032847001E1470 /* gl.scm */,
 				0321E56A1D032847001E1470 /* glglue.scm */,
 			);
 			name = gl;
@@ -176,8 +176,8 @@
 		0321E56F1D032B6A001E1470 /* gl */ = {
 			isa = PBXGroup;
 			children = (
-				0321E5B71D07390E001E1470 /* glglue2.c */,
-				0321E5B81D07390E001E1470 /* glglue3.c */,
+				035F7C7C1D08479D008F16A5 /* gl1.c */,
+				035F7C7D1D08479D008F16A5 /* gl2.c */,
 				0321E5701D032B6A001E1470 /* gl.h */,
 				0321E5711D032B6A001E1470 /* gl_l.c */,
 				0321E5721D032B6A001E1470 /* gl_p.h */,
@@ -481,17 +481,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				037446F41CF9F21E00C1C7C7 /* UIViewController+Alert.m in Sources */,
-				0321E5BA1D07390E001E1470 /* glglue3.c in Sources */,
 				0321E5AA1D034D01001E1470 /* ios1.c in Sources */,
 				032494BB1CE638B30048AB86 /* ViewController.m in Sources */,
 				037446F31CF9F21E00C1C7C7 /* GJAlertController.m in Sources */,
 				0321E5B01D03F668001E1470 /* shell.c in Sources */,
 				032494B81CE638B30048AB86 /* AppDelegate.m in Sources */,
-				0321E5B91D07390E001E1470 /* glglue2.c in Sources */,
 				0321E5851D032B6A001E1470 /* Makefile in Sources */,
 				0321E5891D032B6A001E1470 /* iosop.m in Sources */,
 				0321E59A1D033E7C001E1470 /* GLViewController.m in Sources */,
+				035F7C7E1D08479D008F16A5 /* gl1.c in Sources */,
 				0321E5831D032B6A001E1470 /* glglue1.c in Sources */,
+				035F7C7F1D08479D008F16A5 /* gl2.c in Sources */,
 				0321E5971D033D80001E1470 /* EAGLView.m in Sources */,
 				0321E58A1D032B6A001E1470 /* Makefile in Sources */,
 				0321E5B61D042755001E1470 /* glutglue.c in Sources */,
