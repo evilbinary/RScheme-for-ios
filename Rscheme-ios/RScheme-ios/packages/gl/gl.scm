@@ -51,9 +51,6 @@
 (define-gl-const GL-VERTEX-ARRAY  		"GL_VERTEX_ARRAY")
 
 
-
-
-
 (define (gl-test-demo1)
 
 (glut-init)
@@ -61,18 +58,27 @@
 	(format #t "~a ~a ~a\n" type x y)))
 (glut-display (lambda()
     (let (
-        (points (list -0.5 0.5 0.0   0.5 0.5 0.0    -0.5 0.5 0.5 ) )  
+        (points (list -0.0 0. 0.0   0.5 0.0 0.0    -0.5 0.5 0.5 ) )  
         (points2  (list->vector (list -0.5 0.5 0.0   0.5 0.5 0.0   -0.5 0.5 0.5 )) )
+        (trangle-point (list -0.1 -0.1 0.0  0.1 -0.1 0.0   -0.1 0.1 0.0   0.1 0.1 0.0 ) )
         )
 	;(format #t "display\n")
-    (gl-clear GL-COLOR-BUFFER-BIT)
+    (gl-clear (and GL-COLOR-BUFFER-BIT GL-DEPTH-BUFFER-BIT) )
+    (gl-clear-color 0.0 0.0 0.0 0.0 )
 
     (gl-enable-client-state GL-VERTEX-ARRAY)
     (gl-front-face GL-CW)
     (gl-color4f 1.0  0.0 0.0 1.0)
-    (gl-point-size 18.0)
+    (gl-point-size 5.0)
     (gl-vertex-pointer 3 GL-FLOAT 0 points)
     (gl-draw-arrays GL-POINTS 0 3 )
+    ;(gl-rotatef 30.0 1.0 1.0 1.0 )
+
+    ;绘制三角形  
+    ;(gl-translatef 0.0 0.2 -0.1)
+    ;(gl-rotatef 0.5 0.1 0.0 0.0 )
+    (gl-vertex-pointer 3 GL-FLOAT 0 trangle-point) 
+    (gl-draw-arrays GL-TRIANGLES 0 3 )
     (gl-disable-client-state GL-VERTEX-ARRAY)
 
 ;(gl-test-c2)
@@ -83,21 +89,18 @@
 (glut-reshape (lambda(w h)
     ;(gl-test-reshape w h)
 	(format #t "reshape\n")
-    (gl-disable GL-BLEND)
-    (gl-disable GL-CULL-FACE)
-    (gl-disable GL-DEPTH-TEST)
-
-(gl-viewport 0 0 400 400)
-(gl-matrix-mode GL-PROJECTION)
-(gl-load-identity)
-
-;(gl-color-texture-reset)
-;(gl-clear-color 0.0 0.0 0.0 0.0 )
-;(gl-matrix-mode GL-PROJECTION)
-;(gl-load-identity)
-;    (gl-ortho 0.0 300.0 0.0 400.0 -1.0 1.0)
-;    (gl-matrix-mode GL-MODELVIEW)
-;    (gl-enable GL-LINE-SMOOTH)
+    ;(gl-disable GL-BLEND)
+    ;(gl-disable GL-CULL-FACE)
+    ;(gl-disable GL-DEPTH-TEST)
+    (gl-clear-depthf 1.0)  
+    (gl-clear-color 0.0 0.0 0.0 0.0 )
+    (gl-viewport 0 0 320 480)
+    (gl-matrix-mode GL-PROJECTION)
+    (gl-load-identity)
+    ;(gl-color-texture-reset)
+    (gl-ortho   320.0 320.0 480.0  480.0  -1.0 1.0)
+    ;    (gl-matrix-mode GL-MODELVIEW)
+    ;    (gl-enable GL-LINE-SMOOTH)
 
 ))
 (glut-main-loop)

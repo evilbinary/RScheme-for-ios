@@ -99,6 +99,11 @@ glEnable(fx2int(e));
 RETURN0();
 })
 
+(define-gl-glue (gl-clear-depthf d){
+glClearDepthf(extract_float(d));
+RETURN0();
+})
+
 
 (define-gl-glue (gl-disable e){
 glDisable(fx2int(e));
@@ -174,13 +179,13 @@ RETURN0();
 ;})
 
 (define-gl-glue (gl-bind-texture target texture){
-glBindTexture(fx2int(target),fx2int(texture) );
-RETURN0();
+    glBindTexture(fx2int(target),fx2int(texture) );
+    RETURN0();
 })
 
 (define-gl-glue (gl-text-parameteri target pname param){
-glTexParameteri(fx2int(target),fx2int(pname),fx2int(param) );
-RETURN0();
+    glTexParameteri(fx2int(target),fx2int(pname),fx2int(param) );
+    RETURN0();
 })
 
 ;(define-gl-glue (gl-text-image2d target level internalformat width height border format type pixels){
@@ -195,19 +200,19 @@ RETURN0();
 
 
 (define-gl-glue (gl-line-width s){
-glLineWidth(extract_float(s));
-RETURN0();
+    glLineWidth(extract_float(s));
+    RETURN0();
 })
 
 
 (define-gl-glue (gl-depth-mask e){
-glDepthMask(fx2int(e));
-RETURN0();
+    glDepthMask(fx2int(e));
+    RETURN0();
 })
 
 (define-gl-glue (gl-cull-face e){
-glCullFace(fx2int(e));
-RETURN0();
+    glCullFace(fx2int(e));
+    RETURN0();
 })
 
 ;(define-gl-glue (gl-read-pixels x y, width height format type pixel){
@@ -215,12 +220,12 @@ RETURN0();
 ;})
 
 (define-gl-glue (gl-point-size s){
-glPointSize(extract_float(s));
-RETURN0();
+    glPointSize(extract_float(s));
+    RETURN0();
 })
 
 (define-gl-glue (gl-fllush){
-glFlush();
+    glFlush();
     RETURN0();
 })
 
@@ -231,8 +236,8 @@ glFlush();
 })
 
 (define-gl-glue (gl-front-face m){
-glFrontFace(fx2int(m));
- RETURN0();
+    glFrontFace(fx2int(m));
+    RETURN0();
 })
 
 ;;;;;;;test code here;;;;;;;;;;;;;;

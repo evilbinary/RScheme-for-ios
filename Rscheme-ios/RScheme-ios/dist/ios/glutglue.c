@@ -15,7 +15,7 @@ RScheme Build (v0.7.3.4-b7u, 2007-05-30)
 #include "iosop.h"
 extern struct module_descr module_ios;
 extern struct part_descr ios_part_glutglue;
-static char sccsid[] = "@(#)ios ./glutglue.scm [310268929] (RS v0.7.3.4-b7u, 2007-05-30)";
+static char sccsid[] = "@(#)ios ./glutglue.scm [319456257] (RS v0.7.3.4-b7u, 2007-05-30)";
 
 /************************** Function Definitions **************************/
 
@@ -36,8 +36,8 @@ MONOTONE(glut_init_0)
 {  COUNT_ARGS(0);
 
 {
-glut_init();
-RETURN0();
+	glut_init();
+	RETURN0();
 }}
 #undef FPLACE_CODE
 
@@ -70,8 +70,8 @@ MONOTONE(glut_exit_0)
 {  COUNT_ARGS(0);
 
 {
-glut_exit();
-RETURN0();
+	glut_exit();
+	RETURN0();
 }}
 #undef FPLACE_CODE
 
@@ -105,8 +105,8 @@ MONOTONE(glut_event_0)
 {  COUNT_ARGS(1);
 
 {
-glut_event_callback=proc;
-RETURN0();
+	glut_event_callback=proc;
+	RETURN0();
 }}
 #undef FPLACE_CODE
 
@@ -140,8 +140,8 @@ MONOTONE(glut_main_loop_0)
 {  COUNT_ARGS(0);
 
 {
-glut_main_loop();
-RETURN0();
+	glut_main_loop();
+	RETURN0();
 }}
 #undef FPLACE_CODE
 
@@ -175,8 +175,8 @@ MONOTONE(glut_display_0)
 {  COUNT_ARGS(1);
 
 {
-glut_display_callback=proc;
-RETURN0();
+	glut_display_callback=proc;
+	RETURN0();
 }}
 #undef FPLACE_CODE
 
@@ -211,8 +211,8 @@ MONOTONE(glut_reshape_0)
 {  COUNT_ARGS(1);
 
 {
-glut_reshape_callback=proc;
-RETURN0();
+	glut_reshape_callback=proc;
+	RETURN0();
 }}
 #undef FPLACE_CODE
 
@@ -242,7 +242,7 @@ static struct function_descr *(part_glutglue_tab[]) = {
     &glut_reshape_descr,
     NULL };
 struct part_descr ios_part_glutglue = {
-    310268929,
+    319456257,
     &module_ios,
     part_glutglue_tab,
     "glutglue",

@@ -14,7 +14,7 @@ RScheme Build (v0.7.3.4-b7u, 2007-05-30)
 #include <rscheme/vinsns.h>
 extern struct module_descr module_gl;
 extern struct part_descr gl_part_glglue;
-static char sccsid[] = "@(#)gl ./glglue.scm [77137920] (RS v0.7.3.4-b7u, 2007-05-30)";
+static char sccsid[] = "@(#)gl ./glglue.scm [507257856] (RS v0.7.3.4-b7u, 2007-05-30)";
 
 /************************** Function Definitions **************************/
 
@@ -529,6 +529,42 @@ static struct function_descr gl_enable_descr = {
 
 #undef e
 
+/*********************** Raw glue `gl-clear-depthf' ***********************/
+#define d REG0
+
+static char rsfn_gl_clear_depthf_name[] = "gl-clear-depthf";
+#define FUNCTION rsfn_gl_clear_depthf_name
+
+PROLOGUE(gl_clear_depthf)
+
+BEGIN_FWD(gl_clear_depthf)
+  FWD_MONOTONE(gl_clear_depthf_0)
+END_FWD(gl_clear_depthf)
+
+#define FPLACE_CODE (1000+0)
+MONOTONE(gl_clear_depthf_0)
+{  COUNT_ARGS(1);
+
+{
+glClearDepthf(extract_float(d));
+RETURN0();
+}}
+#undef FPLACE_CODE
+
+EPILOGUE(gl_clear_depthf)
+
+BEGIN_BACK(gl_clear_depthf)
+  BACK_MONOTONE(gl_clear_depthf_0)
+END_BACK(gl_clear_depthf)
+
+static struct function_descr gl_clear_depthf_descr = {
+	&gl_part_glglue,
+	JUMP_TABLE( gl_clear_depthf ),
+	rsfn_gl_clear_depthf_name };
+#undef FUNCTION
+
+#undef d
+
 /************************* Raw glue `gl-disable' *************************/
 #define e REG0
 
@@ -783,7 +819,7 @@ MONOTONE(gl_color_pointer_0)
 {  COUNT_ARGS(4);
 
 {
-     int t=fx2int(type);
+    int t=fx2int(type);
     int s=fx2int(size);
     void *v=alloc_array(t,pointer);
     glColorPointer(s,t,fx2int(stride),v );
@@ -810,6 +846,53 @@ static struct function_descr gl_color_pointer_descr = {
 #undef stride
 #undef pointer
 
+/********************** Raw glue `gl-coord-pointer' **********************/
+#define size REG0
+#define type REG1
+#define stride REG2
+#define pointer REG3
+
+static char rsfn_gl_coord_pointer_name[] = "gl-coord-pointer";
+#define FUNCTION rsfn_gl_coord_pointer_name
+
+PROLOGUE(gl_coord_pointer)
+
+BEGIN_FWD(gl_coord_pointer)
+  FWD_MONOTONE(gl_coord_pointer_0)
+END_FWD(gl_coord_pointer)
+
+#define FPLACE_CODE (1000+0)
+MONOTONE(gl_coord_pointer_0)
+{  COUNT_ARGS(4);
+
+{
+    int t=fx2int(type);
+    int s=fx2int(size);
+    void *v=alloc_array(t,pointer);
+    glTexCoordPointer(s,t,fx2int(stride),v);
+    if(v!=NULL)
+        free(v);
+    RETURN0();
+}}
+#undef FPLACE_CODE
+
+EPILOGUE(gl_coord_pointer)
+
+BEGIN_BACK(gl_coord_pointer)
+  BACK_MONOTONE(gl_coord_pointer_0)
+END_BACK(gl_coord_pointer)
+
+static struct function_descr gl_coord_pointer_descr = {
+	&gl_part_glglue,
+	JUMP_TABLE( gl_coord_pointer ),
+	rsfn_gl_coord_pointer_name };
+#undef FUNCTION
+
+#undef size
+#undef type
+#undef stride
+#undef pointer
+
 /*********************** Raw glue `gl-bind-texture' ***********************/
 #define target REG0
 #define texture REG1
@@ -828,8 +911,8 @@ MONOTONE(gl_bind_texture_0)
 {  COUNT_ARGS(2);
 
 {
-glBindTexture(fx2int(target),fx2int(texture) );
-RETURN0();
+    glBindTexture(fx2int(target),fx2int(texture) );
+    RETURN0();
 }}
 #undef FPLACE_CODE
 
@@ -867,8 +950,8 @@ MONOTONE(gl_text_parameteri_0)
 {  COUNT_ARGS(3);
 
 {
-glTexParameteri(fx2int(target),fx2int(pname),fx2int(param) );
-RETURN0();
+    glTexParameteri(fx2int(target),fx2int(pname),fx2int(param) );
+    RETURN0();
 }}
 #undef FPLACE_CODE
 
@@ -905,8 +988,8 @@ MONOTONE(gl_line_width_0)
 {  COUNT_ARGS(1);
 
 {
-glLineWidth(extract_float(s));
-RETURN0();
+    glLineWidth(extract_float(s));
+    RETURN0();
 }}
 #undef FPLACE_CODE
 
@@ -941,8 +1024,8 @@ MONOTONE(gl_depth_mask_0)
 {  COUNT_ARGS(1);
 
 {
-glDepthMask(fx2int(e));
-RETURN0();
+    glDepthMask(fx2int(e));
+    RETURN0();
 }}
 #undef FPLACE_CODE
 
@@ -977,8 +1060,8 @@ MONOTONE(gl_cull_face_0)
 {  COUNT_ARGS(1);
 
 {
-glCullFace(fx2int(e));
-RETURN0();
+    glCullFace(fx2int(e));
+    RETURN0();
 }}
 #undef FPLACE_CODE
 
@@ -1013,8 +1096,8 @@ MONOTONE(gl_point_size_0)
 {  COUNT_ARGS(1);
 
 {
-glPointSize(extract_float(s));
-RETURN0();
+    glPointSize(extract_float(s));
+    RETURN0();
 }}
 #undef FPLACE_CODE
 
@@ -1048,7 +1131,7 @@ MONOTONE(gl_fllush_0)
 {  COUNT_ARGS(0);
 
 {
-glFlush();
+    glFlush();
     RETURN0();
 }}
 #undef FPLACE_CODE
@@ -1125,8 +1208,8 @@ MONOTONE(gl_front_face_0)
 {  COUNT_ARGS(1);
 
 {
-glFrontFace(fx2int(m));
- RETURN0();
+    glFrontFace(fx2int(m));
+    RETURN0();
 }}
 #undef FPLACE_CODE
 
@@ -1161,33 +1244,33 @@ MONOTONE(gl_test_c1_0)
 
 {
 
-glEnableClientState (GL_VERTEX_ARRAY);
-glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-glMatrixMode (GL_MODELVIEW);
-glLoadIdentity ();
-glFrontFace(GL_CW);
-glColor4f(1.0, 0.0, 0.0, 1.0);
-glPointSize(18);
+    glEnableClientState (GL_VERTEX_ARRAY);
+    glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    glMatrixMode (GL_MODELVIEW);
+    glLoadIdentity ();
+    glFrontFace(GL_CW);
+    glColor4f(1.0, 0.0, 0.0, 1.0);
+    glPointSize(18);
 
-typedef struct {
-GLfloat x,y,z;
-} XYZ;
+    typedef struct {
+    GLfloat x,y,z;
+    } XYZ;
 
-XYZ p[3];
-p[0].x=-0.5;
-p[0].y=0.5;
-p[0].z=0;
-p[1].x=0.5;
-p[1].y=0.5;
-p[1].z=0;
-p[2].x=-0.5;
-p[2].y=-0.5;
-p[2].z=0.5;
-glVertexPointer(3, GL_FLOAT, 0,p);
-glDrawArrays(GL_POINTS, 0, 3);
-glDisableClientState(GL_VERTEX_ARRAY);
+    XYZ p[3];
+    p[0].x=-0.5;
+    p[0].y=0.5;
+    p[0].z=0;
+    p[1].x=0.5;
+    p[1].y=0.5;
+    p[1].z=0;
+    p[2].x=-0.5;
+    p[2].y=-0.5;
+    p[2].z=0.5;
+    glVertexPointer(3, GL_FLOAT, 0,p);
+    glDrawArrays(GL_POINTS, 0, 3);
+    glDisableClientState(GL_VERTEX_ARRAY);
 
-RETURN0();
+    RETURN0();
 
 }}
 #undef FPLACE_CODE
@@ -1258,36 +1341,36 @@ MONOTONE(gl_test_c_0)
 {  COUNT_ARGS(0);
 
 {
-glViewport (0,0,400,800);
-glMatrixMode   (GL_PROJECTION);
-glLoadIdentity ();
-//glOrthof (0, 0, 0, 0, 0, 0);
+    glViewport (0,0,400,800);
+    glMatrixMode   (GL_PROJECTION);
+    glLoadIdentity ();
+    //glOrthof (0, 0, 0, 0, 0, 0);
 
-typedef struct {
-GLfloat x,y,z;
-} XYZ;
+    typedef struct {
+    GLfloat x,y,z;
+    } XYZ;
 
-glEnableClientState (GL_VERTEX_ARRAY);
-glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-glMatrixMode (GL_MODELVIEW);
-glLoadIdentity ();
-glFrontFace(GL_CW);
-glColor4f(1.0, 0.0, 0.0, 1.0);
-glPointSize(18);
+    glEnableClientState (GL_VERTEX_ARRAY);
+    glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    glMatrixMode (GL_MODELVIEW);
+    glLoadIdentity ();
+    glFrontFace(GL_CW);
+    glColor4f(1.0, 0.0, 0.0, 1.0);
+    glPointSize(18);
 
-XYZ p[3];
-p[0].x=-0.5;
-p[0].y=0.5;
-p[0].z=0;
-p[1].x=0.5;
-p[1].y=0.5;
-p[1].z=0;
-p[2].x=-0.5;
-p[2].y=-0.5;
-p[2].z=0.5;
-glVertexPointer(3, GL_FLOAT, 0,p);
-glDrawArrays(GL_POINTS, 0, 3);
-glDisableClientState(GL_VERTEX_ARRAY);
+    XYZ p[3];
+    p[0].x=-0.5;
+    p[0].y=0.5;
+    p[0].z=0;
+    p[1].x=0.5;
+    p[1].y=0.5;
+    p[1].z=0;
+    p[2].x=-0.5;
+    p[2].y=-0.5;
+    p[2].z=0.5;
+    glVertexPointer(3, GL_FLOAT, 0,p);
+    glDrawArrays(GL_POINTS, 0, 3);
+    glDisableClientState(GL_VERTEX_ARRAY);
 
 
 
@@ -1327,19 +1410,19 @@ MONOTONE(gl_test_reshape_0)
 
 {
 
-int height=fx2int(h);
-int width=fx2int(h);
-if (height==0)
-{
-height=1;
-}
+    int height=fx2int(h);
+    int width=fx2int(h);
+    if (height==0)
+    {
+    height=1;
+    }
 
-glViewport(0, 0, width, height);
-glMatrixMode(GL_PROJECTION);
-glLoadIdentity();
-//gluPerspective(45.0f,(GLfloat)width/(GLfloat)height,0.1f,100.0f);
-glMatrixMode(GL_MODELVIEW);
-glLoadIdentity();
+    glViewport(0, 0, width, height);
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    //gluPerspective(45.0f,(GLfloat)width/(GLfloat)height,0.1f,100.0f);
+    glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
 
 RETURN0();
 }}
@@ -1377,6 +1460,7 @@ static struct function_descr *(part_glglue_tab[]) = {
     &gl_scalef_descr,
     &gl_rotatef_descr,
     &gl_enable_descr,
+    &gl_clear_depthf_descr,
     &gl_disable_descr,
     &gl_blend_func_descr,
     &gl_enable_client_state_descr,
@@ -1384,6 +1468,7 @@ static struct function_descr *(part_glglue_tab[]) = {
     &gl_draw_arrays_descr,
     &gl_vertex_pointer_descr,
     &gl_color_pointer_descr,
+    &gl_coord_pointer_descr,
     &gl_bind_texture_descr,
     &gl_text_parameteri_descr,
     &gl_line_width_descr,
@@ -1399,7 +1484,7 @@ static struct function_descr *(part_glglue_tab[]) = {
     &gl_test_reshape_descr,
     NULL };
 struct part_descr gl_part_glglue = {
-    77137920,
+    507257856,
     &module_gl,
     part_glglue_tab,
     "glglue",

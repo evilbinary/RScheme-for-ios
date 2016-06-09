@@ -15,7 +15,7 @@ RScheme Build (v0.7.3.4-b7u, 2007-05-30)
 #include "iosop.h"
 extern struct module_descr module_ios;
 extern struct part_descr ios_part_iosglue;
-static char sccsid[] = "@(#)ios ./iosglue.scm [498070528] (RS v0.7.3.4-b7u, 2007-05-30)";
+static char sccsid[] = "@(#)ios ./iosglue.scm [507257856] (RS v0.7.3.4-b7u, 2007-05-30)";
 
 /************************** Function Definitions **************************/
 
@@ -100,7 +100,7 @@ static struct function_descr *(part_iosglue_tab[]) = {
     &alert_descr,
     NULL };
 struct part_descr ios_part_iosglue = {
-    498070528,
+    507257856,
     &module_ios,
     part_iosglue_tab,
     "iosglue",
